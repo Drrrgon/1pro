@@ -3,7 +3,11 @@
 	"http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<!--1. properties 파일 등록	 -->
+
 	<properties resource="config/dbconn.properties"/>
+		<settings>
+			<setting name="jdbcTypeForNull" value="NULL"/>
+		</settings>
 	<!--2. vo 등록  -->
 	<typeAliases>
 		<!-- <typeAlias type="" alias=""/> -->
