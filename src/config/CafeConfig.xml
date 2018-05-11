@@ -10,7 +10,7 @@
 		</settings>
 	<!--2. vo 등록  -->
 	<typeAliases>
-		<!-- <typeAlias type="" alias=""/> -->
+		<typeAlias type="vo.MemberVo" alias="member"/>
 	</typeAliases>
 	<!--3.Datasource 등록 -->
 	<environments default="qq">
