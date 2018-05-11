@@ -24,6 +24,7 @@ hs_err_pid*
 *.DS_Store
 bin
 target
+build
 #.classpath##
 .project
 .settings
