@@ -24,7 +24,7 @@ hs_err_pid*
 *.DS_Store
 bin
 target
-.classpath
+#.classpath#
 .project
 .settings
 #src/main/webapp/META-INF#
