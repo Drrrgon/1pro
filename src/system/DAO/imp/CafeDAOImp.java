@@ -19,7 +19,7 @@ public class CafeDAOImp implements CafeDAO {
 		sqlSession = sqlSessionFactory.openSession();
 	}
 	@Override
-	public List<MemberVo> getAllMenu() {
+	public List<MenuVo> getAllMenu() {
 		return sqlSession.selectList("Menu.getAllMenu");
 	}
 
