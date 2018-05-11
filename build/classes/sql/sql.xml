@@ -5,15 +5,5 @@
 
 <mapper namespace="Cafe">
 	
-	<select id="getUserList" resultType="user">
-		SELECT
-		user_id AS userId,
-		user_name AS userName,
-		password AS password,
-		age as age,
-		grade as grade,
-		reg_date as regDate
-		From users
-	</select>
-	
+
 </mapper>
