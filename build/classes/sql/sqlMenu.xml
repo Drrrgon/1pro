@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="Menu">
+	<sql id="selectAll">
+		SELECT
+			menuNo,
+			mName,
+			mPrice,
+			mOriginalPrice
+	</sql>
+	
+	<select id="getAllMenu" resultType="menu">
+		<include refid="selectAll"/>
+		FROM menu	
+	</select>
+	
+	<delete id="deleteMenu" parameterType="menu">
+		DELETE
+		FROM menu
+		WHERE menuNo = #{menuNo}
+	</delete>
+	
+	<insert id="insertMenu" parameterType="menu">
+		INSERT INTO 
+		menu(
+			menuNo,
+			mName,
+			mPrice,
+			mOriginalPrice
+		)
+			values(
+				menu_seq.nextVal,
+				#{mName},
+				#{mPrice},
+				#{mOriginalPrice}
+			)
+	</insert>
+</mapper>
