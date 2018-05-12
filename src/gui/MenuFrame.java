@@ -92,7 +92,7 @@ public class MenuFrame extends JFrame {
 		contentPane.add(lblOriginalprice);
 		
 		btnReg = new JButton("reg");
-		btnReg.setBounds(101, 126, 97, 23);
+		btnReg.setBounds(101, 128, 97, 23);
 		contentPane.add(btnReg);
 		
 		JButton btnDel = new JButton("del");
