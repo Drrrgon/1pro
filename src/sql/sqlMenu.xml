@@ -17,6 +17,10 @@
 		FROM menu	
 	</select>
 	
+	<!-- <select id="getCurrVal" resultType="number">
+		SELECT
+	</select> -->
+	
 	<delete id="deleteMenu" parameterType="menu">
 		DELETE
 		FROM menu
