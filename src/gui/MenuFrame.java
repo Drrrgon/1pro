@@ -53,6 +53,8 @@ public class MenuFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public MenuFrame() {
+		setResizable(false);
+		setTitle("CafeMaster");
 		loadCafeDAOImp();		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 609, 508);
@@ -67,33 +69,34 @@ public class MenuFrame extends JFrame {
 		txtMenuname.setColumns(10);
 		
 		txtMenuprice = new JTextField();
-		txtMenuprice.setBounds(213, 98, 116, 21);
+		txtMenuprice.setBounds(213, 66, 116, 21);
 		contentPane.add(txtMenuprice);
 		txtMenuprice.setColumns(10);
 		
 		originalPrice = new JTextField();		
 		originalPrice.setColumns(10);
-		originalPrice.setBounds(213, 153, 116, 21);
+		originalPrice.setBounds(213, 97, 116, 21);
 		contentPane.add(originalPrice);
 		
 		JLabel lblMenuname = new JLabel("MenuName");
-		lblMenuname.setBounds(47, 35, 120, 21);
+		lblMenuname.setBackground(Color.BLACK);
+		lblMenuname.setBounds(101, 35, 120, 21);
 		contentPane.add(lblMenuname);
 		
 		JLabel lblMenuprice = new JLabel("MenuPrice");
-		lblMenuprice.setBounds(47, 99, 84, 18);
+		lblMenuprice.setBounds(101, 67, 84, 18);
 		contentPane.add(lblMenuprice);
 		
 		JLabel lblOriginalprice = new JLabel("OriginalPrice");
-		lblOriginalprice.setBounds(47, 148, 84, 31);
+		lblOriginalprice.setBounds(101, 95, 84, 21);
 		contentPane.add(lblOriginalprice);
 		
 		btnReg = new JButton("reg");
-		btnReg.setBounds(341, 34, 97, 23);
+		btnReg.setBounds(101, 126, 97, 23);
 		contentPane.add(btnReg);
 		
 		JButton btnDel = new JButton("del");
-		btnDel.setBounds(460, 34, 97, 23);
+		btnDel.setBounds(223, 128, 97, 23);
 		contentPane.add(btnDel);
 		
 		
@@ -101,10 +104,11 @@ public class MenuFrame extends JFrame {
 		modelMenuList = getMenuList();		
 	    menuList = new JList(modelMenuList);
 	    menuList.setBorder(new BevelBorder(BevelBorder.LOWERED, Color.DARK_GRAY, null, null, null));
-		menuList.setBounds(27, 189, 517, 195);
+		menuList.setBounds(40, 213, 517, 195);
 		contentPane.add(menuList);
 		menuList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		menuList.addListSelectionListener(new MenuListSelectionListener(this));
+		
 		/*JScrollPane listScroller = new JScrollPane();
 		listScroller.setViewportView(menuList);
 		menuList.setLayoutOrientation(JList.VERTICAL);
