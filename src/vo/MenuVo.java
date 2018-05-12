@@ -52,7 +52,7 @@ public class MenuVo {
 
 	@Override
 	public String toString() {
-		return "MenuVo [menuNo=" + menuNo + ", mName=" + mName + ", mPrice=" + mPrice + ", mOriginalPrice="
+		return "[메뉴 번호 : " + menuNo + ", 이름 : " + mName + ", 가격 : " + mPrice + ", 원가 : "
 				+ mOriginalPrice + "]";
 	}
 	

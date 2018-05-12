@@ -24,13 +24,17 @@ public class CafeDAOImp implements CafeDAO {
 	}
 
 	@Override
-	public void deleteMenu(MenuVo menu) {
-		sqlSession.delete("Menu.deleteMenu",menu);		
+	public int deleteMenu(MenuVo menu) {
+		 int temp = sqlSession.delete("Menu.deleteMenu",menu);
+		 sqlSession.commit();
+		 return temp;		
 	}
 
 	@Override
-	public void insertMenu(MenuVo menu) {
-		sqlSession.insert("Menu.insertMenu", menu);		
+	public int insertMenu(MenuVo menu) {
+		int temp =sqlSession.insert("Menu.insertMenu", menu);	
+		sqlSession.commit();
+		return temp;
 	}
 
 }
