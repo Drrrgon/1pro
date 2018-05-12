@@ -19,7 +19,7 @@ public class MenuListSelectionListener implements ListSelectionListener {
 		if(e.getSource() == menuFrame.menuList)
         {
             String str = (String)menuFrame.menuList.getSelectedValue();
-            menuFrame.resultField.setText(str+"을 선택 하셨습니다");
+            menuFrame.resultField.setText(str);
         }
 	}
 }

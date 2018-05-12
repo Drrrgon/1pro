@@ -17,9 +17,12 @@
 		FROM menu	
 	</select>
 	
-	<!-- <select id="getCurrVal" resultType="number">
+	<!--  <select id="getCurrVal" resultType="INTEGER" >
 		SELECT
-	</select> -->
+		MENU_SEQ.CURRVAL
+		FROM
+		DUAL
+	</select>  -->
 	
 	<delete id="deleteMenu" parameterType="menu">
 		DELETE
@@ -28,18 +31,22 @@
 	</delete>
 	
 	<insert id="insertMenu" parameterType="menu">
-		INSERT INTO 
-		menu(
-			menuNo,
-			mName,
-			mPrice,
-			mOriginalPrice
-		)
-			values(
-				menu_seq.nextVal,
-				#{mName},
-				#{mPrice},
-				#{mOriginalPrice}
+		<selectKey keyProperty="menuNo" resultType="int" order="BEFORE">
+			 SELECT menu_seq.nextVal FROM DUAL
+		</selectKey>
+			INSERT INTO 
+			menu(
+				menuNo,
+				mName,
+				mPrice,
+				mOriginalPrice
 			)
+				values(
+					#{menuNo},
+					#{mName},
+					#{mPrice},
+					#{mOriginalPrice}
+				)
+			
 	</insert>
 </mapper>

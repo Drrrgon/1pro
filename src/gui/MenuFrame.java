@@ -32,6 +32,7 @@ public class MenuFrame extends JFrame {
 	public JTextField originalPrice;
 	public DefaultListModel<String> modelMenuList;
 	public MenuListSelectionListener menuListSelectionListener;
+	private List<MenuVo> list;
 	/**
 	 * Launch the application.
 	 */
@@ -129,10 +130,13 @@ public class MenuFrame extends JFrame {
 	
 	public DefaultListModel<String> getMenuList() {
 		DefaultListModel<String> listModel = new DefaultListModel<String>();
-		List<MenuVo> list = cafeDAOImp.getAllMenu();		
+		list = cafeDAOImp.getAllMenu();		
 		for(int i = 0 ; i < list.size() ; i ++) {			
 			listModel.addElement(list.get(i).toString());
 		}		
 		return listModel;
+	}
+	public List<MenuVo> getMenuVoList() {
+		return list;
 	}
 }
