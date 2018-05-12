@@ -143,4 +143,17 @@ public class MenuFrame extends JFrame {
 	public List<MenuVo> getMenuVoList() {
 		return list;
 	}
+	
+	public void start() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MenuFrame frame = new MenuFrame();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 }

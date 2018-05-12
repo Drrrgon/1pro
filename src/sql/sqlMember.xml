@@ -4,12 +4,22 @@
 
 
 <mapper namespace="Member">
-	<!-- <sql id="">
-	
-	</sql>
-	
-	<select id="">
-	
-	</select> -->
+	<insert id="insertMember" parameterType="member">
+		<selectKey keyProperty="memberNo" resultType="int" order="BEFORE">
+			SELECT MEMBER_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO MEMBER
+		(MEMBERNO, TELNO, MNAME, MBONUS)
+		VALUES(
+		#{memberNo},
+		#{telNo},
+		#{mName},
+		#{mBonus}
+		)
+	</insert>
 
+	<delete id="deleteMember" parameterType="member">
+		DELETE FROM MEMBER
+		WHERE TELNO = #{telNo}
+	</delete>
 </mapper>
