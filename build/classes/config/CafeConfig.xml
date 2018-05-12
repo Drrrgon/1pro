@@ -10,7 +10,10 @@
 		</settings>
 	<!--2. vo 등록  -->
 	<typeAliases>
-		<!-- <typeAlias type="" alias=""/> -->
+		<typeAlias type="vo.MemberVo" alias="member"/>
+		<typeAlias type="vo.MenuVo" alias="menu"/>
+		<typeAlias type="vo.OrdersVo" alias="orders"/>
+		<typeAlias type="vo.SaleVo" alias="sale"/>
 	</typeAliases>
 	<!--3.Datasource 등록 -->
 	<environments default="qq">
@@ -28,10 +31,9 @@
 	</environments>
 	<!-- 4. xml기반의 쿼리 문인 mapping.xml을 등록  -->
 	<mappers>
-		<mapper resource="sql/sql.xml"/>
-		
-		
-		
-		
+		<mapper resource="sql/sqlMember.xml"/>
+		<mapper resource="sql/sqlMenu.xml"/>
+		<mapper resource="sql/sqlOrders.xml"/>
+		<mapper resource="sql/sqlSale.xml"/>		
 	</mappers>
 </configuration>
