@@ -6,6 +6,6 @@ import vo.MenuVo;
 
 public interface CafeDAO {
 	public List getAllMenu();
-	public void deleteMenu(MenuVo menu);
-	public void insertMenu(MenuVo menu);
+	public int deleteMenu(MenuVo menu);
+	public int insertMenu(MenuVo menu);
 }
