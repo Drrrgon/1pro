@@ -11,7 +11,7 @@ public class MenuListSelectionListener implements ListSelectionListener {
 	CafeDAOImp cafeDAOImp; 
 	public MenuListSelectionListener(MenuFrame menuFrame) {
 		this.menuFrame = menuFrame;
-		cafeDAOImp = new CafeDAOImp();
+		cafeDAOImp = CafeDAOImp.getInstance();
 	}
 
 	@Override
