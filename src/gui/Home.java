@@ -124,12 +124,14 @@ public class Home extends JFrame implements ActionListener {
 			Order1 o1 = new Order1();
 			o1.setVisible(true);
 		}
+		/*
 		if(resource == btnMenu1){
 			System.out.println("3");
 			this.dispose();
 			MenuFrame mF = new MenuFrame();
 			mF.setVisible(true);
 		}
+		*/
 		if(resource == btnOrder2){
 			this.dispose();
 			Order4 o4 = new Order4();
@@ -145,7 +147,6 @@ public class Home extends JFrame implements ActionListener {
 			Sale1 s1 = new Sale1();
 			s1.setVisible(true);
 		}
-		/*
 		if(resource == btnMenu1){
 			this.dispose();
 			Menu1 m1 = new Menu1();
@@ -156,18 +157,15 @@ public class Home extends JFrame implements ActionListener {
 			Menu2 m2 = new Menu2();
 			m2.setVisible(true);
 		}
-		*/
 		if(resource == btnMember1){
 			this.dispose();
 			Member1 mem1 = new Member1();
 			mem1.setVisible(true);
 		}
-		/*
 		if(resource == btnMember2){
 			this.dispose();
 			Member2 mem2 = new Member2();
 			mem2.setVisible(true);
 		}
-		*/
 	}
 }
