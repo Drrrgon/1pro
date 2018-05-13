@@ -27,22 +27,6 @@ public class Order2 extends JFrame implements ActionListener {
 	private JRadioButton rdbtnOrder3, rdbtnOrder4;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Order2 frame = new Order2();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public Order2() {
@@ -74,6 +58,7 @@ public class Order2 extends JFrame implements ActionListener {
 		btnOrder8.setBounds(365, 243, 79, 29);
 		btnOrder8.setForeground(Color.BLACK);
 		contentPane.add(btnOrder8);
+		btnOrder8.addActionListener(this);
 		
 		rdbtnOrder3 = new JRadioButton("적립");
 		rdbtnOrder3.setBounds(138, 172, 61, 23);
@@ -110,6 +95,11 @@ public class Order2 extends JFrame implements ActionListener {
 			this.dispose();
 			Order1 o1 = new Order1();
 			o1.setVisible(true);
+		}
+		if(resource == btnOrder8){
+			this.dispose();
+			Order3 o3 = new Order3();
+			o3.setVisible(true);
 		}
 	}
 }
