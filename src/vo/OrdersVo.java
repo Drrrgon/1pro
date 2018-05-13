@@ -1,10 +1,11 @@
 package vo;
 
 import java.sql.Timestamp;
+
 import java.util.Date;
 
 public class OrdersVo {
-	private int orederNo;
+	private int orderNo;
 	private int menuNo;
 	private int count;
 	private Timestamp date = new Timestamp(new Date().getTime());
@@ -15,18 +16,18 @@ public class OrdersVo {
 
 	public OrdersVo(int orederNo, int menuNo, int count, Timestamp date) {
 		super();
-		this.orederNo = orederNo;
+		this.orderNo = orederNo;
 		this.menuNo = menuNo;
 		this.count = count;
-		this.date = date;
+		this.date = new Timestamp(new Date().getTime());
 	}
 
 	public int getOrederNo() {
-		return orederNo;
+		return orderNo;
 	}
 
 	public void setOrederNo(int orederNo) {
-		this.orederNo = orederNo;
+		this.orderNo = orederNo;
 	}
 
 	public int getMenuNo() {
@@ -55,7 +56,7 @@ public class OrdersVo {
 
 	@Override
 	public String toString() {
-		return "OrderVo [orederNo=" + orederNo + ", menuNo=" + menuNo + ", count=" + count + ", date=" + date + "]";
+		return "[ 주문 번호 : " + orderNo + ", 메뉴 : " + menuNo + ", 수량 : " + count + ", 주문 시각 : " + date + "]";
 	}
 	
 	
