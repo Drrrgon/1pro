@@ -129,7 +129,7 @@ public class MenuFrame extends JFrame {
 		
 	}
 	public void loadCafeDAOImp() {
-		cafeDAOImp = new CafeDAOImp();
+		cafeDAOImp = CafeDAOImp.getInstance();
 	}
 	
 	public DefaultListModel<String> getMenuList() {

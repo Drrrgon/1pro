@@ -1,16 +1,16 @@
 package gui;
 
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.Color;
 
 public class Home extends JFrame implements ActionListener {
 
@@ -38,8 +38,10 @@ public class Home extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public Home() {
+		setResizable(false);
+		setTitle("Cafe24");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 563, 358);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -53,10 +55,12 @@ public class Home extends JFrame implements ActionListener {
 		btnOrder2 = new JButton("주문취소");
 		btnOrder2.setBounds(225, 80, 99, 29);
 		contentPane.add(btnOrder2);
-		
+		btnOrder2.addActionListener(this);
+	
 		btnOrder3 = new JButton("주문현황");
 		btnOrder3.setBounds(336, 80, 99, 29);
 		contentPane.add(btnOrder3);
+		btnOrder3.addActionListener(this);
 		
 		label = new JLabel("1. 주문관리");
 		label.setBounds(30, 85, 61, 16);
@@ -74,9 +78,10 @@ public class Home extends JFrame implements ActionListener {
 		label_2.setBounds(30, 176, 61, 16);
 		contentPane.add(label_2);
 		
-		btnMenu1 = new JButton("메뉴 등록/삭제");
+		btnMenu1 = new JButton("메뉴 등록/삭제");		
 		btnMenu1.setBounds(114, 171, 142, 29);
 		contentPane.add(btnMenu1);
+		btnMenu1.addActionListener(this);
 		
 		label_3 = new JLabel("4. 회원관리");
 		label_3.setBounds(30, 217, 61, 16);
@@ -85,10 +90,12 @@ public class Home extends JFrame implements ActionListener {
 		btnMember2 = new JButton("회원삭제");
 		btnMember2.setBounds(225, 212, 99, 29);
 		contentPane.add(btnMember2);
+		btnMember2.addActionListener(this);
 		
 		btnMember1 = new JButton("회원등록");
 		btnMember1.setBounds(114, 212, 99, 29);
 		contentPane.add(btnMember1);
+		btnMember1.addActionListener(this);
 		
 		lblCafe = new JLabel("Cafe24");
 		lblCafe.setBounds(187, 23, 69, 29);
@@ -104,18 +111,63 @@ public class Home extends JFrame implements ActionListener {
 		btnMenu2 = new JButton("메뉴 전체 조회");
 		btnMenu2.setBounds(268, 171, 142, 29);
 		contentPane.add(btnMenu2);
+		btnMenu2.addActionListener(this);
 	}
 	public void actionPerformed(ActionEvent e) {
 		JButton resource = (JButton)e.getSource();
 		if(resource == btnExit){
-			System.out.println("1");
 			this.dispose();
 		}
 		if(resource == btnOrder1){
-			System.out.println("22222");
 			this.dispose();
 			Order1 o1 = new Order1();
 			o1.setVisible(true);
 		}
+//<<<<<<< Updated upstream
+		if(resource == btnMenu1){
+			System.out.println("3");
+			this.dispose();
+			MenuFrame mF = new MenuFrame();
+			mF.setVisible(true);
+		}
+//=======
+		if(resource == btnOrder2){
+			this.dispose();
+			Order2 o2 = new Order2();
+			o2.setVisible(true);
+		}
+		if(resource == btnOrder3){
+			this.dispose();
+			Order3 o3 = new Order3();
+			o3.setVisible(true);
+		}
+		/*
+		if(resource == btnSale1){
+			this.dispose();
+			Sale1 s1 = new Sale1();
+			s1.setVisible(true);
+		}
+		if(resource == btnMenu1){
+			this.dispose();
+			Menu1 m1 = new Menu1();
+			m1.setVisible(true);
+		}
+		if(resource == btnMenu2){
+			this.dispose();
+			Menu2 m2 = new Menu2();
+			m2.setVisible(true);
+		}
+		if(resource == btnMember1){
+			this.dispose();
+			Member1 mem1 = new Member1();
+			mem1.setVisible(true);
+		}
+		if(resource == btnMember2){
+			this.dispose();
+			Member2 mem2 = new Member2();
+			mem2.setVisible(true);
+		}
+		*/
+//>>>>>>> Stashed changes
 	}
 }

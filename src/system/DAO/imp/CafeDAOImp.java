@@ -11,13 +11,28 @@ import vo.MemberVo;
 import vo.MenuVo;
 
 public class CafeDAOImp implements CafeDAO {
-	private SqlSession sqlSession;
-	private SqlSessionFactory sqlSessionFactory;
+	private static CafeDAOImp cafeDAOImp = new CafeDAOImp();
+	private static SqlSession sqlSession;
+	private static SqlSessionFactory sqlSessionFactory;
 	
-	public CafeDAOImp() {
+	private CafeDAOImp() {
 		sqlSessionFactory = CafeConfig.getSqlSessionFactory();
 		sqlSession = sqlSessionFactory.openSession();
 	}
+	
+	public static CafeDAOImp getInstance() {
+		if(cafeDAOImp == null) {
+			synchronized(CafeDAOImp.class) {
+				if(cafeDAOImp == null) {
+					sqlSessionFactory = CafeConfig.getSqlSessionFactory();
+					sqlSession = sqlSessionFactory.openSession();
+				}
+			}
+		}
+		
+		return cafeDAOImp;
+	}
+	
 	@Override
 	public List<MenuVo> getAllMenu() {
 		return sqlSession.selectList("Menu.getAllMenu");
