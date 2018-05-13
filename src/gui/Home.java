@@ -1,16 +1,16 @@
 package gui;
 
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.Color;
 
 public class Home extends JFrame implements ActionListener {
 
@@ -38,8 +38,10 @@ public class Home extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public Home() {
+		setResizable(false);
+		setTitle("Cafe24");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 563, 358);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -74,9 +76,10 @@ public class Home extends JFrame implements ActionListener {
 		label_2.setBounds(30, 176, 61, 16);
 		contentPane.add(label_2);
 		
-		btnMenu1 = new JButton("메뉴 등록/삭제");
+		btnMenu1 = new JButton("메뉴 등록/삭제");		
 		btnMenu1.setBounds(114, 171, 142, 29);
 		contentPane.add(btnMenu1);
+		btnMenu1.addActionListener(this);
 		
 		label_3 = new JLabel("4. 회원관리");
 		label_3.setBounds(30, 217, 61, 16);
@@ -116,6 +119,12 @@ public class Home extends JFrame implements ActionListener {
 			this.dispose();
 			Order1 o1 = new Order1();
 			o1.setVisible(true);
+		}
+		if(resource == btnMenu1){
+			System.out.println("3");
+			this.dispose();
+			MenuFrame mF = new MenuFrame();
+			mF.setVisible(true);
 		}
 	}
 }
