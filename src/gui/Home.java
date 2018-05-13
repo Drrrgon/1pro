@@ -71,6 +71,7 @@ public class Home extends JFrame implements ActionListener {
 		contentPane.add(label_1);
 		
 		btnSale1 = new JButton("일별/월별 매출 조회");
+		btnSale1.addActionListener(this);
 		btnSale1.setBounds(114, 127, 142, 29);
 		contentPane.add(btnSale1);
 		
@@ -123,30 +124,30 @@ public class Home extends JFrame implements ActionListener {
 			Order1 o1 = new Order1();
 			o1.setVisible(true);
 		}
-<<<<<<< Updated upstream
 		if(resource == btnMenu1){
 			System.out.println("3");
 			this.dispose();
 			MenuFrame mF = new MenuFrame();
 			mF.setVisible(true);
 		}
-=======
 		if(resource == btnOrder2){
 			this.dispose();
-			Order2 o2 = new Order2();
-			o2.setVisible(true);
-		}
-		if(resource == btnOrder3){
-			this.dispose();
-			Order3 o3 = new Order3();
-			o3.setVisible(true);
+			Order4 o4 = new Order4();
+			o4.setVisible(true);
 		}
 		/*
+		if(resource == btnOrder3){
+			this.dispose();
+			Order5 o5 = new Order5();
+			o5.setVisible(true);
+		}
+		*/
 		if(resource == btnSale1){
 			this.dispose();
 			Sale1 s1 = new Sale1();
 			s1.setVisible(true);
 		}
+		/*
 		if(resource == btnMenu1){
 			this.dispose();
 			Menu1 m1 = new Menu1();
@@ -168,6 +169,5 @@ public class Home extends JFrame implements ActionListener {
 			mem2.setVisible(true);
 		}
 		*/
->>>>>>> Stashed changes
 	}
 }
