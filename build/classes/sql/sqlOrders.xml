@@ -4,18 +4,38 @@
 
 
 <mapper namespace="Orders">
+	<resultMap type="hashmap" id="noToName">
+		<result javaType="int" column="orderNo" property=""/>
+	</resultMap>
+
 	<sql id="selectAll">
 		SELECT
-		orderno,
-		menuno,
+		orderNo,
+		menuNo,
 		count,
 		time
 	</sql>
 	
-	<select id="getAllOrders">
-		<include refid="selectAll"/>
+	<select id="getAllOrder" resultType="Orders" >
+		SELECT o.ORDERNO, <!-- m.mName --> o.menuno, o.COUNT, o.TIME
 		FROM
-		Orders
+		Orders o , MENU m
+		WHERE o.Menuno = m.MENUNO
 	</select>
 
+	<delete id="deleteOrder" parameterType="orders">
+		DELETE
+		FROM
+		ORDERS
+		WHERE orderNo = #{orderNo}
+	</delete>
+	
+	<insert id="insertOrder" parameterType="orders">
+		INSERT INTO ORDERS
+		()
+	</insert>
+	
+	<insert id="insertOrderMember" parameterType="orders">
+	
+	</insert>
 </mapper>
