@@ -27,21 +27,6 @@ public class Order1 extends JFrame implements ActionListener {
 	private JComboBox cbOrder1;
 	private JSpinner spinner;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Order1 frame = new Order1();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
