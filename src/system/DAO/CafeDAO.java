@@ -9,4 +9,5 @@ public interface CafeDAO {
 	public int deleteMenu(MenuVo menu);
 	public int insertMenu(MenuVo menu);
 	
+	
 }
