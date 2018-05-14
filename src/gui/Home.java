@@ -41,7 +41,7 @@ public class Home extends JFrame implements ActionListener {
 		setResizable(false);
 		setTitle("Cafe24");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 563, 358);
+		setBounds(100, 100, 515, 330);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -103,16 +103,16 @@ public class Home extends JFrame implements ActionListener {
 		lblCafe.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		contentPane.add(lblCafe);
 		
-	    btnExit = new JButton("종료");
-		btnExit.setBounds(365, 243, 79, 29);
-		btnExit.setForeground(Color.RED);
-		contentPane.add(btnExit);
-		btnExit.addActionListener(this);
+//	    btnExit = new JButton("종료");
+//		btnExit.setBounds(365, 243, 79, 29);
+//		btnExit.setForeground(Color.RED);
+//		contentPane.add(btnExit);
+//		btnExit.addActionListener(this);
 		
-		btnMenu2 = new JButton("메뉴 전체 조회");
-		btnMenu2.setBounds(268, 171, 142, 29);
-		contentPane.add(btnMenu2);
-		btnMenu2.addActionListener(this);
+//		btnMenu2 = new JButton("메뉴 전체 조회");
+//		btnMenu2.setBounds(268, 171, 142, 29);
+//		contentPane.add(btnMenu2);
+//		btnMenu2.addActionListener(this);
 	}
 	public void actionPerformed(ActionEvent e) {
 		JButton resource = (JButton)e.getSource();

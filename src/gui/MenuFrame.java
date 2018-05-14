@@ -19,8 +19,10 @@ import gui.listener.MenuFrameListener;
 import gui.listener.MenuListSelectionListener;
 import system.DAO.imp.CafeDAOImp;
 import vo.MenuVo;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class MenuFrame extends JFrame {
+public class MenuFrame extends JFrame implements ActionListener {
 
 	public JPanel contentPane;
 	public JTextField txtMenuname;
@@ -33,6 +35,7 @@ public class MenuFrame extends JFrame {
 	public DefaultListModel<String> modelMenuList;
 	public MenuListSelectionListener menuListSelectionListener;
 	private List<MenuVo> list;
+	private JButton btnHome;
 	/**
 	 * Launch the application.
 	 */
@@ -57,7 +60,7 @@ public class MenuFrame extends JFrame {
 		setTitle("CafeMaster");
 		loadCafeDAOImp();		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 609, 508);
+		setBounds(100, 100, 640, 480);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -120,6 +123,10 @@ public class MenuFrame extends JFrame {
 		contentPane.add(resultField);
 		resultField.setColumns(10);
 		
+		btnHome = new JButton("Home");				
+		btnHome.setBounds(452, 174, 105, 27);
+		contentPane.add(btnHome);
+		btnHome.addActionListener(this);
 		
 		
 		
@@ -128,6 +135,16 @@ public class MenuFrame extends JFrame {
 		
 		
 	}
+	
+	public void actionPerformed(ActionEvent e) {
+		JButton resource = (JButton)e.getSource();
+		if (resource == btnHome) {
+			this.dispose();
+			Home hm = new Home();
+			hm.setVisible(true);
+		}
+	}
+	
 	public void loadCafeDAOImp() {
 		cafeDAOImp = CafeDAOImp.getInstance();
 	}
