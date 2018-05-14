@@ -141,6 +141,8 @@ public class Home extends JFrame implements ActionListener {
 			Order3 o3 = new Order3();
 			o3.setVisible(true);
 		}
+		
+		
 		/*
 		if(resource == btnSale1){
 			this.dispose();

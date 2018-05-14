@@ -38,7 +38,7 @@ public class QuryTest {
 //			System.out.println(a);
 //		}////여기까지 메뉴 쿼리 확인
 		
-//		MemberVo member =  new MemberVo();
+		MemberVo member =  new MemberVo();
 //		member.setmName("신용하");
 //		member.setTelNo("01053713757");
 //		member.setmBonus(0);	
