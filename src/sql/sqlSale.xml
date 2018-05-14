@@ -4,6 +4,6 @@
 
 
 <mapper namespace="Sale">
-	
+	<insert id=""></insert>
 
 </mapper>

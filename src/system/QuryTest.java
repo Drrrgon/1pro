@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import system.config.CafeConfig;
 import vo.MemberVo;
+import vo.MenuVo;
 import vo.OrdersVo;
 
 public class QuryTest {
@@ -49,16 +50,9 @@ public class QuryTest {
 //		System.out.println(re + "딜리트 성공");
 //		sqlSession.commit();
 		
-		
-//		OrdersVo orders = new OrdersVo();
-//		List<OrdersVo> oList = sqlSession.selectList("Orders.getAllOrder");
-//		for( OrdersVo a : oList) {
-//			System.out.println(a);
-//		}
-//		
-//		orders.setOrederNo(1);
-//		int re = sqlSession.delete("Orders.deleteOrder", orders);
-//		System.out.println(re);
+		int re = sqlSession.delete("Member.deleteMember", member);
+		System.out.println(re + "딜리트 성공");
+		sqlSession.commit();
 	}
 
 }
