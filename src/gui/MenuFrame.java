@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.BevelBorder;
@@ -21,10 +23,11 @@ import system.DAO.imp.CafeDAOImp;
 import vo.MenuVo;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class MenuFrame extends JFrame implements ActionListener {
 
-	public JPanel contentPane;
+	public JPanel contentPane, panel;
 	public JTextField txtMenuname;
 	public JTextField txtMenuprice;
 	public JButton btnReg;
@@ -36,6 +39,7 @@ public class MenuFrame extends JFrame implements ActionListener {
 	public MenuListSelectionListener menuListSelectionListener;
 	private List<MenuVo> list;
 	private JButton btnHome;
+	private JLabel label;
 	/**
 	 * Launch the application.
 	 */
@@ -57,7 +61,7 @@ public class MenuFrame extends JFrame implements ActionListener {
 	 */
 	public MenuFrame() {
 		setResizable(false);
-		setTitle("CafeMaster");
+		setTitle("Cafe24");
 		loadCafeDAOImp();		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 640, 480);
@@ -67,50 +71,66 @@ public class MenuFrame extends JFrame implements ActionListener {
 		contentPane.setLayout(null);
 		
 		txtMenuname = new JTextField();
-		txtMenuname.setBounds(213, 35, 116, 21);
+		txtMenuname.setBounds(325, 77, 116, 21);
 		contentPane.add(txtMenuname);
 		txtMenuname.setColumns(10);
 		
 		txtMenuprice = new JTextField();
-		txtMenuprice.setBounds(213, 66, 116, 21);
+		txtMenuprice.setBounds(325, 108, 116, 21);
 		contentPane.add(txtMenuprice);
 		txtMenuprice.setColumns(10);
 		
 		originalPrice = new JTextField();		
 		originalPrice.setColumns(10);
-		originalPrice.setBounds(213, 97, 116, 21);
+		originalPrice.setBounds(325, 139, 116, 21);
 		contentPane.add(originalPrice);
 		
-		JLabel lblMenuname = new JLabel("MenuName");
+		JLabel lblMenuname = new JLabel("메뉴 이름");
+		lblMenuname.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		lblMenuname.setBackground(Color.BLACK);
-		lblMenuname.setBounds(101, 35, 120, 21);
+		lblMenuname.setBounds(213, 77, 120, 21);
 		contentPane.add(lblMenuname);
 		
-		JLabel lblMenuprice = new JLabel("MenuPrice");
-		lblMenuprice.setBounds(101, 67, 84, 18);
+		JLabel lblMenuprice = new JLabel("메뉴 가격");
+		lblMenuprice.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		lblMenuprice.setBounds(213, 109, 84, 18);
 		contentPane.add(lblMenuprice);
 		
-		JLabel lblOriginalprice = new JLabel("OriginalPrice");
-		lblOriginalprice.setBounds(101, 95, 84, 21);
+		JLabel lblOriginalprice = new JLabel("원가");
+		lblOriginalprice.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		lblOriginalprice.setBounds(213, 137, 84, 21);
 		contentPane.add(lblOriginalprice);
 		
-		btnReg = new JButton("reg");
-		btnReg.setBounds(101, 128, 97, 23);
+		btnReg = new JButton("등록");
+		btnReg.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		btnReg.setBounds(239, 172, 75, 26);
 		contentPane.add(btnReg);
 		
-		JButton btnDel = new JButton("del");
-		btnDel.setBounds(223, 128, 97, 23);
+		JButton btnDel = new JButton("삭제");
+		btnDel.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		btnDel.setBounds(322, 172, 75, 26);
 		contentPane.add(btnDel);
 		
+		JScrollPane sp = new JScrollPane(menuList);
+		sp.setPreferredSize(new Dimension(549, 221));
+		sp.setVisible(true);
 		
-		
+//		String [] a = {"aaaaaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa"};
+//		menuList = new JList(a);
 		modelMenuList = getMenuList();		
 	    menuList = new JList(modelMenuList);
 	    menuList.setBorder(new BevelBorder(BevelBorder.LOWERED, Color.DARK_GRAY, null, null, null));
-		menuList.setBounds(40, 213, 517, 195);
+		menuList.setBounds(40, 238, 573, 165);
 		contentPane.add(menuList);
 		menuList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		menuList.addListSelectionListener(new MenuListSelectionListener(this));
+		sp.setViewportView(menuList);
+		
+		panel = new JPanel();
+		panel.setSize(new Dimension(400, 400));
+		panel.setBounds(40, 243, 573, 142);
+		panel.add(sp);
+		contentPane.add(panel);
 		
 		/*JScrollPane listScroller = new JScrollPane();
 		listScroller.setViewportView(menuList);
@@ -119,13 +139,19 @@ public class MenuFrame extends JFrame implements ActionListener {
 		
 		resultField = new JTextField();
 		resultField.setEditable(false);
-		resultField.setBounds(40, 418, 517, 21);
+		resultField.setBounds(40, 210, 573, 21);
 		contentPane.add(resultField);
 		resultField.setColumns(10);
 		
-		btnHome = new JButton("Home");				
-		btnHome.setBounds(452, 174, 105, 27);
+		btnHome = new JButton("HOME");				
+		btnHome.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		btnHome.setBounds(541, 415, 93, 37);
 		contentPane.add(btnHome);
+		
+		label = new JLabel("Cafe24");
+		label.setFont(new Font("Lucida Grande", Font.PLAIN, 23));
+		label.setBounds(282, 14, 84, 29);
+		contentPane.add(label);
 		btnHome.addActionListener(this);
 		
 		

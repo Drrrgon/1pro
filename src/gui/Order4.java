@@ -19,79 +19,108 @@ import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JSpinner;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
 import javax.swing.JFormattedTextField;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
+import javax.swing.ListModel;
+import javax.swing.border.BevelBorder;
+import javax.swing.ListSelectionModel;
+import java.awt.Dimension;
+import java.awt.Rectangle;
 
 public class Order4 extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
-	private JTextField txtOrder5;
-	private JLabel label, label_1, lblCafe;
-	private JButton btnOrder12;
-	private JTextArea textAreaOrder1;
+	private JLabel lblCafe;
 	private JButton btnOrder11;
 	private JButton btnOrder10;
-	
+	private JTextField txtOrder5;
+	private JList listOrder1;
+	private JLabel lblNewLabel;
+	private JPanel panel;
+
 	/**
 	 * Create the frame.
 	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Order4 frame = new Order4();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 	public Order4() {
 		
 		
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 471, 318);
+		setBounds(100, 100, 640, 480);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		label = new JLabel("1. 주문번호");
-		label.setBounds(44, 77, 96, 16);
-		contentPane.add(label);
-		
-		label_1 = new JLabel("2. 주문내역");
-		label_1.setBounds(44, 105, 96, 16);
-		contentPane.add(label_1);
-		
 		lblCafe = new JLabel("Cafe24");
-		lblCafe.setBounds(187, 23, 69, 29);
-		lblCafe.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+		lblCafe.setBounds(271, 35, 98, 29);
+		lblCafe.setFont(new Font("Lucida Grande", Font.PLAIN, 23));
 		contentPane.add(lblCafe);
 		
-		btnOrder12 = new JButton("HOME");
-		btnOrder12.setBounds(365, 243, 79, 29);
-		btnOrder12.addActionListener(this);
-		btnOrder12.setForeground(Color.BLACK);
-		contentPane.add(btnOrder12);
+		lblNewLabel = new JLabel("주문 현황");
+		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		lblNewLabel.setBounds(48, 81, 79, 16);
+		contentPane.add(lblNewLabel);
 		
-		txtOrder5 = new JTextField();
-		txtOrder5.setBounds(130, 72, 118, 26);
-		contentPane.add(txtOrder5);
-		txtOrder5.setColumns(10);
-		
-		textAreaOrder1 = new JTextArea();
-		textAreaOrder1.setBounds(54, 133, 325, 79);
-		contentPane.add(textAreaOrder1);
-		
-		btnOrder11 = new JButton("주문취소");
+		btnOrder11 = new JButton("HOME");
+		btnOrder11.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		btnOrder11.setBounds(555, 416, 79, 36);
 		btnOrder11.addActionListener(this);
 		btnOrder11.setForeground(Color.BLACK);
-		btnOrder11.setBounds(151, 220, 96, 29);
 		contentPane.add(btnOrder11);
 		
-		btnOrder10 = new JButton("검색");
+		btnOrder10 = new JButton("주문취소");
+		btnOrder10.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		btnOrder10.addActionListener(this);
 		btnOrder10.setForeground(Color.BLACK);
-		btnOrder10.setBounds(260, 72, 69, 29);
+		btnOrder10.setBounds(270, 368, 96, 36);
 		contentPane.add(btnOrder10);
+		
+		txtOrder5 = new JTextField();
+		txtOrder5.setEditable(false);
+		txtOrder5.setColumns(10);
+		txtOrder5.setBounds(41, 109, 558, 21);
+		contentPane.add(txtOrder5);
+		
+		JScrollPane sp = new JScrollPane(listOrder1);
+		sp.setPreferredSize(new Dimension(549, 221));
+		sp.setVisible(true);
+				
+		//String [] a = {"aaaaaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa"};
+		//listOrder1 = new JList(a);
+		listOrder1 = new JList();
+		listOrder1.setSize(new Dimension(400, 400));
+		listOrder1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		listOrder1.setBorder(new BevelBorder(BevelBorder.LOWERED, Color.DARK_GRAY, null, null, null));
+		listOrder1.setSize(400, 400);
+		sp.setViewportView(listOrder1);
+		
+		panel = new JPanel();
+		panel.setSize(new Dimension(400, 400));
+		panel.setBounds(48, 142, 549, 221);
+		panel.add(sp);
+		contentPane.add(panel);
 	}
 	public void actionPerformed(ActionEvent e) {
 		JButton resource = (JButton) e.getSource();
-		if(resource == btnOrder11){
+		if(resource == btnOrder10){
 			JOptionPane.showConfirmDialog(resource, "주문취소되었습니다.","주문취소", JOptionPane.PLAIN_MESSAGE);
 		}
-		if(resource == btnOrder12){
+		if(resource == btnOrder11){
 			this.dispose();
 			Home home = new Home();
 			home.setVisible(true);

@@ -45,41 +45,46 @@ public class Order3 extends JFrame implements ActionListener {
 		contentPane.setLayout(null);
 		
 		label = new JLabel("1. 주문번호");
-		label.setBounds(14, 130, 96, 16);
+		label.setFont(new Font("Dialog", Font.PLAIN, 17));
+		label.setBounds(179, 214, 96, 16);
 		contentPane.add(label);
 		
 		label_1 = new JLabel("2. 잔여 마일리지");
-		label_1.setBounds(14, 177, 107, 16);
+		label_1.setFont(new Font("Dialog", Font.PLAIN, 17));
+		label_1.setBounds(179, 274, 127, 16);
 		contentPane.add(label_1);
 		
 		lblCafe = new JLabel("Cafe24");
-		lblCafe.setBounds(274, 23, 69, 29);
-		lblCafe.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+		lblCafe.setBounds(274, 34, 80, 29);
+		lblCafe.setFont(new Font("Lucida Grande", Font.PLAIN, 23));
 		contentPane.add(lblCafe);
 		
 		btnOrder9 = new JButton("HOME");
+		btnOrder9.setFont(new Font("Dialog", Font.PLAIN, 17));
 		btnOrder9.addActionListener(this);
-		btnOrder9.setBounds(541, 404, 79, 29);
+		btnOrder9.setBounds(555, 411, 79, 41);
 		btnOrder9.setForeground(Color.BLACK);
 		contentPane.add(btnOrder9);
 		
 		txtOrder1 = new JTextField();
 		txtOrder1.setEditable(false);
-		txtOrder1.setBounds(134, 125, 445, 26);
+		txtOrder1.setFont(new Font("Dialog", Font.PLAIN, 17));
+		txtOrder1.setBounds(318, 209, 153, 26);
 		contentPane.add(txtOrder1);
 		txtOrder1.setColumns(10);
 		txtOrder1.setText(order.toString());
 		
 		txtOrder2 = new JTextField();
 		txtOrder2.setEditable(false);
+		txtOrder2.setFont(new Font("Dialog", Font.PLAIN, 17));
 		txtOrder2.setColumns(10);
-		txtOrder2.setBounds(135, 172, 96, 26);
+		txtOrder2.setBounds(318, 269, 153, 26);
 		contentPane.add(txtOrder2);
 //		txtOrder2.setText(order.toString());
 		
 		label_2 = new JLabel("주문완료!");
-		label_2.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
-		label_2.setBounds(245, 177, 69, 16);
+		label_2.setFont(new Font("Dialog", Font.PLAIN, 18));
+		label_2.setBounds(285, 137, 80, 16);
 		contentPane.add(label_2);
 	}
 	public void actionPerformed(ActionEvent e) {
