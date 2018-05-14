@@ -27,12 +27,14 @@ public class Sale1 extends JFrame implements ActionListener {
 	private JRadioButton rdbtnOrder1, rdbtnOrder2;
 	private JComboBox cbOrder1;
 	private JSpinner spinner;
-	private JSpinner spinnerSale1;
 	private JSpinner spinnerSale2;
+	private JSpinner spinnerSale3;
 	private JLabel label_1;
 	private JLabel label_2;
 	private JButton btnSale2;
 	private JTextArea textAreaSale1;
+	private JSpinner spinnerSale1;
+	private JLabel label;
 
 
 	/**
@@ -41,46 +43,59 @@ public class Sale1 extends JFrame implements ActionListener {
 	public Sale1() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 478, 333);
+		setBounds(100, 100, 640, 480);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		lblCafe = new JLabel("Cafe24");
-		lblCafe.setBounds(187, 23, 69, 29);
-		lblCafe.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+		lblCafe.setBounds(278, 27, 93, 29);
+		lblCafe.setFont(new Font("Lucida Grande", Font.PLAIN, 23));
 		contentPane.add(lblCafe);
 		
 		btnSale3 = new JButton("HOME");
+		btnSale3.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		btnSale3.addActionListener(this);
-		btnSale3.setBounds(385, 265, 79, 29);
+		btnSale3.setBounds(551, 416, 83, 36);
 		btnSale3.setForeground(Color.BLACK);
 		contentPane.add(btnSale3);
 		
-		spinnerSale1 = new JSpinner();
-		spinnerSale1.setBounds(40, 83, 50, 26);
-		contentPane.add(spinnerSale1);
-		
 		spinnerSale2 = new JSpinner();
-		spinnerSale2.setBounds(119, 83, 50, 26);
+		spinnerSale2.setBounds(172, 96, 47, 33);
 		contentPane.add(spinnerSale2);
 		
+		spinnerSale3 = new JSpinner();
+		spinnerSale3.setBounds(262, 96, 47, 33);
+		contentPane.add(spinnerSale3);
+		
 		label_1 = new JLabel("월");
-		label_1.setBounds(99, 88, 19, 16);
+		label_1.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		label_1.setBounds(223, 94, 27, 35);
 		contentPane.add(label_1);
 		
 		label_2 = new JLabel("일");
-		label_2.setBounds(178, 88, 19, 16);
+		label_2.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		label_2.setBounds(312, 97, 27, 29);
 		contentPane.add(label_2);
 		
 		btnSale2 = new JButton("매출 조회");
-		btnSale2.setBounds(209, 83, 93, 29);
+		btnSale2.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		btnSale2.setBounds(506, 94, 101, 36);
 		contentPane.add(btnSale2);
 		
 		textAreaSale1 = new JTextArea();
-		textAreaSale1.setBounds(40, 124, 358, 128);
+		textAreaSale1.setBounds(46, 147, 561, 213);
 		contentPane.add(textAreaSale1);
+		
+		spinnerSale1 = new JSpinner();
+		spinnerSale1.setBounds(46, 96, 83, 33);
+		contentPane.add(spinnerSale1);
+		
+		label = new JLabel("년");
+		label.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		label.setBounds(133, 93, 27, 35);
+		contentPane.add(label);
 		ButtonGroup bG = new ButtonGroup();
 	}
 	public void actionPerformed(ActionEvent e) {

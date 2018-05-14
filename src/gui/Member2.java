@@ -33,50 +33,57 @@ public class Member2 extends JFrame implements ActionListener {
 	 */
 	public Member2() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 640, 480);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		label = new JLabel("1. 전화번호");
-		label.setBounds(55, 84, 96, 16);
+		label.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		label.setBounds(143, 153, 96, 16);
 		contentPane.add(label);
 		
 		label_1 = new JLabel("2. 회원 이름");
-		label_1.setBounds(55, 131, 96, 16);
+		label_1.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		label_1.setBounds(143, 216, 96, 16);
 		contentPane.add(label_1);
 		
 		lblCafe = new JLabel("Cafe24");
-		lblCafe.setBounds(187, 23, 69, 29);
-		lblCafe.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+		lblCafe.setBounds(269, 37, 95, 38);
+		lblCafe.setFont(new Font("Lucida Grande", Font.PLAIN, 23));
 		contentPane.add(lblCafe);
 		
 		btnMember6 = new JButton("HOME");
+		btnMember6.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		btnMember6.addActionListener(this);
-		btnMember6.setBounds(365, 243, 79, 29);
+		btnMember6.setBounds(555, 414, 79, 38);
 		btnMember6.setForeground(Color.BLACK);
 		contentPane.add(btnMember6);
 		
 		txtMember3 = new JTextField();
-		txtMember3.setBounds(163, 79, 183, 26);
+		txtMember3.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		txtMember3.setBounds(251, 148, 183, 26);
 		contentPane.add(txtMember3);
 		txtMember3.setColumns(10);
 		
 		txtMember4 = new JTextField();
+		txtMember4.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		txtMember4.setColumns(10);
-		txtMember4.setBounds(163, 126, 113, 26);
+		txtMember4.setBounds(251, 211, 183, 26);
 		contentPane.add(txtMember4);
 		
-		btnMember5 = new JButton("회원삭제");
+		btnMember5 = new JButton("회원 삭제");
+		btnMember5.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		btnMember5.addActionListener(this);
 		btnMember5.setForeground(Color.BLACK);
-		btnMember5.setBounds(177, 184, 79, 29);
+		btnMember5.setBounds(269, 273, 86, 38);
 		contentPane.add(btnMember5);
 		
 		btnMember4 = new JButton("검색");
+		btnMember4.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		btnMember4.setForeground(Color.BLACK);
-		btnMember4.setBounds(358, 79, 60, 29);
+		btnMember4.setBounds(446, 143, 50, 38);
 		contentPane.add(btnMember4);
 	}
 	public void actionPerformed(ActionEvent e) {

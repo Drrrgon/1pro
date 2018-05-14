@@ -56,36 +56,41 @@ public class Order1 extends JFrame implements ActionListener {
 		cafeDAOImp = CafeDAOImp.getInstance();
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 470, 322);
+		setBounds(100, 100, 640, 480);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		label = new JLabel("1. 메뉴선택");
-		label.setBounds(30, 85, 91, 16);
+		label.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		label.setBounds(91, 116, 91, 16);
 		contentPane.add(label);
 		
 		label_1 = new JLabel("2. 수량");
-		label_1.setBounds(30, 132, 61, 16);
+		label_1.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		label_1.setBounds(92, 181, 61, 16);
 		contentPane.add(label_1);
 		
 		label_2 = new JLabel("3. 회원/비회원");
-		label_2.setBounds(30, 176, 112, 16);
+		label_2.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		label_2.setBounds(91, 247, 112, 16);
 		contentPane.add(label_2);
 		
 		lblCafe = new JLabel("Cafe24");
-		lblCafe.setBounds(187, 23, 69, 29);
-		lblCafe.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+		lblCafe.setBounds(281, 29, 80, 29);
+		lblCafe.setFont(new Font("Lucida Grande", Font.PLAIN, 23));
 		contentPane.add(lblCafe);
 		
 		btnOrder5 = new JButton(">>");
+		btnOrder5.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		btnOrder5.addActionListener(this);
-		btnOrder5.setBounds(365, 243, 79, 29);
+		btnOrder5.setBounds(555, 416, 79, 36);
 		btnOrder5.setForeground(Color.BLACK);
 		contentPane.add(btnOrder5);
 		
 		JComboBox cbOrder1 = new JComboBox();
+		cbOrder1.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		cbOrder1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == cbOrder1) {
@@ -93,7 +98,7 @@ public class Order1 extends JFrame implements ActionListener {
 				}
 			}
 		});
-		cbOrder1.setBounds(150, 80, 294, 27);
+		cbOrder1.setBounds(239, 107, 294, 36);
 		contentPane.add(cbOrder1);
 		list =cafeDAOImp.getAllMenu();
 		for (MenuVo a : list) {
@@ -102,18 +107,21 @@ public class Order1 extends JFrame implements ActionListener {
 		
 		
 		JSpinner spinner = new JSpinner();
+		spinner.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		spinner.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
-		spinner.setBounds(150, 126, 69, 29);
+		spinner.setBounds(240, 171, 69, 29);
 		contentPane.add(spinner);
 		
 		JRadioButton rdbtnOrder1 = new JRadioButton("회원");
-		rdbtnOrder1.setBounds(150, 173, 61, 23);
+		rdbtnOrder1.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		rdbtnOrder1.setBounds(239, 243, 69, 23);
 		contentPane.add(rdbtnOrder1);
 		rdbtnOrder1.addActionListener(this);
 		
 		JRadioButton rdbtnOrder2 = new JRadioButton("비회원");
+		rdbtnOrder2.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		rdbtnOrder2.setSelected(true);
-		rdbtnOrder2.setBounds(220, 173, 97, 23);
+		rdbtnOrder2.setBounds(327, 243, 97, 23);
 		contentPane.add(rdbtnOrder2);
 		rdbtnOrder2.addActionListener(this);
 		
@@ -123,9 +131,10 @@ public class Order1 extends JFrame implements ActionListener {
 		
 		
 		btnOrder4 = new JButton("<<");
+		btnOrder4.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		btnOrder4.addActionListener(this);
 		btnOrder4.setForeground(Color.BLACK);
-		btnOrder4.setBounds(6, 243, 79, 29);
+		btnOrder4.setBounds(6, 416, 79, 36);
 		contentPane.add(btnOrder4);
 	}
 	public void actionPerformed(ActionEvent e) {
