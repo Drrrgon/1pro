@@ -30,8 +30,9 @@ public class Order3 extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public Order3() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 468, 334);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -42,7 +43,7 @@ public class Order3 extends JFrame implements ActionListener {
 		contentPane.add(label);
 		
 		label_1 = new JLabel("2. 잔여 마일리지");
-		label_1.setBounds(121, 177, 96, 16);
+		label_1.setBounds(110, 177, 107, 16);
 		contentPane.add(label_1);
 		
 		lblCafe = new JLabel("Cafe24");
@@ -68,7 +69,7 @@ public class Order3 extends JFrame implements ActionListener {
 		
 		label_2 = new JLabel("주문완료!");
 		label_2.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
-		label_2.setBounds(187, 86, 57, 16);
+		label_2.setBounds(187, 86, 69, 16);
 		contentPane.add(label_2);
 	}
 	public void actionPerformed(ActionEvent e) {

@@ -41,7 +41,7 @@ public class Sale1 extends JFrame implements ActionListener {
 	public Sale1() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 470, 322);
+		setBounds(100, 100, 478, 333);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -75,7 +75,7 @@ public class Sale1 extends JFrame implements ActionListener {
 		contentPane.add(label_2);
 		
 		btnSale2 = new JButton("매출 조회");
-		btnSale2.setBounds(209, 83, 79, 29);
+		btnSale2.setBounds(209, 83, 93, 29);
 		contentPane.add(btnSale2);
 		
 		textAreaSale1 = new JTextArea();

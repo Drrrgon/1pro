@@ -113,7 +113,7 @@ public class Order1 extends JFrame implements ActionListener {
 		
 		JRadioButton rdbtnOrder2 = new JRadioButton("비회원");
 		rdbtnOrder2.setSelected(true);
-		rdbtnOrder2.setBounds(220, 173, 69, 23);
+		rdbtnOrder2.setBounds(220, 173, 97, 23);
 		contentPane.add(rdbtnOrder2);
 		rdbtnOrder2.addActionListener(this);
 		
