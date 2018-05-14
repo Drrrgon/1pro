@@ -63,11 +63,11 @@ public class Home extends JFrame implements ActionListener {
 		btnOrder3.addActionListener(this);
 		
 		label = new JLabel("1. 주문관리");
-		label.setBounds(30, 85, 61, 16);
+		label.setBounds(30, 85, 79, 16);
 		contentPane.add(label);
 		
 		label_1 = new JLabel("2. 매출관리");
-		label_1.setBounds(30, 132, 61, 16);
+		label_1.setBounds(30, 132, 79, 16);
 		contentPane.add(label_1);
 		
 		btnSale1 = new JButton("일별/월별 매출 조회");
@@ -76,7 +76,7 @@ public class Home extends JFrame implements ActionListener {
 		contentPane.add(btnSale1);
 		
 		label_2 = new JLabel("3. 메뉴관리");
-		label_2.setBounds(30, 176, 61, 16);
+		label_2.setBounds(30, 176, 79, 16);
 		contentPane.add(label_2);
 		
 		btnMenu1 = new JButton("메뉴 등록/삭제");		
@@ -85,7 +85,7 @@ public class Home extends JFrame implements ActionListener {
 		btnMenu1.addActionListener(this);
 		
 		label_3 = new JLabel("4. 회원관리");
-		label_3.setBounds(30, 217, 61, 16);
+		label_3.setBounds(30, 217, 79, 16);
 		contentPane.add(label_3);
 		
 		btnMember2 = new JButton("회원삭제");

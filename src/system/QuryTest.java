@@ -1,10 +1,14 @@
 package system;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import system.config.CafeConfig;
 import vo.MemberVo;
+import vo.MenuVo;
+import vo.OrdersVo;
 
 public class QuryTest {
 	
@@ -35,12 +39,16 @@ public class QuryTest {
 //		}////여기까지 메뉴 쿼리 확인
 		
 		MemberVo member =  new MemberVo();
-		member.setmName("신용하");
-		member.setTelNo("01053713757");
-		member.setmBonus(0);
-		/*sqlSession.insert("Member.insertMember", member);
-		System.out.println(member.getMemberNo());
-		sqlSession.commit();*/
+//		member.setmName("신용하");
+//		member.setTelNo("01053713757");
+//		member.setmBonus(0);	
+//		/*sqlSession.insert("Member.insertMember", member);
+//		System.out.println(member.getMemberNo());
+//		sqlSession.commit();*/
+//		
+//		int re = sqlSession.delete("Member.deleteMember", member);
+//		System.out.println(re + "딜리트 성공");
+//		sqlSession.commit();
 		
 		int re = sqlSession.delete("Member.deleteMember", member);
 		System.out.println(re + "딜리트 성공");

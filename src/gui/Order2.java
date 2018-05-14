@@ -17,6 +17,7 @@ import javax.swing.JSpinner;
 import javax.swing.JRadioButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JTextField;
+import javax.swing.ButtonGroup;
 
 public class Order2 extends JFrame implements ActionListener {
 
@@ -25,13 +26,15 @@ public class Order2 extends JFrame implements ActionListener {
 	private JLabel label, label_1, label_2, lblCafe;
 	private JButton btnOrder6, btnOrder7, btnOrder8;
 	private JRadioButton rdbtnOrder3, rdbtnOrder4;
+	private final ButtonGroup radioButtonGroup = new ButtonGroup();
 
 	/**
 	 * Create the frame.
 	 */
 	public Order2() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 467, 330);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -61,10 +64,12 @@ public class Order2 extends JFrame implements ActionListener {
 		btnOrder8.addActionListener(this);
 		
 		rdbtnOrder3 = new JRadioButton("적립");
+		radioButtonGroup.add(rdbtnOrder3);
 		rdbtnOrder3.setBounds(138, 172, 61, 23);
 		contentPane.add(rdbtnOrder3);
 		
 		rdbtnOrder4 = new JRadioButton("사용");
+		radioButtonGroup.add(rdbtnOrder4);
 		rdbtnOrder4.setBounds(202, 172, 69, 23);
 		contentPane.add(rdbtnOrder4);
 		
