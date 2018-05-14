@@ -32,8 +32,9 @@ public class Menu1 extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public Menu1() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 474, 334);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -71,13 +72,13 @@ public class Menu1 extends JFrame implements ActionListener {
 		btnMenu2 = new JButton("메뉴등록");
 		btnMenu2.addActionListener(this);
 		btnMenu2.setForeground(Color.BLACK);
-		btnMenu2.setBounds(142, 183, 79, 29);
+		btnMenu2.setBounds(132, 183, 89, 29);
 		contentPane.add(btnMenu2);
 		
 		btnMenu3 = new JButton("메뉴삭제");
 		btnMenu3.addActionListener(this);
 		btnMenu3.setForeground(Color.BLACK);
-		btnMenu3.setBounds(220, 183, 79, 29);
+		btnMenu3.setBounds(220, 183, 96, 29);
 		contentPane.add(btnMenu3);
 	}
 	public void actionPerformed(ActionEvent e) {

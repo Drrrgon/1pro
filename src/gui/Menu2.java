@@ -32,8 +32,9 @@ public class Menu2 extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public Menu2() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 472, 327);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -51,7 +52,7 @@ public class Menu2 extends JFrame implements ActionListener {
 		contentPane.add(btnMenu5);
 		
 		label = new JLabel("전체 메뉴 목록");
-		label.setBounds(48, 58, 91, 16);
+		label.setBounds(48, 58, 111, 16);
 		contentPane.add(label);
 		
 		textAreaMenu1 = new JTextArea();

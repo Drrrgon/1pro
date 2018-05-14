@@ -31,8 +31,9 @@ public class Member1 extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public Member1() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 469, 331);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -70,7 +71,7 @@ public class Member1 extends JFrame implements ActionListener {
 		btnMember2 = new JButton("회원등록");
 		btnMember2.addActionListener(this);
 		btnMember2.setForeground(Color.BLACK);
-		btnMember2.setBounds(177, 184, 79, 29);
+		btnMember2.setBounds(177, 184, 101, 29);
 		contentPane.add(btnMember2);
 	}
 	public void actionPerformed(ActionEvent e) {

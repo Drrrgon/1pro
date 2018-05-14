@@ -34,8 +34,9 @@ public class Order4 extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public Order4() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 471, 318);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -72,12 +73,12 @@ public class Order4 extends JFrame implements ActionListener {
 		btnOrder11 = new JButton("주문취소");
 		btnOrder11.addActionListener(this);
 		btnOrder11.setForeground(Color.BLACK);
-		btnOrder11.setBounds(168, 220, 79, 29);
+		btnOrder11.setBounds(151, 220, 96, 29);
 		contentPane.add(btnOrder11);
 		
 		btnOrder10 = new JButton("검색");
 		btnOrder10.setForeground(Color.BLACK);
-		btnOrder10.setBounds(260, 72, 54, 29);
+		btnOrder10.setBounds(260, 72, 69, 29);
 		contentPane.add(btnOrder10);
 	}
 	public void actionPerformed(ActionEvent e) {
