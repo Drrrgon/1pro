@@ -2,13 +2,13 @@ package vo;
 
 public class MemberVo{
     private int memberNo;
-    private int telNo;
+    private String telNo;
     private String mName;
     private int mBonus;
     
     public MemberVo(){}
 
-	public MemberVo(int memberNo, int telNo, String mName, int mBonus) {
+	public MemberVo(int memberNo, String telNo, String mName, int mBonus) {
 		super();
 		this.memberNo = memberNo;
 		this.telNo = telNo;
@@ -24,11 +24,11 @@ public class MemberVo{
 		this.memberNo = memberNo;
 	}
 
-	public int getTelNo() {
+	public String getTelNo() {
 		return telNo;
 	}
 
-	public void setTelNo(int telNo) {
+	public void setTelNo(String telNo) {
 		this.telNo = telNo;
 	}
 
