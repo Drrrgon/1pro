@@ -123,14 +123,14 @@ public class Home extends JFrame implements ActionListener {
 			Order1 o1 = new Order1();
 			o1.setVisible(true);
 		}
-<<<<<<< Updated upstream
+//<<<<<<< Updated upstream
 		if(resource == btnMenu1){
 			System.out.println("3");
 			this.dispose();
 			MenuFrame mF = new MenuFrame();
 			mF.setVisible(true);
 		}
-=======
+//=======
 		if(resource == btnOrder2){
 			this.dispose();
 			Order2 o2 = new Order2();
@@ -168,6 +168,6 @@ public class Home extends JFrame implements ActionListener {
 			mem2.setVisible(true);
 		}
 		*/
->>>>>>> Stashed changes
+//>>>>>>> Stashed changes
 	}
 }

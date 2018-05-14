@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="Orders">
+	<resultMap type="hashmap" id="noToName">
+		<result javaType="int" column="orderNo" property=""/>
+	</resultMap>
+
+	<sql id="selectAll">
+		SELECT
+		orderNo,
+		menuNo,
+		count,
+		time
+	</sql>
+	
+	<select id="getAllOrder" resultType="Orders" >
+		SELECT o.ORDERNO, <!-- m.mName --> o.menuno, o.COUNT, o.TIME
+		FROM
+		Orders o , MENU m
+		WHERE o.Menuno = m.MENUNO
+	</select>
+
+	<delete id="deleteOrder" parameterType="orders">
+		DELETE
+		FROM
+		ORDERS
+		WHERE orderNo = #{orderNo}
+	</delete>
+	
+	<insert id="insertOrder" parameterType="orders">
+		INSERT INTO ORDERS
+		()
+	</insert>
+	
+	<insert id="insertOrderMember" parameterType="orders">
+	
+	</insert>
+</mapper>

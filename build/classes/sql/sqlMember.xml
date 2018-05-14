@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="Member">
+	<insert id="insertMember" parameterType="member">
+		<selectKey keyProperty="memberNo" resultType="int" order="BEFORE">
+			SELECT MEMBER_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO MEMBER
+		(MEMBERNO, TELNO, MNAME, MBONUS)
+		VALUES(
+		#{memberNo},
+		#{telNo},
+		#{mName},
+		#{mBonus}
+		)
+	</insert>
+
+	<delete id="deleteMember" parameterType="member">
+		DELETE FROM MEMBER
+		WHERE TELNO = #{telNo}
+	</delete>
+</mapper>
