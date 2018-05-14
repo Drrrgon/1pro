@@ -1,23 +1,20 @@
 package gui;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JLabel;
-import java.awt.Font;
 import java.awt.Color;
-import javax.swing.JList;
-import javax.swing.JComboBox;
-import javax.swing.JSpinner;
-import javax.swing.JRadioButton;
-import javax.swing.JFormattedTextField;
-import javax.swing.JTextField;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
+import vo.MenuVo;
 
 public class Order2 extends JFrame implements ActionListener {
 
@@ -25,13 +22,17 @@ public class Order2 extends JFrame implements ActionListener {
 	private JTextField txtOrder1, txtOrder2;
 	private JLabel label, label_1, label_2, lblCafe;
 	private JButton btnOrder6, btnOrder7, btnOrder8;
-	private JRadioButton rdbtnOrder3, rdbtnOrder4;
-	private final ButtonGroup radioButtonGroup = new ButtonGroup();
+	private JRadioButton rdbtnOrder3, rdbtnOrder4;	
+	private ButtonGroup radioButtonGroup = new ButtonGroup();
+	private MenuVo selectedMenu;
+	private int count;	
 
 	/**
 	 * Create the frame.
 	 */
-	public Order2() {
+	public Order2(MenuVo selectedMenu, int count) {
+		this.selectedMenu = selectedMenu;
+		this.count = count;
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 467, 330);
@@ -103,8 +104,8 @@ public class Order2 extends JFrame implements ActionListener {
 		}
 		if(resource == btnOrder8){
 			this.dispose();
-			Order3 o3 = new Order3();
-			o3.setVisible(true);
+//			Order3 o3 = new Order3();
+//			o3.setVisible(true);
 		}
 	}
 }

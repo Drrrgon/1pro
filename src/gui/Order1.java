@@ -18,9 +18,12 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.border.EmptyBorder;
 
-
+import gui.listener.ComboBoxListener;
+import gui.listener.RadioButtonListener;
+import gui.listener.SpinnerChangeListener;
 import system.DAO.imp.CafeDAOImp;
 import vo.MenuVo;
+import vo.OrdersVo;
 
 public class Order1 extends JFrame implements ActionListener {
 	
@@ -28,10 +31,14 @@ public class Order1 extends JFrame implements ActionListener {
 	private JLabel label, label_1, label_2, lblCafe;
 	private JButton btnOrder4, btnOrder5;
 	private JRadioButton rdbtnOrder1, rdbtnOrder2;
-	private JComboBox cbOrder1;
-	private JSpinner spinner;
+	public JComboBox cbOrder1;
+	public JSpinner spinner;
 	private CafeDAOImp cafeDAOImp;
 	public List<MenuVo> list;
+	public MenuVo selectedMenu;
+	public ComboBoxListener comboBox;
+	public SpinnerChangeListener spinnerChangeListener;
+	public RadioButtonListener radioButtonListener;
 	/**
 	 * Launch the application.
 	 */
@@ -85,42 +92,48 @@ public class Order1 extends JFrame implements ActionListener {
 		btnOrder5.setForeground(Color.BLACK);
 		contentPane.add(btnOrder5);
 		
-		JComboBox cbOrder1 = new JComboBox();
-		cbOrder1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(e.getSource() == cbOrder1) {
-					System.out.println((MenuVo)cbOrder1.getSelectedItem());
-				}
-			}
-		});
+		JComboBox cbOrder1 = new JComboBox();				
 		cbOrder1.setBounds(150, 80, 294, 27);
-		contentPane.add(cbOrder1);
-		list =cafeDAOImp.getAllMenu();
+		contentPane.add(cbOrder1);	
+		comboBox = new ComboBoxListener(this) {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource().equals(cbOrder1)) {				
+					System.out.println((MenuVo)cbOrder1.getSelectedItem());
+					selectedMenu=(MenuVo)cbOrder1.getSelectedItem();
+				}
+				
+			}
+		};	
+		cbOrder1.addActionListener(comboBox);
+		
+		list = cafeDAOImp.getAllMenu();
 		for (MenuVo a : list) {
 			cbOrder1.addItem(a);
 		}
 		
 		
-		JSpinner spinner = new JSpinner();
+		spinner = new JSpinner();
+		spinner.setToolTipText("");
 		spinner.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
 		spinner.setBounds(150, 126, 69, 29);
 		contentPane.add(spinner);
+		spinnerChangeListener = new SpinnerChangeListener(this);
+		spinner.addChangeListener(spinnerChangeListener);
+		
 		
 		JRadioButton rdbtnOrder1 = new JRadioButton("회원");
 		rdbtnOrder1.setBounds(150, 173, 61, 23);
-		contentPane.add(rdbtnOrder1);
-		rdbtnOrder1.addActionListener(this);
-		
+		contentPane.add(rdbtnOrder1);		
 		JRadioButton rdbtnOrder2 = new JRadioButton("비회원");
-		rdbtnOrder2.setSelected(true);
+		rdbtnOrder2.setSelected(false);
 		rdbtnOrder2.setBounds(220, 173, 97, 23);
-		contentPane.add(rdbtnOrder2);
-		rdbtnOrder2.addActionListener(this);
-		
+		contentPane.add(rdbtnOrder2);		
 		ButtonGroup bG = new ButtonGroup();
 		bG.add(rdbtnOrder1);
 		bG.add(rdbtnOrder2);
-		
+		radioButtonListener = new RadioButtonListener(this);
+		rdbtnOrder1.addItemListener(radioButtonListener);
+		rdbtnOrder2.addItemListener(radioButtonListener);
 		
 		btnOrder4 = new JButton("<<");
 		btnOrder4.addActionListener(this);
@@ -137,35 +150,30 @@ public class Order1 extends JFrame implements ActionListener {
 			break;
 			
 		case ">>":
-			MenuVo temp=(MenuVo)cbOrder1.getSelectedItem();
-			System.out.println((MenuVo)cbOrder1.getSelectedItem());
+			if(radioButtonListener.getMemberStatement() && spinnerChangeListener.getCountValue() !=0) {
+				this.dispose();
+				Order2 order2 = new Order2(selectedMenu, spinnerChangeListener.getCountValue());
+				order2.setVisible(true);
+			}else {
+				this.dispose();
+				OrdersVo order = new OrdersVo();
+				order.setMenuNo(selectedMenu.getMenuNo());
+				order.setCount(spinnerChangeListener.getCountValue());					
+				int re = cafeDAOImp.insertOrder(order);
+				order.setOrederNo(order.getOrederNo());
+				order.setTotal(cafeDAOImp.getTotalPrice(order));
+				System.out.println(re);
+				Order3 order3 = new Order3(order);
+				order3.setVisible(true);
+			}
+			
+//			System.out.println(selectedMenu);
+//			System.out.println(radioButtonListener.getMemberStatement());
+//			System.out.println(spinnerChangeListener.getCountValue());	
+			
 			break;
 		default:
 			break;
 		}
-//		JButton resource = (JButton) e.getSource();
-//		JComboBox<MenuVo> jB = (JComboBox)e.getSource();
-//		JRadioButton jR = (JRadioButton)e.getSource();
-//		if(resource == btnOrder4){
-//			this.dispose();
-//			Home home = new Home();
-//			home.setVisible(true);
-//		}
-//		if(resource == btnOrder5){
-//			if(rdbtnOrder1.isSelected()) {
-//				System.out.println(cbOrder1.getSelectedItem() + "회원 ");
-//			}else {
-//				System.out.println(cbOrder1.getSelectedItem() + "비회원 ");
-//			}
-//			String str = (String)jB.getSelectedItem();
-//			System.out.println(str+ "회원 ");
-//			
-//			this.dispose();
-//			Order2 o2 = new Order2();
-//			o2.setVisible(true);
-//		}
-//		if(e.getSource() == cbOrder1 && rdbtnOrder1.isSelected() && resource == btnOrder5) {
-//			System.out.println(cbOrder1.getSelectedItem() + "회원 ");
-//		}
 	}
 }

@@ -17,12 +17,23 @@
 	</sql>
 	
 	<select id="getAllOrder" resultType="Orders" >
-		SELECT o.ORDERNO, <!-- m.mName --> o.menuno, o.COUNT, o.TIME
+		SELECT o.ORDERNO, <!-- m.mName --> o.menuno, o.COUNT, o.TOTAL, to_char(o.TIME,'YY-MM-DD-HH24:Mi:SS')
 		FROM
 		Orders o , MENU m
 		WHERE o.Menuno = m.MENUNO
 	</select>
-
+	
+	<select id="getAllOrder1" resultType="hashmap" >
+		SELECT o.ORDERNO, m.mName, o.COUNT, o.TOTAL, o.TIME
+		FROM
+		Orders o , MENU m
+		WHERE o.Menuno = m.MENUNO
+	</select>
+	
+	<select id="getTotalPrice" parameterType="vo.OrdersVo" resultType="int">
+		SELECT TOTAL FROM ORDERS WHERE ORDERNO = #{orderNo}
+	</select>
+	
 	<delete id="deleteOrder" parameterType="orders">
 		DELETE
 		FROM
@@ -30,9 +41,19 @@
 		WHERE orderNo = #{orderNo}
 	</delete>
 	
+	<!-- 문제의 부분 -->
 	<insert id="insertOrder" parameterType="orders">
+		<selectKey keyProperty="orderNo" resultType="int" order="BEFORE">
+			SELECT ORDERS_SEQ.NEXTVAL FROM DUAL
+		</selectKey>	
 		INSERT INTO ORDERS
-		()
+		(ORDERNO, MENUNO, COUNT,TOTAL, TIME)
+		VALUES
+		(#{orderNo},
+		#{menuNo},
+		#{count},
+		(select distinct m.mPrice from menu m , orders o where m.MENUNO = o.MENUNO AND m.MENUNO = #{menuNo})* #{count},
+		SYSDATE)
 	</insert>
 	
 	<insert id="insertOrderMember" parameterType="orders">

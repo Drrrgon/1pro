@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import vo.OrdersVo;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -29,11 +32,13 @@ public class Order4 extends JFrame implements ActionListener {
 	private JTextArea textAreaOrder1;
 	private JButton btnOrder11;
 	private JButton btnOrder10;
-
+	
 	/**
 	 * Create the frame.
 	 */
 	public Order4() {
+		
+		
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 471, 318);
