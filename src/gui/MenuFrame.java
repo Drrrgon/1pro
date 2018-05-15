@@ -18,7 +18,8 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
 
 import gui.listener.MenuFrameListener;
-import gui.listener.MenuListSelectionListener;
+import gui.listener.MenuListSelectionListener0;
+import gui.listener.MenuListSelectionListener2;
 import system.DAO.imp.CafeDAOImp;
 import vo.MenuVo;
 import java.awt.event.ActionListener;
@@ -36,7 +37,7 @@ public class MenuFrame extends JFrame implements ActionListener {
 	private CafeDAOImp cafeDAOImp;
 	public JTextField originalPrice;
 	public DefaultListModel<String> modelMenuList;
-	public MenuListSelectionListener menuListSelectionListener;
+	public MenuListSelectionListener2 menuListSelectionListener;
 	private List<MenuVo> list;
 	private JButton btnHome;
 	private JLabel label;
@@ -123,8 +124,8 @@ public class MenuFrame extends JFrame implements ActionListener {
 		menuList.setBounds(40, 238, 573, 165);
 		contentPane.add(menuList);
 		menuList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		menuList.addListSelectionListener(new MenuListSelectionListener(this));
-		sp.setViewportView(menuList);
+		menuList.addListSelectionListener(new MenuListSelectionListener0(this));
+//		sp.setViewportView(menuList);
 		
 		panel = new JPanel();
 		panel.setSize(new Dimension(400, 400));
@@ -166,7 +167,7 @@ public class MenuFrame extends JFrame implements ActionListener {
 		JButton resource = (JButton)e.getSource();
 		if (resource == btnHome) {
 			this.dispose();
-			Home hm = new Home();
+			MainFrame hm = new MainFrame();
 			hm.setVisible(true);
 		}
 	}

@@ -1,45 +1,47 @@
 package gui;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import vo.OrdersVo;
-
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JLabel;
-import java.awt.Font;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
-import javax.swing.JComboBox;
-import javax.swing.JSpinner;
-import javax.swing.JRadioButton;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JFormattedTextField;
 import javax.swing.JTextField;
-import javax.swing.JTextArea;
-import javax.swing.ListModel;
-import javax.swing.border.BevelBorder;
 import javax.swing.ListSelectionModel;
-import java.awt.Dimension;
-import java.awt.Rectangle;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.EmptyBorder;
 
-public class Order4 extends JFrame implements ActionListener {
+import gui.listener.MenuListSelectionListener2;
+import gui.listener.OrderDeleteFrameListener;
+import system.DAO.imp.CafeDAOImp;
+import vo.MenuVo;
+import vo.OrdersVo;
+
+public class OrderDeleteFrame extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JLabel lblCafe;
 	private JButton btnOrder11;
 	private JButton btnOrder10;
-	private JTextField txtOrder5;
-	private JList listOrder1;
+	public JTextField txtOrder5;
+	public JList listOrder1;
 	private JLabel lblNewLabel;
 	private JPanel panel;
-
+	private CafeDAOImp cafeDAOImp;
+	public DefaultListModel<String> modelMenuList;
+	public MenuListSelectionListener2 menuListSelectionListener;
+	private List<String> stringList;
+	private List<OrdersVo> orderList;
 	/**
 	 * Create the frame.
 	 */
@@ -47,7 +49,7 @@ public class Order4 extends JFrame implements ActionListener {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Order4 frame = new Order4();
+					OrderDeleteFrame frame = new OrderDeleteFrame();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -55,8 +57,8 @@ public class Order4 extends JFrame implements ActionListener {
 			}
 		});
 	}
-	public Order4() {
-		
+	public OrderDeleteFrame() {
+		cafeDAOImp = CafeDAOImp.getInstance();
 		
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -85,7 +87,7 @@ public class Order4 extends JFrame implements ActionListener {
 		
 		btnOrder10 = new JButton("주문취소");
 		btnOrder10.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		btnOrder10.addActionListener(this);
+		btnOrder10.addActionListener(new OrderDeleteFrameListener(this));
 		btnOrder10.setForeground(Color.BLACK);
 		btnOrder10.setBounds(270, 368, 96, 36);
 		contentPane.add(btnOrder10);
@@ -102,11 +104,14 @@ public class Order4 extends JFrame implements ActionListener {
 				
 		//String [] a = {"aaaaaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa"};
 		//listOrder1 = new JList(a);
-		listOrder1 = new JList();
+		modelMenuList = getOrderList();		
+		listOrder1 = new JList(modelMenuList);
 		listOrder1.setSize(new Dimension(400, 400));
 		listOrder1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		listOrder1.setBorder(new BevelBorder(BevelBorder.LOWERED, Color.DARK_GRAY, null, null, null));
 		listOrder1.setSize(400, 400);
+		listOrder1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		listOrder1.addListSelectionListener(new MenuListSelectionListener2(this));
 		sp.setViewportView(listOrder1);
 		
 		panel = new JPanel();
@@ -122,8 +127,20 @@ public class Order4 extends JFrame implements ActionListener {
 		}
 		if(resource == btnOrder11){
 			this.dispose();
-			Home home = new Home();
+			MainFrame home = new MainFrame();
 			home.setVisible(true);
 		}
+	}
+	public DefaultListModel<String> getOrderList() {
+		DefaultListModel<String> listModel = new DefaultListModel<String>();
+		stringList = cafeDAOImp.getAllOrderByString();
+		orderList = cafeDAOImp.getAllOrderByOrdersVo();
+		for(int i = 0 ; i < stringList.size() ; i ++) {			
+			listModel.addElement(stringList.get(i).toString());
+		}		
+		return listModel;
+	}
+	public List<OrdersVo> getOrdersVoList() {
+		return orderList;
 	}
 }

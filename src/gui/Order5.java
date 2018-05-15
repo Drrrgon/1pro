@@ -62,7 +62,7 @@ public class Order5 extends JFrame implements ActionListener {
 		JButton resource = (JButton) e.getSource();
 		if(resource == btnOrder12){
 			this.dispose();
-			Home home = new Home();
+			MainFrame home = new MainFrame();
 			home.setVisible(true);
 		}
 	}

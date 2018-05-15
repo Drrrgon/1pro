@@ -5,15 +5,15 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JComboBox;
 
-import gui.Order1;
+import gui.OrderFrame;
 import system.DAO.imp.CafeDAOImp;
 import vo.MenuVo;
 
 public class ComboBoxListener implements ActionListener{
-	public Order1 order1;
+	public OrderFrame order1;
 	public MenuVo menuSelected;
 	private CafeDAOImp cafeDAOImp = CafeDAOImp.getInstance();
-	public ComboBoxListener(Order1 order1) {
+	public ComboBoxListener(OrderFrame order1) {
 		this.order1 = order1;
 	}
 	@Override

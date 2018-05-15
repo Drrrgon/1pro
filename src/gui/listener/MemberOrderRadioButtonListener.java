@@ -5,14 +5,15 @@ import java.awt.event.ItemListener;
 
 import javax.swing.AbstractButton;
 
+import gui.MemberOrderFrame;
 import gui.OrderFrame;
 
-public class RadioButtonListener implements ItemListener {
-	OrderFrame order1;
-	boolean member;
+public class MemberOrderRadioButtonListener implements ItemListener {
+	MemberOrderFrame memberOrderFrame;
+	boolean bonus;
 	
-	public RadioButtonListener(OrderFrame order1){
-		this.order1 = order1;
+	public MemberOrderRadioButtonListener(MemberOrderFrame memberOrderFrame){
+		this.memberOrderFrame = memberOrderFrame;
 	}
 
 	/**
@@ -25,21 +26,21 @@ public class RadioButtonListener implements ItemListener {
 			 
          {
 
-                if ( sel.getText().equals("회원") )
+                if ( sel.getText().equals("사용") )
 
                 {
 
-                     System.out.println( "회원" );
-                     member=true;
+                     System.out.println( "사용" );
+                     bonus=true;
 
                 }
 
-                else if ( sel.getText().equals( "비회원" ) )
+                else if ( sel.getText().equals( "적립" ) )
 
                 {
 
-                      System.out.println( "비회원" );
-                      member=false;
+                      System.out.println( "적립" );
+                      bonus=false;
 
                 }
 
@@ -52,6 +53,6 @@ public class RadioButtonListener implements ItemListener {
 	 * TRUE이면 회원 FLASE 이면 비회원
 	 */
 	public boolean getMemberStatement() {
-		return member;
+		return bonus;
 	}
 }

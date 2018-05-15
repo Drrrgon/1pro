@@ -63,7 +63,7 @@ public class Menu2 extends JFrame implements ActionListener {
 		JButton resource = (JButton) e.getSource();
 		if(resource == btnMenu5){
 			this.dispose();
-			Home home = new Home();
+			MainFrame home = new MainFrame();
 			home.setVisible(true);
 		}
 	}

@@ -1,27 +1,22 @@
 package gui;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import vo.OrdersVo;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.lang.reflect.Member;
 
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.Color;
-import javax.swing.JList;
-import javax.swing.JComboBox;
-import javax.swing.JSpinner;
-import javax.swing.JRadioButton;
-import javax.swing.JFormattedTextField;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
-public class Order3 extends JFrame implements ActionListener {
+import vo.MemberVo;
+import vo.OrdersVo;
+
+public class OrderResultFrame extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JTextField txtOrder1, txtOrder2;
@@ -29,12 +24,14 @@ public class Order3 extends JFrame implements ActionListener {
 	private JButton btnOrder9;
 	private JLabel label_2;
 	private OrdersVo order;
+	private MemberVo member;
 	/**
 	 * Create the frame.
 	 */
-	public Order3(OrdersVo order) {
+	public OrderResultFrame(OrdersVo order, MemberVo member) {
 		setTitle("주문 확인");
 		this.order = order;
+		this.member = member;
 		
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -80,7 +77,10 @@ public class Order3 extends JFrame implements ActionListener {
 		txtOrder2.setColumns(10);
 		txtOrder2.setBounds(318, 269, 153, 26);
 		contentPane.add(txtOrder2);
-//		txtOrder2.setText(order.toString());
+		if(member != null) {
+			txtOrder2.setText(member.getmBonus()+"");
+		}
+		
 		
 		label_2 = new JLabel("주문완료!");
 		label_2.setFont(new Font("Dialog", Font.PLAIN, 18));
@@ -91,7 +91,7 @@ public class Order3 extends JFrame implements ActionListener {
 		JButton resource = (JButton) e.getSource();
 		if(resource == btnOrder9){
 			this.dispose();
-			Home home = new Home();
+			MainFrame home = new MainFrame();
 			home.setVisible(true);
 		}
 	}

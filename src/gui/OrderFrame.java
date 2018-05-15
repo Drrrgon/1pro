@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
@@ -25,7 +26,7 @@ import system.DAO.imp.CafeDAOImp;
 import vo.MenuVo;
 import vo.OrdersVo;
 
-public class Order1 extends JFrame implements ActionListener {
+public class OrderFrame extends JFrame implements ActionListener {
 	
 	private JPanel contentPane;
 	private JLabel label, label_1, label_2, lblCafe;
@@ -46,7 +47,7 @@ public class Order1 extends JFrame implements ActionListener {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Order1 frame = new Order1();
+					OrderFrame frame = new OrderFrame();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -58,7 +59,7 @@ public class Order1 extends JFrame implements ActionListener {
 	/**
 	 * Create the frame.
 	 */
-	public Order1() {
+	public OrderFrame() {
 		setTitle("주문");
 		cafeDAOImp = CafeDAOImp.getInstance();
 		setResizable(false);
@@ -97,7 +98,6 @@ public class Order1 extends JFrame implements ActionListener {
 		contentPane.add(btnOrder5);
 		
 		JComboBox cbOrder1 = new JComboBox();				
-		JComboBox cbOrder1 = new JComboBox();
 		cbOrder1.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		contentPane.add(cbOrder1);	
 		comboBox = new ComboBoxListener(this) {
@@ -154,26 +154,33 @@ public class Order1 extends JFrame implements ActionListener {
 		switch (e.getActionCommand()) {
 		case "<<":
 			this.dispose();
-			Home home = new Home();
+			MainFrame home = new MainFrame();
 			home.setVisible(true);
 			break;
 			
 		case ">>":
 			if(radioButtonListener.getMemberStatement() && spinnerChangeListener.getCountValue() !=0) {
 				this.dispose();
-				Order2 order2 = new Order2(selectedMenu, spinnerChangeListener.getCountValue());
+				
+				MemberOrderFrame order2 = new MemberOrderFrame(selectedMenu, spinnerChangeListener.getCountValue());
 				order2.setVisible(true);
-			}else {
+			}else if(radioButtonListener.getMemberStatement() == false && spinnerChangeListener.getCountValue() !=0){
+				// else if 구문은 비회원 일 시 실행
 				this.dispose();
-				OrdersVo order = new OrdersVo();
-				order.setMenuNo(selectedMenu.getMenuNo());
-				order.setCount(spinnerChangeListener.getCountValue());					
+				
+				OrdersVo order = new OrdersVo();				
+				order.setCount(spinnerChangeListener.getCountValue());
+				order.setMenuNo((selectedMenu.getMenuNo()));
+				int s = cafeDAOImp.getMenuPrice(selectedMenu.getMenuNo());
+				order.setTotal(cafeDAOImp.getMenuPrice(selectedMenu.getMenuNo()) * spinnerChangeListener.getCountValue());
+				order.setTelNo("9999");
 				int re = cafeDAOImp.insertOrder(order);
-				order.setOrederNo(order.getOrederNo());
-				order.setTotal(cafeDAOImp.getTotalPrice(order));
-				System.out.println(re);
-				Order3 order3 = new Order3(order);
+				order.setOrederNo(order.getOrederNo());				
+				OrderResultFrame order3 = new OrderResultFrame(order,null);
 				order3.setVisible(true);
+			}else {
+				JButton resource = (JButton) e.getSource();
+				JOptionPane.showConfirmDialog(resource, "잘못된 선택입니다.",">>", JOptionPane.PLAIN_MESSAGE);
 			}
 			
 //			System.out.println(selectedMenu);

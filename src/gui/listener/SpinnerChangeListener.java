@@ -6,12 +6,12 @@ import java.awt.event.ActionListener;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import gui.Order1;
+import gui.OrderFrame;
 
 public class SpinnerChangeListener implements ChangeListener {
-	private Order1 order1;
+	private OrderFrame order1;
 	private int countValue;
-	public SpinnerChangeListener(Order1 order1) {
+	public SpinnerChangeListener(OrderFrame order1) {
 		this.order1 = order1;
 	}
 	

@@ -102,7 +102,7 @@ public class Sale1 extends JFrame implements ActionListener {
 		JButton resource = (JButton) e.getSource();
 		if(resource == btnSale3){
 			this.dispose();
-			Home home = new Home();
+			MainFrame home = new MainFrame();
 			home.setVisible(true);
 		}
 	}

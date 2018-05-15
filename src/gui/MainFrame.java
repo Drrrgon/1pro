@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class Home extends JFrame implements ActionListener {
+public class MainFrame extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JButton btnExit;
@@ -25,7 +25,7 @@ public class Home extends JFrame implements ActionListener {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Home frame = new Home();
+					MainFrame frame = new MainFrame();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,7 +37,7 @@ public class Home extends JFrame implements ActionListener {
 	/**
 	 * Create the frame.
 	 */
-	public Home() {
+	public MainFrame() {
 		setResizable(false);
 		setTitle("Cafe24");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -126,12 +126,12 @@ public class Home extends JFrame implements ActionListener {
 		}
 		if(resource == btnOrder1){
 			this.dispose();
-			Order1 o1 = new Order1();
+			OrderFrame o1 = new OrderFrame();
 			o1.setVisible(true);
 		}
 		if(resource == btnOrder2){
 			this.dispose();
-			Order4 o4 = new Order4();
+			OrderDeleteFrame o4 = new OrderDeleteFrame();
 			o4.setVisible(true);
 		}
 		if(resource == btnSale1){
@@ -146,12 +146,12 @@ public class Home extends JFrame implements ActionListener {
 		}
 		if(resource == btnMember1){
 			this.dispose();
-			Member1 mem1 = new Member1();
+			MemberAddFrame mem1 = new MemberAddFrame();
 			mem1.setVisible(true);
 		}
 		if(resource == btnMember2){
 			this.dispose();
-			Member2 mem2 = new Member2();
+			MemberDeleteFrame mem2 = new MemberDeleteFrame();
 			mem2.setVisible(true);
 		}
 	}

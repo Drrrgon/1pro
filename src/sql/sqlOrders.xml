@@ -4,9 +4,9 @@
 
 
 <mapper namespace="Orders">
-	<resultMap type="hashmap" id="noToName">
+	<!-- <resultMap type="hashmap" id="noToName">
 		<result javaType="int" column="orderNo" property=""/>
-	</resultMap>
+	</resultMap> -->
 
 	<sql id="selectAll">
 		SELECT
@@ -16,21 +16,32 @@
 		time
 	</sql>
 	
-	<select id="getAllOrder" resultType="Orders" >
-		SELECT o.ORDERNO, <!-- m.mName --> o.menuno, o.COUNT, o.TOTAL, to_char(o.TIME,'YY-MM-DD-HH24:Mi:SS')
+	<sql id="orderByNo">
+		ORDER BY ORDERNO DESC
+	</sql>
+	
+	<select id="getAllOrderByString" resultType="hashmap" >
+		SELECT o.ORDERNO, m.mName <!-- o.menuno -->, o.COUNT, o.TOTAL, o.TIME
 		FROM
 		Orders o , MENU m
 		WHERE o.Menuno = m.MENUNO
+		<include refid="orderByNo"/>
 	</select>
 	
-	<select id="getAllOrder1" resultType="hashmap" >
-		SELECT o.ORDERNO, m.mName, o.COUNT, o.TOTAL, o.TIME
+	<select id="getAllOrderByOrdersVo" resultType="orders" >
+		SELECT o.ORDERNO, o.menuno, o.COUNT, o.TOTAL, o.TELNO, o.USEBONUS, o.TIME
 		FROM
 		Orders o , MENU m
 		WHERE o.Menuno = m.MENUNO
+		<include refid="orderByNo"/>
 	</select>
 	
-	<select id="getTotalPrice" parameterType="vo.OrdersVo" resultType="int">
+	<select id="getMenuPrice" parameterType="int" resultType="int">
+		SELECT DISTINCT m.mPrice FROM MENU m
+		WHERE m.MENUNO = #{value}
+	</select>
+	
+	<select id="getTotalPrice" parameterType="orders" resultType="int">
 		SELECT TOTAL FROM ORDERS WHERE ORDERNO = #{orderNo}
 	</select>
 	
@@ -41,22 +52,37 @@
 		WHERE orderNo = #{orderNo}
 	</delete>
 	
-	<!-- 문제의 부분 -->
+	
 	<insert id="insertOrder" parameterType="orders">
 		<selectKey keyProperty="orderNo" resultType="int" order="BEFORE">
 			SELECT ORDERS_SEQ.NEXTVAL FROM DUAL
 		</selectKey>	
 		INSERT INTO ORDERS
-		(ORDERNO, MENUNO, COUNT,TOTAL, TIME)
+		(ORDERNO, MENUNO, COUNT, TOTAL, TELNO, TIME)
 		VALUES
 		(#{orderNo},
 		#{menuNo},
 		#{count},
-		(select distinct m.mPrice from menu m , orders o where m.MENUNO = o.MENUNO AND m.MENUNO = #{menuNo})* #{count},
+		<!-- (select distinct m.mPrice from menu m , orders o where m.MENUNO = o.MENUNO AND m.MENUNO = #{menuNo})* #{count} -->
+		#{total},
+		9999,
 		SYSDATE)
 	</insert>
 	
 	<insert id="insertOrderMember" parameterType="orders">
-	
+		<selectKey keyProperty="orderNo" resultType="int" order="BEFORE">
+			SELECT ORDERS_SEQ.NEXTVAL FROM DUAL
+		</selectKey>	
+		INSERT INTO ORDERS
+		(ORDERNO, MENUNO, COUNT, TOTAL, TELNO, USEBONUS, TIME)
+		VALUES
+		(#{orderNo},
+		#{menuNo},
+		#{count},
+		<!-- (select distinct m.mPrice from menu m , orders o where m.MENUNO = o.MENUNO AND m.MENUNO = #{menuNo})* #{count} -->
+		#{total},
+		#{telNo},
+		1,
+		SYSDATE)
 	</insert>
 </mapper>

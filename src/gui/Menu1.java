@@ -90,7 +90,7 @@ public class Menu1 extends JFrame implements ActionListener {
 		}
 		if(resource == btnMember4){
 			this.dispose();
-			Home home = new Home();
+			MainFrame home = new MainFrame();
 			home.setVisible(true);
 		}
 	}

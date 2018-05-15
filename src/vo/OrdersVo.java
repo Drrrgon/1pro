@@ -9,18 +9,22 @@ public class OrdersVo {
 	private int menuNo;
 	private int count;
 	private int total;
+	private String telNo;
+	private int useBonus;
 	private Timestamp time = new Timestamp(new Date().getTime());
 	
 	public OrdersVo() {
 		super();
 	}
 
-	public OrdersVo(int orederNo, int menuNo, int count,int total, Timestamp time) {
+	public OrdersVo(int orederNo, int menuNo, int count,int total, String telNo, int useBonus, Timestamp time) {
 		super();
 		this.orderNo = orederNo;
 		this.menuNo = menuNo;
 		this.count = count;
 		this.total = total;
+		this.telNo = telNo;
+		this.useBonus = useBonus;
 		this.time = new Timestamp(new Date().getTime());
 	}
 
@@ -55,14 +59,29 @@ public class OrdersVo {
 	public void setTime(Timestamp time) {
 		this.time = time;
 	}
-	
-	
+		
 	public int getTotal() {
 		return total;
 	}
 
 	public void setTotal(int total) {
 		this.total = total;
+	}
+	
+	public String getTelNo() {
+		return telNo;
+	}
+
+	public void setTelNo(String telNo) {
+		this.telNo = telNo;
+	}
+
+	public int getUseBonus() {
+		return useBonus;
+	}
+
+	public void setUseBonus(int useBonus) {
+		this.useBonus = useBonus;
 	}
 
 	@Override

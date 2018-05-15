@@ -19,7 +19,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JTextField;
 
-public class Member2 extends JFrame implements ActionListener {
+public class MemberDeleteFrame extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JTextField txtMember3, txtMember4;
@@ -31,7 +31,7 @@ public class Member2 extends JFrame implements ActionListener {
 	/**
 	 * Create the frame.
 	 */
-	public Member2() {
+	public MemberDeleteFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 640, 480);
 		contentPane = new JPanel();
@@ -93,7 +93,7 @@ public class Member2 extends JFrame implements ActionListener {
 		}
 		if(resource == btnMember6){
 			this.dispose();
-			Home home = new Home();
+			MainFrame home = new MainFrame();
 			home.setVisible(true);
 		}
 	}
