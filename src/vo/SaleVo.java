@@ -35,6 +35,7 @@ public class SaleVo {
 	public void setTotalSale(long totalSale) {
 		this.totalSale = totalSale;
 	}
+	
 	@Override
 	public String toString() {
 		return "SaleVo [date=" + date + ", menuList=" + menuList + ", totalSale=" + totalSale + "]";

@@ -22,9 +22,9 @@ public class MainFrameListener implements ActionListener{
 	CafeDAOImp cafeDAOImp; 
 	
 	
-	public MainFrameListener(Main Main){
+	public MainFrameListener(Main main){
 		this.main = main;
-		cafeDAOImp = new CafeDAOImp();
+		cafeDAOImp = CafeDAOImp.getInstance();
 		
 	}
 	@Override
