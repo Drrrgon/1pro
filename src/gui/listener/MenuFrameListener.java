@@ -23,7 +23,7 @@ public class MenuFrameListener implements ActionListener{
 	
 	public MenuFrameListener(MenuFrame menuFrame){
 		this.menuFrame = menuFrame;
-		cafeDAOImp = new CafeDAOImp();
+		cafeDAOImp = CafeDAOImp.getInstance();
 		
 	}
 	@Override
