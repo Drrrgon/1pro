@@ -6,16 +6,16 @@ import java.util.Date;
 public class SaleVo {
 	private Timestamp date = new Timestamp(new Date().getTime());
 	private String menuList;
-	private long totalSale;
-	
+	private int totalSale;
+	private int originalSale;
 	public SaleVo() {
 		super();
 	}
-	public SaleVo(Timestamp date, String menuList, long totalSale) {
-		super();
-		this.date = date;
+	public SaleVo(String menuList, int totalSale, int originalSale) {
+		super();		
 		this.menuList = menuList;
 		this.totalSale = totalSale;
+		this.originalSale = originalSale;
 	}
 	public Timestamp getDate() {
 		return date;
@@ -32,14 +32,22 @@ public class SaleVo {
 	public long getTotalSale() {
 		return totalSale;
 	}
-	public void setTotalSale(long totalSale) {
+	public void setTotalSale(int totalSale) {
 		this.totalSale = totalSale;
 	}
-	
+		
+	public int getOriginalPrice() {
+		return originalSale;
+	}
+	public void setOriginalPrice(int originalPrice) {
+		this.originalSale = originalPrice;
+	}
 	@Override
 	public String toString() {
-		return "SaleVo [date=" + date + ", menuList=" + menuList + ", totalSale=" + totalSale + "]";
+		return  menuList + "\n 매출 합계 : " + totalSale + "원 원가 합계 : "
+				+ originalSale + "원";
 	}
+	
 	
 	
 }

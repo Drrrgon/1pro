@@ -5,14 +5,32 @@
 
 <mapper namespace="Sale">
 
-	<select id="getDailyOrder" parameterType="string" resultType="orders">
-		SELECT o.ORDERNO, m.mName, o.COUNT, o.TOTAL, o.TIME
+	<select id="getDailyOrder" parameterType="string" resultType="hashmap">
+		SELECT o.ORDERNO, o.MENUNO, m.MNAME, m.MORIGINALPRICE, o.COUNT, o.TOTAL, o.TIME
 		FROM
 		Orders o , MENU m
 		WHERE o.Menuno = m.MENUNO and to_char(o.time, 'YYYYMMDD') = #{value} <!-- to_char(sysdate, 'YYYY-MM-DD') -->
 	</select>
-	<insert id="dailyClosing">
-			
+	
+	<insert id="insertDailyClosing" parameterType="sale">
+			INSERT INTO SALE (SALEDATE, MENULIST, ORIGINALSALE, TOTALSALE)
+			VALUES(to_char(SYSDATE,'YYYY-MM-DD'), #{menuList}, #{originalSale}, #{totalSale} )
 	</insert>
-
+	
+	<insert id="insertDailyClosed" parameterType='sale'>
+		INSERT INTO SALE (SALEDATE, MENULIST, TOTALSALE, ORIGINALSALE)
+		VALUES (TO_CHAR(SYSDATE, 'YYYY-MM-DD'), #{menuList}, #{totalSale}, #{originalSale})
+	</insert>
+	
+	<delete id="dailyClosing" parameterType="string">
+		DELETE FROM ORDERS
+		WHERE to_char(TIME, 'YYYYMMDD') = #{value}
+	</delete>
+	
+	<select id="getDailyByDate" parameterType="string" resultType="sale">
+		SELECT SALEDATE, MENULIST, ORIGINALSALE, TOTALSALE
+		FROM
+		SALE
+		WHERE to_char(SALEDATE, 'YYYYMMDD') = #{value}
+	</select>
 </mapper>

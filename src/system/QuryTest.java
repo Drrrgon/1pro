@@ -2,14 +2,9 @@ package system;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.List;
-
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
 
 import system.DAO.imp.CafeDAOImp;
-import system.config.CafeConfig;
-import vo.OrdersVo;
+import vo.SaleVo;
 
 public class QuryTest {
 	private static CafeDAOImp cafeDAOImp;
@@ -97,10 +92,26 @@ public class QuryTest {
 //	    List<OrdersVo> temp =  sqlSession.selectList("Sale.getDailyOrder", formatted);
 //	    for(OrdersVo v : temp) {
 //	    	System.out.println(v);
+	    
 //	    }
-	    System.out.println(cafeDAOImp.getDailyOrder(formatted));
+//	    System.out.println(cafeDAOImp.getDailyOrder(formatted));
 	    
 	    cafeDAOImp.getAllMenuByHashMap();
+	    
+//		List<HashMap<String, Object>> orderList = cafeDAOImp.getDailyOrder(formatted); // 포멧에 맞는 날짜의 오더를 모두 검색
+//		for(HashMap<String , Object> av : orderList) {
+//			System.out.println(av.get("MENUNO"));
+//			av.get("MNAME");
+//			av.get("COUNT");
+//			av.get("TOTAL");
+//			av.get("MORGINALPRICE");
+//		}
+	    SaleVo sale = new SaleVo();
+	    sale.setMenuList("2");
+	    sale.setOriginalPrice(2);
+	    sale.setTotalSale(3);
+	    System.out.println(1);
+	    System.out.println(cafeDAOImp.insertDailyClosing(sale));
 	}
 
 }

@@ -4,11 +4,11 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.ButtonGroup;
@@ -24,9 +24,10 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.border.EmptyBorder;
 
 import system.DAO.imp.CafeDAOImp;
+import vo.DailyVo;
 import vo.MenuVo;
-import vo.OrdersVo;
 import vo.SaleVo;
+import javax.swing.SpinnerDateModel;
 
 public class SaleFrame extends JFrame implements ActionListener {
 
@@ -97,15 +98,18 @@ public class SaleFrame extends JFrame implements ActionListener {
 		btnSale2.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		btnSale2.setBounds(506, 94, 101, 36);
 		contentPane.add(btnSale2);
+		btnSale2.addActionListener(this);
 		
 		textAreaSale1 = new JTextArea();
 		textAreaSale1.setEditable(false);
 		textAreaSale1.setBounds(46, 147, 561, 213);
 		contentPane.add(textAreaSale1);
 		
-		spinnerSale1 = new JSpinner();
-		spinnerSale1.setModel(new SpinnerNumberModel(2018, 1990, 2999, 1));
-		spinnerSale1.setBounds(46, 96, 83, 33);
+		
+		
+		spinnerSale1 = new JSpinner(new SpinnerNumberModel(2018, 1990, 2999, 1));
+		;
+		spinnerSale1.setBounds(46, 96, 83, 29);
 		contentPane.add(spinnerSale1);
 		
 		label = new JLabel("년");
@@ -129,69 +133,96 @@ public class SaleFrame extends JFrame implements ActionListener {
 			home.setVisible(true);
 		}
 		if(resource == btnNewButton) {
-			Calendar cal = Calendar.getInstance();
-			sale = new SaleVo();
+			Calendar cal = Calendar.getInstance();			
 			String allMenuString = "";
-			int total = 0 ;
+			
 			SimpleDateFormat dateType = new SimpleDateFormat("yyyyMMdd");
 			String date = dateType.format(cal.getTime());// 오늘자로 커스텀 날짜 포멧 지정
 			System.out.println(date);
 			cafeDAOImp.getDailyOrder(date);
 			
-			List<OrdersVo> orderList = cafeDAOImp.getDailyOrder(date); // 포멧에 맞는 날짜의 오더를 모두 검색
-			
-			 SimpleDateFormat format1 = new SimpleDateFormat("yyyyMMdd");
-			    String formatted = format1.format(cal.getTime());
-			    System.out.println(formatted);
-			    String a = "20180516";
-//			    List<OrdersVo> temp =  sqlSession.selectList("Sale.getDailyOrder", formatted);
-//			    for(OrdersVo v : temp) {
-//			    	System.out.println(v);
-//			    }
-			
-			
-			
-			
-			
-			List<HashMap<String, Object>> menuList = cafeDAOImp.getAllMenuByHashMap();// 키값 MENUNO 밸류값 MNAME
+			List<MenuVo> menuList = cafeDAOImp.getAllMenu();// 키값 MENUNO 밸류값 MNAME
+			List<Integer> menuNo = new ArrayList<>();
+			List<String> menuName = new ArrayList<>();			
 			List<Integer> countMenu = new ArrayList<>();
+			int total = 0 ;
+			int totalOriginal = 0;
+			int countAll = 0;
 			
-			Iterator it = null;
+			List<DailyVo> orderList = cafeDAOImp.getDailyOrder(date); // 포멧에 맞는 날짜의 오더를 모두 검색
+			
+			for(MenuVo temp : menuList) {
+				menuNo.add(temp.getMenuNo());
+				menuName.add(temp.getmName());
+			}
+			for(Integer av : menuNo) {
+				for(DailyVo ov : orderList) {
+					if(av == ov.getMenuNo()) {
+						System.out.println(ov.getMenuNo());
+						countAll++;
+					}
+				}
+				countMenu.add(countAll);
+				countAll = 0;
+			}
+			
+			for(Integer s: countMenu) {
+				System.out.println(s);
+			}
+						
+			for(DailyVo k : orderList) {
+				totalOriginal += k.getMoriginalPrice();
+				total += k.getTotal();
+			}
 			for(int i = 0 ; i < menuList.size() ; i ++) {
-				int count = 0;
-				it = menuList.get(i).keySet().iterator();
-				while(it.hasNext()) {
-					System.out.println(it.next());
-				}
-				
-				
-				// 메뉴의 번호를 뽑아내고 비교하기 위한 이터레이터
-				while(it.hasNext()) {
-					Object menuNo = it.next() ; // 이터레이터에 MENUNO를 하나씩 가져온다.
-					System.out.println(menuNo);
-					for(OrdersVo v : orderList) {
-						if((int)menuNo == v.getMenuNo()) {// 메뉴의 번호가 오더의 메뉴번호에 같으면 개수를 더해서 리턴
-							count += v.getCount();
-						}
-						countMenu.add(count); //
-						count = 0;
-					}					
-				}
-			}
-			for(Integer i : countMenu) {
-				System.out.println(i);
+				allMenuString +=" 메뉴번호 : "+ menuNo.get(i)+" 메뉴이름 : "+ menuName.get(i)+" 수량 : "+ countMenu.get(i)+"\n";
 			}
 			
-//			List<HashMap<Integer, String>> menuList = new ArrayList<>();
-//			HashMap<Integer, String> = 
-//			for(int i = 0 ; i < menuList.size() ; i ++) {
-//				menuNo.get(menuList.get(i).getMenuNo());
-//			}
+			System.out.println(allMenuString);
+			SaleVo sale = new SaleVo(allMenuString,total,totalOriginal);
+			System.out.println(cafeDAOImp.insertDailyClosed(sale));
+			textAreaSale1.setText(sale.toString());			
+		}
+		
+		if(resource == btnSale2) {
+			textAreaSale1.setText("");
+			SaleVo sale = new SaleVo();
+			int a = (int) spinnerSale1.getValue();
+			int b = (int) spinnerSale2.getValue();
+			int c = (int) spinnerSale3.getValue();
 			
-			for(OrdersVo temp : orderList) {
-				total += temp.getTotal();
-				
+			String str="";
+			
+			if(b<10) {
+				if(c<10) {
+					 
+					String b1 = String.format( "%02d" , b );
+					String c1 = String.format( "%02d" , c );
+					str = ""+a+b1+c1;
+				}else {
+					String b1 = String.format( "%02d" , b );
+					str = ""+a+b1+c;
+				}
+			}else {
+				if(c<10) {
+					String c1 = String.format( "%02d" , c );
+					str = ""+a+b+c1;
+				}
+				str = ""+a+b+c;
 			}
+			Date date;
+			System.out.println(str);
+			try {
+				date = new SimpleDateFormat("yyyyMMdd").parse(str);
+				System.out.println(date);
+			} catch (ParseException e1) {
+				e1.printStackTrace();
+			}
+			sale = cafeDAOImp.getDailyByDate(str);
+			textAreaSale1.setText(sale.toString());
+			
+			
+			
 		}
 	}
 }

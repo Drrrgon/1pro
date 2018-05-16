@@ -13,7 +13,7 @@
 		<typeAlias type="vo.MemberVo" alias="member"/>
 		<typeAlias type="vo.MenuVo" alias="menu"/>
 		<typeAlias type="vo.OrdersVo" alias="orders"/>
-		<typeAlias type="vo.SaleVo" alias="sale"/>
+		<typeAlias type="vo.SaleVo" alias="sale"/>		
 	</typeAliases>
 	<!--3.Datasource 등록 -->
 	<environments default="qq">

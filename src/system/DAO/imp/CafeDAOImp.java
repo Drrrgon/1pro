@@ -1,5 +1,6 @@
 package system.DAO.imp;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,9 +10,11 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import system.DAO.CafeDAO;
 import system.config.CafeConfig;
+import vo.DailyVo;
 import vo.MemberVo;
 import vo.MenuVo;
 import vo.OrdersVo;
+import vo.SaleVo;
 
 public class CafeDAOImp implements CafeDAO {
 	private static CafeDAOImp cafeDAOImp = new CafeDAOImp();
@@ -84,14 +87,15 @@ public class CafeDAOImp implements CafeDAO {
 	 * @return List<HashMap<Integer, String>>
 	 */
 	@Override
-	public List<HashMap<String, Object>> getAllMenuByHashMap() {
+	public List<HashMap<Integer, String>> getAllMenuByHashMap() {
 		List<HashMap<String, Object>>  temp = sqlSession.selectList("Menu.getAllMenuByHashMap");
 		HashMap<Integer, String> tempHash = new HashMap<>();
-		List list =new ArrayList<>(); 
+		List<HashMap<Integer, String>> list =new ArrayList<>(); 
 		for(HashMap<String, Object> a : temp) {
-			int s =(int) a.get("MENUNO");
-			System.out.println(a.get("MNAME"));
+			int s =  ((BigDecimal)a.get("MENUNO")).intValue();			
+			tempHash.put(s, (String) a.get("MNAME"));
 			list.add(tempHash);
+			
 		}
 //		sqlSession.close();
 		return list;
@@ -172,10 +176,44 @@ public class CafeDAOImp implements CafeDAO {
 	}
 
 	@Override
-	public List<OrdersVo> getDailyOrder(String string) {
-		List<OrdersVo> list = sqlSession.selectList("Sale.getDailyOrder", string);
+	public List<DailyVo> getDailyOrder(String string) {
+		List<DailyVo> list = new ArrayList<DailyVo>();
+		List<HashMap<String , Object>> temp = sqlSession.selectList("Sale.getDailyOrder", string);
+		
+		for(HashMap<String , Object> av : temp) {
+			DailyVo day = new DailyVo(((BigDecimal) av.get("MENUNO")).intValue(), (String) av.get("MNAME"),
+					((BigDecimal) av.get("COUNT")).intValue(),((BigDecimal) av.get("TOTAL")).intValue(),
+					((BigDecimal) av.get("MORIGINALPRICE")).intValue());
+			list.add(day);		
+		}		
 //		sqlSession.close();
 		return list;
+	}
+
+	@Override
+	public int insertDailyClosing(SaleVo sale) {
+		int result = sqlSession.insert("Sale.insertDailyClosing",sale);
+		sqlSession.commit();
+		return result;
+	}
+
+	@Override
+	public int dailyClosing(String string) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public SaleVo getDailyByDate(String string) {
+		SaleVo sale = sqlSession.selectOne("Sale.getDailyByDate",string);
+		return sale;
+	}
+
+	@Override
+	public int insertDailyClosed(SaleVo sale) {
+		int vs = sqlSession.insert("Sale.insertDailyClosed", sale);
+		sqlSession.commit();
+		return vs;
 	}
 	
 	

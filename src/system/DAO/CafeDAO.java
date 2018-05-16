@@ -3,13 +3,15 @@ package system.DAO;
 import java.util.HashMap;
 import java.util.List;
 
+import vo.DailyVo;
 import vo.MemberVo;
 import vo.MenuVo;
 import vo.OrdersVo;
+import vo.SaleVo;
 
 public interface CafeDAO {
 	public List getAllMenu();
-	public List<HashMap<String, Object>> getAllMenuByHashMap();
+	public List<HashMap<Integer, String>> getAllMenuByHashMap();
 	public int deleteMenu(MenuVo menu);
 	public int insertMenu(MenuVo menu);
 //	public List getAllOrder();
@@ -24,6 +26,10 @@ public interface CafeDAO {
 	public void addBonus(MemberVo member);
 	public void minusBonus(MemberVo member);
 	public int getBouns(MemberVo member);
-	public List<OrdersVo> getDailyOrder(String string);
+	public List<DailyVo> getDailyOrder(String string);
+	public int insertDailyClosing(SaleVo sale);
+	public int dailyClosing(String string);
+	public SaleVo getDailyByDate(String string);
+	public int insertDailyClosed(SaleVo sale);
 	
 }

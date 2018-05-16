@@ -29,7 +29,7 @@ public class MenuFrameListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch (e.getActionCommand()) {
-		case "reg":
+		case "등록":
 			List<MenuVo> tempList = (List<MenuVo>) menuFrame.getMenuVoList();
 			MenuVo temp= new MenuVo();
 			temp.setmName(menuFrame.txtMenuname.getText());
@@ -48,7 +48,7 @@ public class MenuFrameListener implements ActionListener{
 			}					
 			break;
 			
-		case "del":
+		case "삭제":
 			MenuVo temp2= new MenuVo();
 			List<MenuVo> tempList2 = (List<MenuVo>) menuFrame.getMenuVoList();
 //			tempList.get(menuFrame.menuList.getSelectedIndex())
