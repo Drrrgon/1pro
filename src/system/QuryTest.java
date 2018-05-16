@@ -1,23 +1,23 @@
 package system;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import system.DAO.imp.CafeDAOImp;
 import system.config.CafeConfig;
-import vo.MemberVo;
-import vo.MenuVo;
 import vo.OrdersVo;
 
 public class QuryTest {
-	
+	private static CafeDAOImp cafeDAOImp;
 	public static void main(String[] args) {
-		SqlSession sqlSession = null;
-		SqlSessionFactory sqlSessionFactory = CafeConfig.getSqlSessionFactory();
-		sqlSession = sqlSessionFactory.openSession();
+//		SqlSession sqlSession = null;
+//		SqlSessionFactory sqlSessionFactory = CafeConfig.getSqlSessionFactory();
+//		sqlSession = sqlSessionFactory.openSession();
+		cafeDAOImp = CafeDAOImp.getInstance();
 		System.out.println("오픈");
 		
 //		List<MenuVo> list = sqlSession.selectList("Menu.getAllMenu");
@@ -80,10 +80,27 @@ public class QuryTest {
 ////		}
 //		int a = sqlSession.selectOne("Orders.getTotalPrice", order);
 //		System.out.println(a);
-		OrdersVo order = new OrdersVo();
-		order.setMenuNo(11);
-		int r =sqlSession.selectOne("Orders.getMenuPrice",order);
-		System.out.println(r);
+//		OrdersVo order = new OrdersVo();
+//		order.setMenuNo(11);
+//		int r =sqlSession.selectOne("Orders.getMenuPrice",order);
+//		System.out.println(r);
+		Calendar cal = Calendar.getInstance();
+//		System.out.println(cal.get(Calendar.YEAR));
+//		System.out.println(cal.get(Calendar.MONTH)+1);
+//		System.out.println(cal.get(Calendar.DATE));
+		
+//		cal.set(cal.get(Calendar.YEAR, cal.get(Calendar.MONTH)+1, date);
+	    SimpleDateFormat format1 = new SimpleDateFormat("yyyyMMdd");
+	    String formatted = format1.format(cal.getTime());
+	    System.out.println(formatted);
+	    String a = "20180516";
+//	    List<OrdersVo> temp =  sqlSession.selectList("Sale.getDailyOrder", formatted);
+//	    for(OrdersVo v : temp) {
+//	    	System.out.println(v);
+//	    }
+	    System.out.println(cafeDAOImp.getDailyOrder(formatted));
+	    
+	    cafeDAOImp.getAllMenuByHashMap();
 	}
 
 }

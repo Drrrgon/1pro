@@ -81,6 +81,23 @@ public class CafeDAOImp implements CafeDAO {
 	}
 	
 	/**
+	 * @return List<HashMap<Integer, String>>
+	 */
+	@Override
+	public List<HashMap<String, Object>> getAllMenuByHashMap() {
+		List<HashMap<String, Object>>  temp = sqlSession.selectList("Menu.getAllMenuByHashMap");
+		HashMap<Integer, String> tempHash = new HashMap<>();
+		List list =new ArrayList<>(); 
+		for(HashMap<String, Object> a : temp) {
+			int s =(int) a.get("MENUNO");
+			System.out.println(a.get("MNAME"));
+			list.add(tempHash);
+		}
+//		sqlSession.close();
+		return list;
+	}
+	
+	/**
 	 * @return List<OrdersVo>
 	 * DB의 모든 테이블의 값을 OrdersVo객체에 담아 List로 리턴합니다.
 	 */
@@ -140,6 +157,7 @@ public class CafeDAOImp implements CafeDAO {
 	public void addBonus(MemberVo member) {
 		sqlSession.update("Member.addBonus", member);
 		sqlSession.commit();
+		sqlSession.close();
 	}
 
 	@Override
@@ -152,6 +170,15 @@ public class CafeDAOImp implements CafeDAO {
 	public int getBouns(MemberVo member) {
 		return sqlSession.selectOne("Member.getBouns",member);		 
 	}
+
+	@Override
+	public List<OrdersVo> getDailyOrder(String string) {
+		List<OrdersVo> list = sqlSession.selectList("Sale.getDailyOrder", string);
+//		sqlSession.close();
+		return list;
+	}
+	
+	
 
 	
 }

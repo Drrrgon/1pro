@@ -136,7 +136,7 @@ public class MainFrame extends JFrame implements ActionListener {
 		}
 		if(resource == btnSale1){
 			this.dispose();
-			Sale1 s1 = new Sale1();
+			SaleFrame s1 = new SaleFrame();
 			s1.setVisible(true);
 		}
 		if(resource == btnMenu1){

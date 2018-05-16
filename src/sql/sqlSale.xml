@@ -4,6 +4,15 @@
 
 
 <mapper namespace="Sale">
-	<insert id=""></insert>
+
+	<select id="getDailyOrder" parameterType="string" resultType="orders">
+		SELECT o.ORDERNO, m.mName, o.COUNT, o.TOTAL, o.TIME
+		FROM
+		Orders o , MENU m
+		WHERE o.Menuno = m.MENUNO and to_char(o.time, 'YYYYMMDD') = #{value} <!-- to_char(sysdate, 'YYYY-MM-DD') -->
+	</select>
+	<insert id="dailyClosing">
+			
+	</insert>
 
 </mapper>

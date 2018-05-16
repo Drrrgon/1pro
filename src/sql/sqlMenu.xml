@@ -17,6 +17,13 @@
 		FROM menu	
 	</select>
 	
+	<select id="getAllMenuByHashMap" resultType="hashmap">
+		SELECT
+		MENUNO, MNAME
+		FROM MENU
+		ORDER BY MENUNO
+	</select>
+	
 	<!--  <select id="getCurrVal" resultType="INTEGER" >
 		SELECT
 		MENU_SEQ.CURRVAL

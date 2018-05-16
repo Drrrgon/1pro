@@ -4,10 +4,7 @@
 
 
 <mapper namespace="Orders">
-	<!-- <resultMap type="hashmap" id="noToName">
-		<result javaType="int" column="orderNo" property=""/>
-	</resultMap> -->
-
+	
 	<sql id="selectAll">
 		SELECT
 		orderNo,
@@ -21,7 +18,7 @@
 	</sql>
 	
 	<select id="getAllOrderByString" resultType="hashmap" >
-		SELECT o.ORDERNO, m.mName <!-- o.menuno -->, o.COUNT, o.TOTAL, o.TIME
+		SELECT o.ORDERNO, m.mName, o.COUNT, o.TOTAL, o.TIME
 		FROM
 		Orders o , MENU m
 		WHERE o.Menuno = m.MENUNO
@@ -62,8 +59,7 @@
 		VALUES
 		(#{orderNo},
 		#{menuNo},
-		#{count},
-		<!-- (select distinct m.mPrice from menu m , orders o where m.MENUNO = o.MENUNO AND m.MENUNO = #{menuNo})* #{count} -->
+		#{count},		
 		#{total},
 		9999,
 		SYSDATE)
@@ -78,8 +74,7 @@
 		VALUES
 		(#{orderNo},
 		#{menuNo},
-		#{count},
-		<!-- (select distinct m.mPrice from menu m , orders o where m.MENUNO = o.MENUNO AND m.MENUNO = #{menuNo})* #{count} -->
+		#{count},		
 		#{total},
 		#{telNo},
 		1,
