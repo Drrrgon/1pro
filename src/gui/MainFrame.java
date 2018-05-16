@@ -17,7 +17,10 @@ public class MainFrame extends JFrame implements ActionListener {
 	private JPanel contentPane;
 	private JButton btnExit;
 	private JButton btnOrder1, btnOrder2, btnSale1, btnMenu1, btnMenu2, btnMember1, btnMember2;
-	private JLabel label, label_1, label_2, label_3, lblCafe;
+	private JLabel label, lblCafe;
+	private JLabel label_5;
+	private JLabel label_6;
+	private JLabel label_7;
 	/**
 	 * Launch the application.
 	 */
@@ -49,64 +52,64 @@ public class MainFrame extends JFrame implements ActionListener {
 		
 		btnOrder1 = new JButton("주문 등록");
 		btnOrder1.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		btnOrder1.setBounds(164, 113, 121, 44);
+		btnOrder1.setBounds(216, 113, 117, 44);
 		contentPane.add(btnOrder1);
 		btnOrder1.addActionListener(this);
 		
 		btnOrder2 = new JButton("주문 현황/취소");
 		btnOrder2.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		btnOrder2.setBounds(297, 113, 142, 44);
+		btnOrder2.setBounds(347, 113, 144, 44);
 		contentPane.add(btnOrder2);
 		btnOrder2.addActionListener(this);
 		
 		label = new JLabel("1. 주문관리");
-		label.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		label.setBounds(58, 126, 99, 16);
+		label.setFont(new Font("Dialog", Font.PLAIN, 20));
+		label.setBounds(92, 120, 110, 29);
 		contentPane.add(label);
 		
-		label_1 = new JLabel("2. 매출관리");
-		label_1.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		label_1.setBounds(58, 199, 92, 16);
-		contentPane.add(label_1);
-		
-		btnSale1 = new JButton("일별/월별 매출 조회");
+		btnSale1 = new JButton("일별 / 월별 매출 조회");
 		btnSale1.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		btnSale1.addActionListener(this);
-		btnSale1.setBounds(162, 186, 166, 44);
+		btnSale1.setBounds(214, 186, 277, 44);
 		contentPane.add(btnSale1);
 		
-		label_2 = new JLabel("3. 메뉴관리");
-		label_2.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		label_2.setBounds(58, 273, 99, 16);
-		contentPane.add(label_2);
-		
-		btnMenu1 = new JButton("메뉴 등록/삭제");		
+		btnMenu1 = new JButton("메뉴 등록/ 삭제");		
 		btnMenu1.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		btnMenu1.setBounds(164, 260, 152, 44);
+		btnMenu1.setBounds(216, 260, 275, 44);
 		contentPane.add(btnMenu1);
 		btnMenu1.addActionListener(this);
 		
-		label_3 = new JLabel("4. 회원관리");
-		label_3.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		label_3.setBounds(60, 343, 93, 39);
-		contentPane.add(label_3);
-		
 		btnMember2 = new JButton("회원삭제");
 		btnMember2.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		btnMember2.setBounds(297, 341, 121, 44);
+		btnMember2.setBounds(359, 341, 132, 44);
 		contentPane.add(btnMember2);
 		btnMember2.addActionListener(this);
 		
 		btnMember1 = new JButton("회원등록");
 		btnMember1.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		btnMember1.setBounds(164, 341, 121, 44);
+		btnMember1.setBounds(216, 341, 132, 44);
 		contentPane.add(btnMember1);
 		btnMember1.addActionListener(this);
 		
 		lblCafe = new JLabel("Cafe24");
-		lblCafe.setBounds(281, 35, 86, 29);
-		lblCafe.setFont(new Font("Lucida Grande", Font.PLAIN, 23));
+		lblCafe.setBounds(227, 28, 162, 44);
+		lblCafe.setFont(new Font("Dialog", Font.PLAIN, 50));
 		contentPane.add(lblCafe);
+		
+		label_5 = new JLabel("3. 메뉴관리");
+		label_5.setFont(new Font("Dialog", Font.PLAIN, 20));
+		label_5.setBounds(92, 267, 110, 29);
+		contentPane.add(label_5);
+		
+		label_6 = new JLabel("4. 주문관리");
+		label_6.setFont(new Font("Dialog", Font.PLAIN, 20));
+		label_6.setBounds(92, 348, 110, 29);
+		contentPane.add(label_6);
+		
+		label_7 = new JLabel("2. 주문관리");
+		label_7.setFont(new Font("Dialog", Font.PLAIN, 20));
+		label_7.setBounds(92, 193, 110, 29);
+		contentPane.add(label_7);
 		
 //	    btnExit = new JButton("종료");
 //		btnExit.setBounds(365, 243, 79, 29);

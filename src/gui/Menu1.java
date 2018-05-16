@@ -32,52 +32,56 @@ public class Menu1 extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public Menu1() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 640, 480);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		label = new JLabel("1. 메뉴 이름");
-		label.setBounds(112, 81, 96, 16);
+		label.setFont(new Font("굴림", Font.PLAIN, 20));
+		label.setBounds(14, 129, 130, 29);
 		contentPane.add(label);
 		
 		label_1 = new JLabel("2. 메뉴 가격");
-		label_1.setBounds(112, 128, 96, 16);
+		label_1.setFont(new Font("굴림", Font.PLAIN, 20));
+		label_1.setBounds(14, 211, 121, 29);
 		contentPane.add(label_1);
 		
 		lblCafe = new JLabel("Cafe24");
-		lblCafe.setBounds(187, 23, 69, 29);
-		lblCafe.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+		lblCafe.setBackground(new Color(240, 240, 240));
+		lblCafe.setBounds(216, 34, 162, 44);
+		lblCafe.setFont(new Font("Dialog", Font.PLAIN, 50));
 		contentPane.add(lblCafe);
 		
 		btnMember4 = new JButton("HOME");
 		btnMember4.addActionListener(this);
-		btnMember4.setBounds(365, 243, 79, 29);
+		btnMember4.setBounds(524, 383, 83, 39);
 		btnMember4.setForeground(Color.BLACK);
 		contentPane.add(btnMember4);
 		
 		txtMenu1 = new JTextField();
-		txtMenu1.setBounds(220, 76, 130, 26);
+		txtMenu1.setBounds(143, 120, 464, 50);
 		contentPane.add(txtMenu1);
 		txtMenu1.setColumns(10);
 		
 		txtMenu2 = new JTextField();
 		txtMenu2.setColumns(10);
-		txtMenu2.setBounds(220, 123, 130, 26);
+		txtMenu2.setBounds(149, 202, 458, 50);
 		contentPane.add(txtMenu2);
 		
 		btnMenu2 = new JButton("메뉴등록");
 		btnMenu2.addActionListener(this);
 		btnMenu2.setForeground(Color.BLACK);
-		btnMenu2.setBounds(142, 183, 79, 29);
+		btnMenu2.setBounds(230, 274, 96, 39);
 		contentPane.add(btnMenu2);
 		
 		btnMenu3 = new JButton("메뉴삭제");
 		btnMenu3.addActionListener(this);
 		btnMenu3.setForeground(Color.BLACK);
-		btnMenu3.setBounds(220, 183, 79, 29);
+		btnMenu3.setBounds(340, 274, 96, 39);
 		contentPane.add(btnMenu3);
 	}
 	public void actionPerformed(ActionEvent e) {

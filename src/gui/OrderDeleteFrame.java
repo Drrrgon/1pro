@@ -69,8 +69,8 @@ public class OrderDeleteFrame extends JFrame implements ActionListener {
 		contentPane.setLayout(null);
 		
 		lblCafe = new JLabel("Cafe24");
-		lblCafe.setBounds(271, 35, 98, 29);
-		lblCafe.setFont(new Font("Lucida Grande", Font.PLAIN, 23));
+		lblCafe.setBounds(216, 34, 162, 44);
+		lblCafe.setFont(new Font("Dialog", Font.PLAIN, 50));
 		contentPane.add(lblCafe);
 		
 		lblNewLabel = new JLabel("주문 현황");
@@ -80,7 +80,7 @@ public class OrderDeleteFrame extends JFrame implements ActionListener {
 		
 		btnOrder11 = new JButton("HOME");
 		btnOrder11.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		btnOrder11.setBounds(555, 416, 79, 36);
+		btnOrder11.setBounds(524, 383, 83, 39);
 		btnOrder11.addActionListener(this);
 		btnOrder11.setForeground(Color.BLACK);
 		contentPane.add(btnOrder11);

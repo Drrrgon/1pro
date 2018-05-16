@@ -32,6 +32,7 @@ public class MemberDeleteFrame extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public MemberDeleteFrame() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 640, 480);
 		contentPane = new JPanel();
@@ -40,50 +41,51 @@ public class MemberDeleteFrame extends JFrame implements ActionListener {
 		contentPane.setLayout(null);
 		
 		label = new JLabel("1. 전화번호");
-		label.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		label.setBounds(143, 153, 96, 16);
+		label.setFont(new Font("Dialog", Font.PLAIN, 20));
+		label.setBounds(118, 147, 110, 29);
 		contentPane.add(label);
 		
 		label_1 = new JLabel("2. 회원 이름");
-		label_1.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		label_1.setBounds(143, 216, 96, 16);
+		label_1.setFont(new Font("Dialog", Font.PLAIN, 20));
+		label_1.setBounds(118, 220, 110, 29);
 		contentPane.add(label_1);
 		
 		lblCafe = new JLabel("Cafe24");
-		lblCafe.setBounds(269, 37, 95, 38);
-		lblCafe.setFont(new Font("Lucida Grande", Font.PLAIN, 23));
+		lblCafe.setBounds(216, 34, 212, 53);
+		lblCafe.setFont(new Font("Dialog", Font.PLAIN, 50));
 		contentPane.add(lblCafe);
 		
 		btnMember6 = new JButton("HOME");
 		btnMember6.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		btnMember6.addActionListener(this);
-		btnMember6.setBounds(555, 414, 79, 38);
+		btnMember6.setBounds(524, 383, 83, 39);
 		btnMember6.setForeground(Color.BLACK);
 		contentPane.add(btnMember6);
 		
 		txtMember3 = new JTextField();
 		txtMember3.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		txtMember3.setBounds(251, 148, 183, 26);
+		txtMember3.setBounds(251, 138, 200, 50);
 		contentPane.add(txtMember3);
 		txtMember3.setColumns(10);
 		
 		txtMember4 = new JTextField();
 		txtMember4.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		txtMember4.setColumns(10);
-		txtMember4.setBounds(251, 211, 183, 26);
+		txtMember4.setBounds(251, 211, 200, 50);
 		contentPane.add(txtMember4);
 		
 		btnMember5 = new JButton("회원 삭제");
 		btnMember5.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		btnMember5.addActionListener(this);
 		btnMember5.setForeground(Color.BLACK);
-		btnMember5.setBounds(269, 273, 86, 38);
+		btnMember5.setBounds(271, 302, 114, 39);
 		contentPane.add(btnMember5);
 		
 		btnMember4 = new JButton("검색");
-		btnMember4.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		btnMember4.addActionListener(this);
+		btnMember4.setFont(new Font("Dialog", Font.PLAIN, 15));
 		btnMember4.setForeground(Color.BLACK);
-		btnMember4.setBounds(446, 143, 50, 38);
+		btnMember4.setBounds(465, 138, 72, 31);
 		contentPane.add(btnMember4);
 	}
 	public void actionPerformed(ActionEvent e) {
