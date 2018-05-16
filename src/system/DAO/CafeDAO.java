@@ -31,5 +31,8 @@ public interface CafeDAO {
 	public int dailyClosing(String string);
 	public SaleVo getDailyByDate(String string);
 	public int insertDailyClosed(SaleVo sale);
+	public int insertMember(MemberVo member);
+	public String getMemberByString(String string);
+	public int deleteMemberByTelNo(String string);
 	
 }
