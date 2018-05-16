@@ -43,12 +43,12 @@ public class OrderResultFrame extends JFrame implements ActionListener {
 		
 		label = new JLabel("1. 주문번호");
 		label.setFont(new Font("Dialog", Font.PLAIN, 20));
-		label.setBounds(14, 207, 110, 29);
+		label.setBounds(53, 169, 110, 29);
 		contentPane.add(label);
 		
 		label_1 = new JLabel("2. 잔여 마일리지");
 		label_1.setFont(new Font("Dialog", Font.PLAIN, 20));
-		label_1.setBounds(14, 278, 162, 29);
+		label_1.setBounds(53, 272, 162, 29);
 		contentPane.add(label_1);
 		
 		lblCafe = new JLabel("Cafe24");
@@ -66,7 +66,7 @@ public class OrderResultFrame extends JFrame implements ActionListener {
 		txtOrder1 = new JTextField();
 		txtOrder1.setEditable(false);
 		txtOrder1.setFont(new Font("Dialog", Font.PLAIN, 17));
-		txtOrder1.setBounds(169, 198, 438, 50);
+		txtOrder1.setBounds(52, 210, 555, 50);
 		contentPane.add(txtOrder1);
 		txtOrder1.setColumns(10);
 		txtOrder1.setText(order.toString());
@@ -75,7 +75,7 @@ public class OrderResultFrame extends JFrame implements ActionListener {
 		txtOrder2.setEditable(false);
 		txtOrder2.setFont(new Font("Dialog", Font.PLAIN, 17));
 		txtOrder2.setColumns(10);
-		txtOrder2.setBounds(169, 269, 438, 50);
+		txtOrder2.setBounds(53, 313, 555, 50);
 		contentPane.add(txtOrder2);
 		if(member != null) {
 			txtOrder2.setText(member.getmBonus()+"");

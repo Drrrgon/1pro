@@ -72,44 +72,44 @@ public class MenuFrame extends JFrame implements ActionListener {
 		contentPane.setLayout(null);
 		
 		txtMenuname = new JTextField();
-		txtMenuname.setBounds(122, 76, 402, 30);
+		txtMenuname.setBounds(147, 86, 212, 30);
 		contentPane.add(txtMenuname);
 		txtMenuname.setColumns(10);
 		
 		txtMenuprice = new JTextField();
-		txtMenuprice.setBounds(122, 123, 402, 30);
+		txtMenuprice.setBounds(147, 128, 212, 30);
 		contentPane.add(txtMenuprice);
 		txtMenuprice.setColumns(10);
 		
 		originalPrice = new JTextField();		
 		originalPrice.setColumns(10);
-		originalPrice.setBounds(122, 170, 402, 30);
+		originalPrice.setBounds(147, 170, 212, 30);
 		contentPane.add(originalPrice);
 		
 		JLabel lblMenuname = new JLabel("메뉴 이름");
 		lblMenuname.setFont(new Font("Dialog", Font.PLAIN, 20));
 		lblMenuname.setBackground(Color.BLACK);
-		lblMenuname.setBounds(28, 75, 110, 29);
+		lblMenuname.setBounds(40, 87, 110, 29);
 		contentPane.add(lblMenuname);
 		
 		JLabel lblMenuprice = new JLabel("메뉴 가격");
 		lblMenuprice.setFont(new Font("Dialog", Font.PLAIN, 20));
-		lblMenuprice.setBounds(28, 128, 110, 29);
+		lblMenuprice.setBounds(40, 128, 110, 29);
 		contentPane.add(lblMenuprice);
 		
 		JLabel lblOriginalprice = new JLabel("원가");
 		lblOriginalprice.setFont(new Font("Dialog", Font.PLAIN, 20));
-		lblOriginalprice.setBounds(38, 169, 83, 29);
+		lblOriginalprice.setBounds(40, 169, 83, 29);
 		contentPane.add(lblOriginalprice);
 		
 		btnReg = new JButton("등록");
 		btnReg.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		btnReg.setBounds(538, 100, 75, 34);
+		btnReg.setBounds(432, 104, 75, 34);
 		contentPane.add(btnReg);
 		
 		JButton btnDel = new JButton("삭제");
 		btnDel.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		btnDel.setBounds(538, 146, 75, 34);
+		btnDel.setBounds(432, 150, 75, 34);
 		contentPane.add(btnDel);
 		
 		JScrollPane sp = new JScrollPane(menuList);
