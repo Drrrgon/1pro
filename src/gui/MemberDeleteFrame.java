@@ -1,23 +1,20 @@
 package gui;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JLabel;
-import java.awt.Font;
 import java.awt.Color;
-import javax.swing.JList;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JComboBox;
-import javax.swing.JSpinner;
-import javax.swing.JRadioButton;
-import javax.swing.JFormattedTextField;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
+import system.DAO.imp.CafeDAOImp;
+import vo.MemberVo;
 
 public class MemberDeleteFrame extends JFrame implements ActionListener {
 
@@ -27,11 +24,14 @@ public class MemberDeleteFrame extends JFrame implements ActionListener {
 	private JButton btnMember6;
 	private JButton btnMember5;
 	private JButton btnMember4;
-
+	private CafeDAOImp cafeDAOImp;
+	private boolean av = false;
 	/**
 	 * Create the frame.
 	 */
 	public MemberDeleteFrame() {
+		
+		cafeDAOImp = CafeDAOImp.getInstance();
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 640, 480);
@@ -68,11 +68,14 @@ public class MemberDeleteFrame extends JFrame implements ActionListener {
 		contentPane.add(txtMember3);
 		txtMember3.setColumns(10);
 		
+		
 		txtMember4 = new JTextField();
+		txtMember4.setEditable(false);
 		txtMember4.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		txtMember4.setColumns(10);
 		txtMember4.setBounds(251, 211, 200, 50);
 		contentPane.add(txtMember4);
+		
 		
 		btnMember5 = new JButton("회원 삭제");
 		btnMember5.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
@@ -87,16 +90,40 @@ public class MemberDeleteFrame extends JFrame implements ActionListener {
 		btnMember4.setForeground(Color.BLACK);
 		btnMember4.setBounds(465, 138, 72, 31);
 		contentPane.add(btnMember4);
+		
+		
 	}
 	public void actionPerformed(ActionEvent e) {
 		JButton resource = (JButton) e.getSource();
-		if(resource == btnMember5){
-			JOptionPane.showConfirmDialog(resource, "회원삭제되었습니다.", "회원삭제", JOptionPane.PLAIN_MESSAGE);
+		
+		if(btnMember4 == resource) {
+			int temp = Integer.parseInt(txtMember3.getText());
+			MemberVo str = cafeDAOImp.getMember(temp);
+			txtMember4.setText(str.getmName());			
+			if(str.getmName().length() == 0) {
+				JOptionPane.showConfirmDialog(resource, "회원 검색을 해주세요.", "검색 오류", JOptionPane.PLAIN_MESSAGE);
+//				av = true;
+			}else {
+//				JOptionPane.showConfirmDialog(resource, "회원 검색을 해주세요.", "검색 오류", JOptionPane.PLAIN_MESSAGE);
+				av = true;
+			}
+			
 		}
+		
+		if(resource == btnMember5 && av == true){
+			int result = cafeDAOImp.deleteMemberByTelNo(txtMember3.getText());
+			if(result != 0 ) {
+			JOptionPane.showConfirmDialog(resource, "회원삭제되었습니다.", "회원삭제", JOptionPane.PLAIN_MESSAGE);
+			txtMember3.setText("");
+			txtMember4.setText("");
+			av = false;
+			}
+			
 		if(resource == btnMember6){
 			this.dispose();
 			MainFrame home = new MainFrame();
 			home.setVisible(true);
 		}
 	}
+}
 }

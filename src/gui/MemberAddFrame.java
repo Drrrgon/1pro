@@ -1,23 +1,20 @@
 package gui;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JLabel;
-import java.awt.Font;
 import java.awt.Color;
-import javax.swing.JList;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JComboBox;
-import javax.swing.JSpinner;
-import javax.swing.JRadioButton;
-import javax.swing.JFormattedTextField;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
+import system.DAO.imp.CafeDAOImp;
+import vo.MemberVo;
 
 public class MemberAddFrame extends JFrame implements ActionListener {
 
@@ -26,11 +23,13 @@ public class MemberAddFrame extends JFrame implements ActionListener {
 	private JLabel label, label_1, lblCafe;
 	private JButton btnMember3;
 	private JButton btnMember2;
-
+	private CafeDAOImp cafeDAOImp;
 	/**
 	 * Create the frame.
 	 */
 	public MemberAddFrame() {
+		cafeDAOImp = CafeDAOImp.getInstance();
+		
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 640, 480);
@@ -83,7 +82,19 @@ public class MemberAddFrame extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		JButton resource = (JButton) e.getSource();
 		if(resource == btnMember2){
+			MemberVo member = new MemberVo();
+			if(txtMember1.getText().length() == 0 || txtMember2.getText().length() == 0  ) {
+				JOptionPane.showConfirmDialog(resource, "이름과 전화 번호를 정확히 입력해 주세요.", "공백 오류", JOptionPane.PLAIN_MESSAGE);
+			}
+			member.setmName(txtMember1.getText());
+			member.setTelNo(txtMember2.getText());
+			int re = cafeDAOImp.insertMember(member);
+			System.out.println(re);
+			
+			
 			JOptionPane.showConfirmDialog(resource, "회원등록되었습니다.", "회원등록", JOptionPane.PLAIN_MESSAGE);
+			txtMember1.setText("");
+			txtMember2.setText("");
 		}
 		if(resource == btnMember3){
 			this.dispose();

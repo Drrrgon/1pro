@@ -161,7 +161,7 @@ public class CafeDAOImp implements CafeDAO {
 	public void addBonus(MemberVo member) {
 		sqlSession.update("Member.addBonus", member);
 		sqlSession.commit();
-		sqlSession.close();
+//		sqlSession.close();
 	}
 
 	@Override
@@ -214,6 +214,26 @@ public class CafeDAOImp implements CafeDAO {
 		int vs = sqlSession.insert("Sale.insertDailyClosed", sale);
 		sqlSession.commit();
 		return vs;
+	}
+
+	@Override
+	public int insertMember(MemberVo member) {
+		int result = sqlSession.insert("Member.insertMember", member);
+		sqlSession.commit();
+		return result;
+	}
+
+	@Override
+	public String getMemberByString(String string) {
+		String result = sqlSession.selectOne("Member.getMemberByString", string);
+		return result;
+	}
+
+	@Override
+	public int deleteMemberByTelNo(String string) {
+		int result = sqlSession.delete("Member.deleteMemberByTelNo", string);
+		sqlSession.commit();
+		return result;
 	}
 	
 	
