@@ -42,12 +42,12 @@ public class Menu1 extends JFrame implements ActionListener {
 		
 		label = new JLabel("1. 메뉴 이름");
 		label.setFont(new Font("굴림", Font.PLAIN, 20));
-		label.setBounds(79, 129, 130, 29);
+		label.setBounds(14, 129, 130, 29);
 		contentPane.add(label);
 		
 		label_1 = new JLabel("2. 메뉴 가격");
 		label_1.setFont(new Font("굴림", Font.PLAIN, 20));
-		label_1.setBounds(88, 211, 121, 29);
+		label_1.setBounds(14, 211, 121, 29);
 		contentPane.add(label_1);
 		
 		lblCafe = new JLabel("Cafe24");
@@ -63,13 +63,13 @@ public class Menu1 extends JFrame implements ActionListener {
 		contentPane.add(btnMember4);
 		
 		txtMenu1 = new JTextField();
-		txtMenu1.setBounds(230, 120, 200, 50);
+		txtMenu1.setBounds(143, 120, 464, 50);
 		contentPane.add(txtMenu1);
 		txtMenu1.setColumns(10);
 		
 		txtMenu2 = new JTextField();
 		txtMenu2.setColumns(10);
-		txtMenu2.setBounds(230, 202, 200, 50);
+		txtMenu2.setBounds(149, 202, 458, 50);
 		contentPane.add(txtMenu2);
 		
 		btnMenu2 = new JButton("메뉴등록");
