@@ -62,14 +62,14 @@ public class SaleFrame extends JFrame implements ActionListener {
 		contentPane.setLayout(null);
 		
 		lblCafe = new JLabel("Cafe24");
-		lblCafe.setBounds(278, 27, 93, 29);
-		lblCafe.setFont(new Font("Lucida Grande", Font.PLAIN, 23));
+		lblCafe.setBounds(216, 34, 162, 44);
+		lblCafe.setFont(new Font("Dialog", Font.PLAIN, 50));
 		contentPane.add(lblCafe);
 		
 		btnSale3 = new JButton("HOME");
 		btnSale3.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		btnSale3.addActionListener(this);
-		btnSale3.setBounds(551, 416, 83, 36);
+		btnSale3.setBounds(524, 383, 83, 39);
 		btnSale3.setForeground(Color.BLACK);
 		contentPane.add(btnSale3);
 		
@@ -95,7 +95,7 @@ public class SaleFrame extends JFrame implements ActionListener {
 		
 		btnSale2 = new JButton("매출 조회");
 		btnSale2.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		btnSale2.setBounds(506, 94, 101, 36);
+		btnSale2.setBounds(490, 94, 117, 36);
 		contentPane.add(btnSale2);
 		
 		textAreaSale1 = new JTextArea();
@@ -117,7 +117,7 @@ public class SaleFrame extends JFrame implements ActionListener {
 		btnNewButton.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		btnNewButton.addActionListener(this);
 		
-		btnNewButton.setBounds(391, 96, 101, 33);
+		btnNewButton.setBounds(353, 95, 123, 33);
 		contentPane.add(btnNewButton);
 		ButtonGroup bG = new ButtonGroup();
 	}
