@@ -154,31 +154,7 @@ public class MemberFrame extends JFrame implements ActionListener {
 
 	}
 	public void actionPerformed(ActionEvent e) {
-		JButton resource = (JButton) e.getSource();
-		if(resource == deleteMember){
-			
-			
-			
-			
-			
-		}
-		if(resource == serchMember) {
-			
-		}
-		if(resource == addMember) {
-			System.out.println(1);
-			MemberVo member = new MemberVo();
-			if(telNumber.getText().length() == 0 || name.getText().length() == 0  ) {
-				JOptionPane.showConfirmDialog(resource, "이름과 전화 번호를 정확히 입력해 주세요.", "공백 오류", JOptionPane.PLAIN_MESSAGE);
-			}
-			member.setmName(name.getText());
-			member.setTelNo(telNumber.getText());
-			int re = cafeDAOImp.insertMember(member);
-			System.out.println(re);
-			JOptionPane.showConfirmDialog(resource, "회원등록되었습니다.", "회원등록", JOptionPane.PLAIN_MESSAGE);
-			telNumber.setText("");
-			name.setText("");
-		}
+		JButton resource = (JButton) e.getSource();	
 		if(resource == home){
 			this.dispose();
 			MainFrame home = new MainFrame();
