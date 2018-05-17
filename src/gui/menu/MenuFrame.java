@@ -73,44 +73,44 @@ public class MenuFrame extends JFrame implements ActionListener {
 		contentPane.setLayout(null);
 		
 		txtMenuname = new JTextField();
-		txtMenuname.setBounds(147, 86, 212, 30);
+		txtMenuname.setBounds(148, 118, 212, 30);
 		contentPane.add(txtMenuname);
 		txtMenuname.setColumns(10);
 		
 		txtMenuprice = new JTextField();
-		txtMenuprice.setBounds(147, 128, 212, 30);
+		txtMenuprice.setBounds(148, 148, 212, 30);
 		contentPane.add(txtMenuprice);
 		txtMenuprice.setColumns(10);
 		
 		originalPrice = new JTextField();		
 		originalPrice.setColumns(10);
-		originalPrice.setBounds(147, 170, 212, 30);
+		originalPrice.setBounds(148, 180, 212, 30);
 		contentPane.add(originalPrice);
 		
 		JLabel lblMenuname = new JLabel("메뉴 이름");
-		lblMenuname.setFont(new Font("Dialog", Font.PLAIN, 20));
+		lblMenuname.setFont(new Font("Dialog", Font.PLAIN, 17));
 		lblMenuname.setBackground(Color.BLACK);
-		lblMenuname.setBounds(40, 87, 110, 29);
+		lblMenuname.setBounds(61, 118, 85, 29);
 		contentPane.add(lblMenuname);
 		
 		JLabel lblMenuprice = new JLabel("메뉴 가격");
-		lblMenuprice.setFont(new Font("Dialog", Font.PLAIN, 20));
-		lblMenuprice.setBounds(40, 128, 110, 29);
+		lblMenuprice.setFont(new Font("Dialog", Font.PLAIN, 17));
+		lblMenuprice.setBounds(61, 147, 85, 29);
 		contentPane.add(lblMenuprice);
 		
 		JLabel lblOriginalprice = new JLabel("원가");
-		lblOriginalprice.setFont(new Font("Dialog", Font.PLAIN, 20));
-		lblOriginalprice.setBounds(40, 169, 83, 29);
+		lblOriginalprice.setFont(new Font("Dialog", Font.PLAIN, 17));
+		lblOriginalprice.setBounds(61, 178, 85, 29);
 		contentPane.add(lblOriginalprice);
 		
 		btnReg = new JButton("등록");
 		btnReg.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		btnReg.setBounds(432, 104, 75, 34);
+		btnReg.setBounds(439, 145, 75, 34);
 		contentPane.add(btnReg);
 		
 		JButton btnDel = new JButton("삭제");
 		btnDel.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		btnDel.setBounds(432, 150, 75, 34);
+		btnDel.setBounds(526, 145, 75, 34);
 		contentPane.add(btnDel);
 		
 		JScrollPane sp = new JScrollPane(menuList);
@@ -134,7 +134,7 @@ public class MenuFrame extends JFrame implements ActionListener {
 		
 		resultField = new JTextField();
 		resultField.setEditable(false);
-		resultField.setBounds(40, 212, 573, 21);
+		resultField.setBounds(41, 220, 573, 21);
 		contentPane.add(resultField);
 		resultField.setColumns(10);
 		
@@ -145,7 +145,7 @@ public class MenuFrame extends JFrame implements ActionListener {
 		
 		label = new JLabel("Cafe24");
 		label.setFont(new Font("Dialog", Font.PLAIN, 50));
-		label.setBounds(215, 21, 162, 44);
+		label.setBounds(303, 22, 182, 52);
 		contentPane.add(label);
 		btnHome.addActionListener(this);
 		

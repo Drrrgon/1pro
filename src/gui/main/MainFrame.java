@@ -23,7 +23,7 @@ public class MainFrame extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JButton btnExit;
-	private JButton btnOrder1, btnOrder2, btnSale1, btnMenu1, btnMenu2, btnMember1, btnMember2;
+	private JButton btnOrder1, btnOrder2, btnSale1, btnMenu1, btnMenu2, btnMember1;
 	private JLabel lblCafe;
 	/**
 	 * Launch the application.
@@ -72,26 +72,20 @@ public class MainFrame extends JFrame implements ActionListener {
 		btnSale1.setBounds(198, 277, 378, 50);
 		contentPane.add(btnSale1);
 		
-		btnMenu1 = new JButton("메뉴 등록/ 삭제");		
+		btnMenu1 = new JButton("메뉴 등록 / 삭제");		
 		btnMenu1.setFont(new Font("Dialog", Font.PLAIN, 25));
 		btnMenu1.setBounds(196, 339, 380, 50);
 		contentPane.add(btnMenu1);
 		btnMenu1.addActionListener(this);
 		
-		btnMember2 = new JButton("회원삭제");
-		btnMember2.setFont(new Font("Dialog", Font.PLAIN, 25));
-		btnMember2.setBounds(380, 401, 195, 50);
-		contentPane.add(btnMember2);
-		btnMember2.addActionListener(this);
-		
-		btnMember1 = new JButton("회원등록");
+		btnMember1 = new JButton("회원 등록 / 검색 / 삭제");
 		btnMember1.setFont(new Font("Dialog", Font.PLAIN, 25));
-		btnMember1.setBounds(194, 401, 183, 50);
+		btnMember1.setBounds(194, 401, 380, 50);
 		contentPane.add(btnMember1);
 		btnMember1.addActionListener(this);
 		
 		lblCafe = new JLabel("Cafe24");
-		lblCafe.setBounds(274, 70, 233, 81);
+		lblCafe.setBounds(274, 70, 263, 81);
 		lblCafe.setFont(new Font("Dialog", Font.PLAIN, 70));
 		contentPane.add(lblCafe);
 		
@@ -135,11 +129,6 @@ public class MainFrame extends JFrame implements ActionListener {
 			this.dispose();
 			MemberFrame mem1 = new MemberFrame();
 			mem1.setVisible(true);
-		}
-		if(resource == btnMember2){
-			this.dispose();
-			MemberDeleteFrame mem2 = new MemberDeleteFrame();
-			mem2.setVisible(true);
 		}
 	}
 }
