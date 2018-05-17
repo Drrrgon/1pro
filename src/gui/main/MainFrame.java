@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import gui.member.MemberAddFrame;
+import gui.member.MemberFrame;
 import gui.member.MemberDeleteFrame;
 import gui.menu.MenuFrame;
 import gui.order.OrderDeleteFrame;
@@ -24,10 +24,7 @@ public class MainFrame extends JFrame implements ActionListener {
 	private JPanel contentPane;
 	private JButton btnExit;
 	private JButton btnOrder1, btnOrder2, btnSale1, btnMenu1, btnMenu2, btnMember1, btnMember2;
-	private JLabel label, lblCafe;
-	private JLabel label_5;
-	private JLabel label_6;
-	private JLabel label_7;
+	private JLabel lblCafe;
 	/**
 	 * Launch the application.
 	 */
@@ -51,72 +48,52 @@ public class MainFrame extends JFrame implements ActionListener {
 		setResizable(false);
 		setTitle("Cafe24");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 640, 480);
+		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		btnOrder1 = new JButton("주문 등록");
-		btnOrder1.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		btnOrder1.setBounds(216, 113, 117, 44);
+		btnOrder1.setFont(new Font("Dialog", Font.PLAIN, 25));
+		btnOrder1.setBounds(196, 215, 181, 50);
 		contentPane.add(btnOrder1);
 		btnOrder1.addActionListener(this);
 		
 		btnOrder2 = new JButton("주문 현황/취소");
-		btnOrder2.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		btnOrder2.setBounds(347, 113, 144, 44);
+		btnOrder2.setFont(new Font("Dialog", Font.PLAIN, 25));
+		btnOrder2.setBounds(380, 215, 196, 50);
 		contentPane.add(btnOrder2);
 		btnOrder2.addActionListener(this);
 		
-		label = new JLabel("1. 주문관리");
-		label.setFont(new Font("Dialog", Font.PLAIN, 20));
-		label.setBounds(92, 120, 110, 29);
-		contentPane.add(label);
-		
 		btnSale1 = new JButton("일별 / 월별 매출 조회");
-		btnSale1.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		btnSale1.setFont(new Font("Dialog", Font.PLAIN, 25));
 		btnSale1.addActionListener(this);
-		btnSale1.setBounds(214, 186, 277, 44);
+		btnSale1.setBounds(198, 277, 378, 50);
 		contentPane.add(btnSale1);
 		
 		btnMenu1 = new JButton("메뉴 등록/ 삭제");		
-		btnMenu1.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		btnMenu1.setBounds(216, 260, 275, 44);
+		btnMenu1.setFont(new Font("Dialog", Font.PLAIN, 25));
+		btnMenu1.setBounds(196, 339, 380, 50);
 		contentPane.add(btnMenu1);
 		btnMenu1.addActionListener(this);
 		
 		btnMember2 = new JButton("회원삭제");
-		btnMember2.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		btnMember2.setBounds(359, 341, 132, 44);
+		btnMember2.setFont(new Font("Dialog", Font.PLAIN, 25));
+		btnMember2.setBounds(380, 401, 195, 50);
 		contentPane.add(btnMember2);
 		btnMember2.addActionListener(this);
 		
 		btnMember1 = new JButton("회원등록");
-		btnMember1.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		btnMember1.setBounds(216, 341, 132, 44);
+		btnMember1.setFont(new Font("Dialog", Font.PLAIN, 25));
+		btnMember1.setBounds(194, 401, 183, 50);
 		contentPane.add(btnMember1);
 		btnMember1.addActionListener(this);
 		
 		lblCafe = new JLabel("Cafe24");
-		lblCafe.setBounds(227, 28, 162, 44);
-		lblCafe.setFont(new Font("Dialog", Font.PLAIN, 50));
+		lblCafe.setBounds(274, 70, 233, 81);
+		lblCafe.setFont(new Font("Dialog", Font.PLAIN, 70));
 		contentPane.add(lblCafe);
-		
-		label_5 = new JLabel("3. 메뉴관리");
-		label_5.setFont(new Font("Dialog", Font.PLAIN, 20));
-		label_5.setBounds(92, 267, 110, 29);
-		contentPane.add(label_5);
-		
-		label_6 = new JLabel("4. 주문관리");
-		label_6.setFont(new Font("Dialog", Font.PLAIN, 20));
-		label_6.setBounds(92, 348, 110, 29);
-		contentPane.add(label_6);
-		
-		label_7 = new JLabel("2. 주문관리");
-		label_7.setFont(new Font("Dialog", Font.PLAIN, 20));
-		label_7.setBounds(92, 193, 110, 29);
-		contentPane.add(label_7);
 		
 //	    btnExit = new JButton("종료");
 //		btnExit.setBounds(365, 243, 79, 29);
@@ -156,7 +133,7 @@ public class MainFrame extends JFrame implements ActionListener {
 		}
 		if(resource == btnMember1){
 			this.dispose();
-			MemberAddFrame mem1 = new MemberAddFrame();
+			MemberFrame mem1 = new MemberFrame();
 			mem1.setVisible(true);
 		}
 		if(resource == btnMember2){

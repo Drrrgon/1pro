@@ -63,15 +63,15 @@ public class OrderDeleteFrame extends JFrame implements ActionListener {
 		
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 640, 480);
+		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		lblCafe = new JLabel("Cafe24");
-		lblCafe.setBounds(216, 34, 162, 44);
-		lblCafe.setFont(new Font("Dialog", Font.PLAIN, 50));
+		lblCafe.setBounds(236, 12, 272, 66);
+		lblCafe.setFont(new Font("Dialog", Font.PLAIN, 70));
 		contentPane.add(lblCafe);
 		
 		lblNewLabel = new JLabel("주문 현황");
@@ -81,16 +81,16 @@ public class OrderDeleteFrame extends JFrame implements ActionListener {
 		
 		btnOrder11 = new JButton("HOME");
 		btnOrder11.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		btnOrder11.setBounds(524, 383, 83, 39);
+		btnOrder11.setBounds(697, 514, 83, 39);
 		btnOrder11.addActionListener(this);
 		btnOrder11.setForeground(Color.BLACK);
 		contentPane.add(btnOrder11);
 		
 		btnOrder10 = new JButton("주문취소");
-		btnOrder10.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		btnOrder10.setFont(new Font("Dialog", Font.PLAIN, 22));
 		btnOrder10.addActionListener(new OrderDeleteFrameListener(this));
 		btnOrder10.setForeground(Color.BLACK);
-		btnOrder10.setBounds(270, 368, 96, 36);
+		btnOrder10.setBounds(316, 456, 134, 50);
 		contentPane.add(btnOrder10);
 		
 		txtOrder5 = new JTextField();
