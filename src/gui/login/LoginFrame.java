@@ -16,6 +16,7 @@ import javax.swing.border.EmptyBorder;
 
 import gui.main.MainFrame;
 import system.DAO.imp.CafeDAOImp;
+import java.awt.Font;
 
 public class LoginFrame extends JFrame implements ActionListener{
 
@@ -24,6 +25,7 @@ public class LoginFrame extends JFrame implements ActionListener{
 	private JPasswordField passwordField;
 	private JButton loginButton;
 	private CafeDAOImp cafeDAOImp;
+	private JLabel lblNewLabel;
 	/**
 	 * Launch the application.
 	 */
@@ -48,37 +50,45 @@ public class LoginFrame extends JFrame implements ActionListener{
 		cafeDAOImp = CafeDAOImp.getInstance();
 		setTitle("LoginPage");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 400, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		login = new JTextField();
-		login.setBounds(240, 121, 116, 24);
+		login.setBounds(205, 151, 116, 24);
 		contentPane.add(login);
 		login.setColumns(10);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(240, 157, 116, 24);
+		passwordField.setBounds(205, 187, 116, 24);
 		contentPane.add(passwordField);
 		
-		JLabel title = new JLabel("Cafe24 Login");
-		title.setIcon(new ImageIcon(LoginFrame.class.getResource("/gui/login/15ec27cabe813a5cd.png.jpg")));
-		title.setBounds(14, 12, 404, 65);
+		JLabel title = new JLabel("");
+		title.setIcon(new ImageIcon(LoginFrame.class.getResource("/gui/login/login.png")));
+		title.setBounds(39, 6, 142, 130);
 		contentPane.add(title);
 		
 		JLabel id = new JLabel("ID");
-		id.setBounds(74, 121, 69, 24);
+		id.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
+		id.setBounds(105, 151, 78, 24);
 		contentPane.add(id);
 		
-		JLabel password = new JLabel("password");
-		password.setBounds(74, 157, 121, 24);
+		JLabel password = new JLabel("PASSWORD");
+		password.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
+		password.setBounds(105, 187, 78, 24);
 		contentPane.add(password);
 		
-		loginButton = new JButton("submit");
-		loginButton.setBounds(74, 193, 105, 27);
+		loginButton = new JButton("LOGIN");
+		loginButton.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
+		loginButton.setBounds(153, 223, 78, 36);
 		contentPane.add(loginButton);
+		
+		lblNewLabel = new JLabel("Cafe24 Login");
+		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+		lblNewLabel.setBounds(209, 65, 162, 27);
+		contentPane.add(lblNewLabel);
 		loginButton.addActionListener(this);
 	}
 
