@@ -66,7 +66,7 @@ public class MenuFrame extends JFrame implements ActionListener {
 		setTitle("Cafe24");
 		loadCafeDAOImp();		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 640, 480);
+		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -140,7 +140,7 @@ public class MenuFrame extends JFrame implements ActionListener {
 		
 		btnHome = new JButton("HOME");				
 		btnHome.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		btnHome.setBounds(524, 406, 83, 39);
+		btnHome.setBounds(697, 514, 83, 39);
 		contentPane.add(btnHome);
 		
 		label = new JLabel("Cafe24");

@@ -40,38 +40,38 @@ public class OrderResultFrame extends JFrame implements ActionListener {
 		
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 640, 480);
+		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		label = new JLabel("1. 주문번호");
-		label.setFont(new Font("Dialog", Font.PLAIN, 20));
-		label.setBounds(53, 169, 110, 29);
+		label.setFont(new Font("Dialog", Font.PLAIN, 35));
+		label.setBounds(56, 250, 199, 44);
 		contentPane.add(label);
 		
 		label_1 = new JLabel("2. 잔여 마일리지");
-		label_1.setFont(new Font("Dialog", Font.PLAIN, 20));
-		label_1.setBounds(53, 272, 162, 29);
+		label_1.setFont(new Font("Dialog", Font.PLAIN, 35));
+		label_1.setBounds(56, 368, 282, 48);
 		contentPane.add(label_1);
 		
 		lblCafe = new JLabel("Cafe24");
-		lblCafe.setBounds(216, 34, 162, 44);
-		lblCafe.setFont(new Font("Dialog", Font.PLAIN, 50));
+		lblCafe.setBounds(269, 59, 233, 76);
+		lblCafe.setFont(new Font("Dialog", Font.PLAIN, 70));
 		contentPane.add(lblCafe);
 		
 		btnOrder9 = new JButton("HOME");
 		btnOrder9.setFont(new Font("Dialog", Font.PLAIN, 17));
 		btnOrder9.addActionListener(this);
-		btnOrder9.setBounds(524, 383, 83, 39);
+		btnOrder9.setBounds(697, 514, 83, 39);
 		btnOrder9.setForeground(Color.BLACK);
 		contentPane.add(btnOrder9);
 		
 		txtOrder1 = new JTextField();
 		txtOrder1.setEditable(false);
 		txtOrder1.setFont(new Font("Dialog", Font.PLAIN, 17));
-		txtOrder1.setBounds(52, 210, 555, 50);
+		txtOrder1.setBounds(52, 306, 555, 50);
 		contentPane.add(txtOrder1);
 		txtOrder1.setColumns(10);
 		HashMap<String, Object> map =cafeDAOImp.getOrderByString(order);
@@ -82,7 +82,7 @@ public class OrderResultFrame extends JFrame implements ActionListener {
 		txtOrder2.setEditable(false);
 		txtOrder2.setFont(new Font("Dialog", Font.PLAIN, 17));
 		txtOrder2.setColumns(10);
-		txtOrder2.setBounds(53, 313, 555, 50);
+		txtOrder2.setBounds(53, 428, 555, 50);
 		contentPane.add(txtOrder2);
 		if(member != null) {
 			txtOrder2.setText(member.getmBonus()+"");
@@ -90,8 +90,8 @@ public class OrderResultFrame extends JFrame implements ActionListener {
 		
 		
 		label_2 = new JLabel("주문완료!");
-		label_2.setFont(new Font("Dialog", Font.PLAIN, 30));
-		label_2.setBounds(234, 126, 150, 30);
+		label_2.setFont(new Font("Dialog", Font.PLAIN, 40));
+		label_2.setBounds(295, 169, 174, 48);
 		contentPane.add(label_2);
 	}
 	public void actionPerformed(ActionEvent e) {
