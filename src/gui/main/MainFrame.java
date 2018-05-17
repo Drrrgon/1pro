@@ -23,7 +23,7 @@ public class MainFrame extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JButton btnExit;
-	private JButton btnOrder1, btnOrder2, btnSale1, btnMenu1, btnMenu2, btnMember1;
+	private JButton btnOrder1, btnOrder2, btnSale1, btnMenu1, btnMenu2, btnMember1, btnMember2;
 	private JLabel lblCafe;
 	private JLabel lblNewLabel;
 	private JLabel lbll;
@@ -102,33 +102,14 @@ public class MainFrame extends JFrame implements ActionListener {
 		
 		lblCafe = new JLabel("Cafe24");
 
-		lblCafe.setBounds(274, 70, 263, 81);
+     	lblCafe.setBounds(274, 70, 263, 81);
 
-		lblCafe.setBounds(230, 71, 233, 81);
+//		lblCafe.setBounds(230, 71, 233, 81);
 
 		lblCafe.setFont(new Font("Dialog", Font.PLAIN, 70));
 		contentPane.add(lblCafe);
-		
-		
-		lblNewLabel.setFont(new Font("굴림", Font.PLAIN, 30));
-		lblNewLabel.setBounds(64, 210, 164, 59);
-		contentPane.add(lblNewLabel);
-		
-		
-		lbll.setFont(new Font("굴림", Font.PLAIN, 30));
-		lbll.setBounds(64, 279, 189, 50);
-		contentPane.add(lbll);
-		
-		
-		label_1.setFont(new Font("굴림", Font.PLAIN, 30));
-		label_1.setBounds(64, 338, 157, 50);
-		contentPane.add(label_1);
-		
-		
-		label_2.setFont(new Font("굴림", Font.PLAIN, 30));
-		label_2.setBounds(64, 403, 189, 44);
-		contentPane.add(label_2);
-		
+
+//		
 //	    btnExit = new JButton("종료");
 //		btnExit.setBounds(365, 243, 79, 29);
 //		btnExit.setForeground(Color.RED);
