@@ -39,6 +39,12 @@
 		WHERE TELNO = #{telNo}
 	</select>
  
+ 	<select id="getAllMember" resultType="member">
+		SELECT MEMBERNO, TELNO, MNAME, MBONUS
+		FROM MEMBER	
+		WHERE TELNO != 9999
+	</select>
+ 
 	<delete id="deleteMember" parameterType="member">
 		DELETE FROM MEMBER
 		WHERE TELNO = #{telNo}
