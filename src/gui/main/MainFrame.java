@@ -64,32 +64,32 @@ public class MainFrame extends JFrame implements ActionListener {
 		
 		btnOrder1 = new JButton("주문 등록");
 		btnOrder1.setFont(new Font("Dialog", Font.PLAIN, 25));
-		btnOrder1.setBounds(225, 211, 181, 50);
+		btnOrder1.setBounds(202, 211, 181, 50);
 		contentPane.add(btnOrder1);
 		btnOrder1.addActionListener(this);
 		
 		btnOrder2 = new JButton("주문 현황/취소");
 		btnOrder2.setFont(new Font("Dialog", Font.PLAIN, 25));
-		btnOrder2.setBounds(409, 211, 196, 50);
+		btnOrder2.setBounds(384, 211, 196, 50);
 		contentPane.add(btnOrder2);
 		btnOrder2.addActionListener(this);
 		
 		btnSale1 = new JButton("일별 / 월별 매출 조회");
 		btnSale1.setFont(new Font("Dialog", Font.PLAIN, 25));
 		btnSale1.addActionListener(this);
-		btnSale1.setBounds(227, 273, 378, 50);
+		btnSale1.setBounds(202, 273, 378, 50);
 		contentPane.add(btnSale1);
 		
 		btnMenu1 = new JButton("메뉴 등록 / 삭제");		
 		btnMenu1.setFont(new Font("Dialog", Font.PLAIN, 25));
-		btnMenu1.setBounds(225, 335, 380, 50);
+		btnMenu1.setBounds(202, 335, 380, 50);
 		contentPane.add(btnMenu1);
 		btnMenu1.addActionListener(this);
 		
 
 		btnMember1 = new JButton("회원 등록 / 검색 / 삭제");
 		btnMember1.setFont(new Font("Dialog", Font.PLAIN, 25));
-		btnMember1.setBounds(225, 397, 380, 50);
+		btnMember1.setBounds(202, 397, 380, 50);
 		btnMember1.addActionListener(this);
 		
 //		btnMember1 = new JButton("회원등록");
