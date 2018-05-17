@@ -14,7 +14,6 @@ public interface CafeDAO {
 	public List<HashMap<Integer, String>> getAllMenuByHashMap();
 	public int deleteMenu(MenuVo menu);
 	public int insertMenu(MenuVo menu);
-//	public List getAllOrder();
 	public int insertOrder(OrdersVo order);
 	public int insertOrderMember(OrdersVo order);
 	public int deleteOrder(OrdersVo order);
@@ -27,7 +26,7 @@ public interface CafeDAO {
 	public void minusBonus(MemberVo member);
 	public int getBouns(MemberVo member);
 	public List<DailyVo> getDailyOrder(String string);
-	public int insertDailyClosing(SaleVo sale);
+	public HashMap<String, Object>getOrderByString(OrdersVo order);
 	public int dailyClosing(String string);
 	public SaleVo getDailyByDate(String string);
 	public int insertDailyClosed(SaleVo sale);

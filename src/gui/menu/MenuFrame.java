@@ -1,4 +1,4 @@
-package gui;
+package gui.menu;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -17,9 +17,10 @@ import javax.swing.ListSelectionModel;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
 
-import gui.listener.MenuFrameListener;
-import gui.listener.MenuListSelectionListener0;
-import gui.listener.MenuListSelectionListener2;
+import gui.main.MainFrame;
+import gui.menu.listener.MenuFrameButtonListener;
+import gui.menu.listener.MenuFrameListSelectionListener;
+import gui.order.listener.OrderDeleteFrameListSelectionListener;
 import system.DAO.imp.CafeDAOImp;
 import vo.MenuVo;
 import java.awt.event.ActionListener;
@@ -37,7 +38,7 @@ public class MenuFrame extends JFrame implements ActionListener {
 	private CafeDAOImp cafeDAOImp;
 	public JTextField originalPrice;
 	public DefaultListModel<String> modelMenuList;
-	public MenuListSelectionListener2 menuListSelectionListener;
+	public OrderDeleteFrameListSelectionListener menuListSelectionListener;
 	private List<MenuVo> list;
 	private JButton btnHome;
 	private JLabel label;
@@ -116,27 +117,20 @@ public class MenuFrame extends JFrame implements ActionListener {
 		sp.setPreferredSize(new Dimension(549, 221));
 		sp.setVisible(true);
 		
-//		String [] a = {"aaaaaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa","aaa"};
-//		menuList = new JList(a);
 		modelMenuList = getMenuList();		
 	    menuList = new JList(modelMenuList);
 	    menuList.setBorder(new BevelBorder(BevelBorder.LOWERED, Color.DARK_GRAY, null, null, null));
 		menuList.setBounds(40, 243, 573, 160);
 		contentPane.add(menuList);
 		menuList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		menuList.addListSelectionListener(new MenuListSelectionListener0(this));
+		menuList.addListSelectionListener(new MenuFrameListSelectionListener(this));
 //		sp.setViewportView(menuList);
 		
 		panel = new JPanel();
 		panel.setSize(new Dimension(400, 400));
 		panel.setBounds(40, 243, 573, 142);
 		panel.add(sp);
-		contentPane.add(panel);
-		
-		/*JScrollPane listScroller = new JScrollPane();
-		listScroller.setViewportView(menuList);
-		menuList.setLayoutOrientation(JList.VERTICAL);
-		contentPane.add(listScroller);*/
+		contentPane.add(panel);		
 		
 		resultField = new JTextField();
 		resultField.setEditable(false);
@@ -155,12 +149,9 @@ public class MenuFrame extends JFrame implements ActionListener {
 		contentPane.add(label);
 		btnHome.addActionListener(this);
 		
-		
-		
-		btnDel.addActionListener(new MenuFrameListener(this));
-		btnReg.addActionListener(new MenuFrameListener(this));
-		
-		
+				
+		btnDel.addActionListener(new MenuFrameButtonListener(this));
+		btnReg.addActionListener(new MenuFrameButtonListener(this));				
 	}
 	
 	public void actionPerformed(ActionEvent e) {
@@ -176,6 +167,10 @@ public class MenuFrame extends JFrame implements ActionListener {
 		cafeDAOImp = CafeDAOImp.getInstance();
 	}
 	
+	/**
+	 * @return DefaultListModel<String>
+	 * 메뉴를 불러와서 리스트 모델로 반환합니다.
+	 */
 	public DefaultListModel<String> getMenuList() {
 		DefaultListModel<String> listModel = new DefaultListModel<String>();
 		list = cafeDAOImp.getAllMenu();		
@@ -188,16 +183,4 @@ public class MenuFrame extends JFrame implements ActionListener {
 		return list;
 	}
 	
-	public void start() {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MenuFrame frame = new MenuFrame();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-}
+}//class

@@ -190,17 +190,25 @@ public class CafeDAOImp implements CafeDAO {
 		return list;
 	}
 
-	@Override
+	/*@Override
 	public int insertDailyClosing(SaleVo sale) {
 		int result = sqlSession.insert("Sale.insertDailyClosing",sale);
 		sqlSession.commit();
 		return result;
-	}
-
+	}*/
+	
+	/**
+	 * 오늘 날짜 이전의 오더를 모두 지우고 시퀀스를 초기화 합니다.
+	 */
 	@Override
-	public int dailyClosing(String string) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int dailyClosing(String date) {
+		int del = sqlSession.delete("Sale.dailyClosing", date);
+		if(del > 0 ) {
+			sqlSession.update("Sale.dropSequence");
+			sqlSession.update("Sale.createSequence");
+		}
+		sqlSession.commit();
+		return del;
 	}
 
 	@Override
@@ -234,6 +242,12 @@ public class CafeDAOImp implements CafeDAO {
 		int result = sqlSession.delete("Member.deleteMemberByTelNo", string);
 		sqlSession.commit();
 		return result;
+	}
+
+	@Override
+	public HashMap<String, Object> getOrderByString(OrdersVo order) {
+		HashMap<String, Object> map = sqlSession.selectOne("Orders.getOrderByString", order);
+		return map;
 	}
 	
 	

@@ -1,4 +1,4 @@
-package gui;
+package gui.order;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -21,8 +21,9 @@ import javax.swing.ListSelectionModel;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
 
-import gui.listener.MenuListSelectionListener2;
-import gui.listener.OrderDeleteFrameListener;
+import gui.main.MainFrame;
+import gui.order.listener.OrderDeleteFrameListSelectionListener;
+import gui.order.listener.OrderDeleteFrameListener;
 import system.DAO.imp.CafeDAOImp;
 import vo.MenuVo;
 import vo.OrdersVo;
@@ -39,7 +40,7 @@ public class OrderDeleteFrame extends JFrame implements ActionListener {
 	private JPanel panel;
 	private CafeDAOImp cafeDAOImp;
 	public DefaultListModel<String> modelMenuList;
-	public MenuListSelectionListener2 menuListSelectionListener;
+	public OrderDeleteFrameListSelectionListener menuListSelectionListener;
 	private List<String> stringList;
 	private List<OrdersVo> orderList;
 	/**
@@ -111,7 +112,7 @@ public class OrderDeleteFrame extends JFrame implements ActionListener {
 		listOrder1.setBorder(new BevelBorder(BevelBorder.LOWERED, Color.DARK_GRAY, null, null, null));
 		listOrder1.setSize(400, 400);
 		listOrder1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		listOrder1.addListSelectionListener(new MenuListSelectionListener2(this));
+		listOrder1.addListSelectionListener(new OrderDeleteFrameListSelectionListener(this));
 		sp.setViewportView(listOrder1);
 		
 		panel = new JPanel();

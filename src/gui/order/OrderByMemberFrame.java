@@ -1,4 +1,4 @@
-package gui;
+package gui.order;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -18,13 +18,13 @@ import javax.swing.border.EmptyBorder;
 
 import org.apache.ibatis.session.SqlSession;
 
-import gui.listener.MemberOrderRadioButtonListener;
+import gui.order.listener.OrderByMemberRadioButtonListener;
 import system.DAO.imp.CafeDAOImp;
 import vo.MemberVo;
 import vo.MenuVo;
 import vo.OrdersVo;
 
-public class MemberOrderFrame extends JFrame implements ActionListener {
+public class OrderByMemberFrame extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JTextField txtOrder1, txtOrder2;
@@ -35,14 +35,14 @@ public class MemberOrderFrame extends JFrame implements ActionListener {
 	private MenuVo selectedMenu; // 전 단계에서 주문한 메뉴
 	private int count; // 전 단계에서 주문한 오더 수량	
 	private CafeDAOImp cafeDAOImp;
-	public MemberOrderRadioButtonListener memberOrderRadioButtonListener;
+	public OrderByMemberRadioButtonListener memberOrderRadioButtonListener;
 	private boolean flag = false;
 	private MemberVo member;
 	private int bonus;
 	/**
 	 * Create the frame.
 	 */
-	public MemberOrderFrame(MenuVo selectedMenu, int count) {
+	public OrderByMemberFrame(MenuVo selectedMenu, int count) {
 		setResizable(false);
 		this.selectedMenu = selectedMenu;
 		this.count = count;
@@ -82,7 +82,7 @@ public class MemberOrderFrame extends JFrame implements ActionListener {
 		contentPane.add(btnOrder8);
 		btnOrder8.addActionListener(this);
 		
-		memberOrderRadioButtonListener = new MemberOrderRadioButtonListener(this);
+		memberOrderRadioButtonListener = new OrderByMemberRadioButtonListener(this);
 		
 		rdbtnOrder3 = new JRadioButton("적립");
 		rdbtnOrder3.setFont(new Font("Lucida Grande", Font.PLAIN, 17));

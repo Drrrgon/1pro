@@ -1,4 +1,4 @@
-package gui;
+package gui.order;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -19,9 +19,10 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.border.EmptyBorder;
 
-import gui.listener.ComboBoxListener;
-import gui.listener.RadioButtonListener;
-import gui.listener.SpinnerChangeListener;
+import gui.main.MainFrame;
+import gui.menu.listener.MenuFrameComboBoxListener;
+import gui.order.listener.OrderFrameRadioButtonListener;
+import gui.order.listener.OrderFrameSpinnerChangeListener;
 import system.DAO.imp.CafeDAOImp;
 import vo.MenuVo;
 import vo.OrdersVo;
@@ -37,9 +38,9 @@ public class OrderFrame extends JFrame implements ActionListener {
 	private CafeDAOImp cafeDAOImp;
 	public List<MenuVo> list;
 	public MenuVo selectedMenu;
-	public ComboBoxListener comboBox;
-	public SpinnerChangeListener spinnerChangeListener;
-	public RadioButtonListener radioButtonListener;
+	public MenuFrameComboBoxListener comboBox;
+	public OrderFrameSpinnerChangeListener spinnerChangeListener;
+	public OrderFrameRadioButtonListener radioButtonListener;
 	/**
 	 * Launch the application.
 	 */
@@ -62,6 +63,7 @@ public class OrderFrame extends JFrame implements ActionListener {
 	public OrderFrame() {
 		setTitle("주문");
 		cafeDAOImp = CafeDAOImp.getInstance();
+		
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 640, 480);
@@ -99,31 +101,31 @@ public class OrderFrame extends JFrame implements ActionListener {
 		
 		JComboBox cbOrder1 = new JComboBox();				
 		cbOrder1.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		contentPane.add(cbOrder1);	
-		comboBox = new ComboBoxListener(this) {
+		contentPane.add(cbOrder1);
+
+		comboBox = new MenuFrameComboBoxListener(this) {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource().equals(cbOrder1)) {				
 					System.out.println((MenuVo)cbOrder1.getSelectedItem());
 					selectedMenu=(MenuVo)cbOrder1.getSelectedItem();
-				}
-				
+				}				
 			}
-		};	
+		};//상속을 위한 콤보박스 리스너
+		
 		cbOrder1.setBounds(252, 113, 294, 36);
 		cbOrder1.addActionListener(comboBox);
 		list = cafeDAOImp.getAllMenu();
 		for (MenuVo a : list) {
 			cbOrder1.addItem(a);
 		}
-		
-		
+				
 		spinner = new JSpinner();
 		spinner.setToolTipText("");
 		spinner.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		spinner.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
 		spinner.setBounds(252, 181, 80, 30);
 		contentPane.add(spinner);
-		spinnerChangeListener = new SpinnerChangeListener(this);
+		spinnerChangeListener = new OrderFrameSpinnerChangeListener(this);
 		spinner.addChangeListener(spinnerChangeListener);
 		
 		
@@ -139,7 +141,7 @@ public class OrderFrame extends JFrame implements ActionListener {
 		ButtonGroup bG = new ButtonGroup();
 		bG.add(rdbtnOrder1);
 		bG.add(rdbtnOrder2);
-		radioButtonListener = new RadioButtonListener(this);
+		radioButtonListener = new OrderFrameRadioButtonListener(this);
 		rdbtnOrder1.addItemListener(radioButtonListener);
 		rdbtnOrder2.addItemListener(radioButtonListener);
 		
@@ -162,31 +164,29 @@ public class OrderFrame extends JFrame implements ActionListener {
 			if(radioButtonListener.getMemberStatement() && spinnerChangeListener.getCountValue() !=0) {
 				this.dispose();
 				
-				MemberOrderFrame order2 = new MemberOrderFrame(selectedMenu, spinnerChangeListener.getCountValue());
+				OrderByMemberFrame order2 = new OrderByMemberFrame(selectedMenu, spinnerChangeListener.getCountValue());
 				order2.setVisible(true);
 			}else if(radioButtonListener.getMemberStatement() == false && spinnerChangeListener.getCountValue() !=0){
-				// else if 구문은 비회원 일 시 실행
-				this.dispose();
-				
+				// else if 구문은 비회원 일 시 실행				
 				OrdersVo order = new OrdersVo();				
-				order.setCount(spinnerChangeListener.getCountValue());
-				order.setMenuNo((selectedMenu.getMenuNo()));
-				int s = cafeDAOImp.getMenuPrice(selectedMenu.getMenuNo());
+				order.setCount(spinnerChangeListener.getCountValue()); //수량을 얻어옵니다.
+				order.setMenuNo((selectedMenu.getMenuNo()));//메뉴번호를 얻어옵니다.
+				int getPrice = cafeDAOImp.getMenuPrice(selectedMenu.getMenuNo());//DB에서 메뉴 번호로 메뉴의 가격을 불러옵니다.
+//				System.out.println(getPrice);// 쿼리 실행 확인.
 				order.setTotal(cafeDAOImp.getMenuPrice(selectedMenu.getMenuNo()) * spinnerChangeListener.getCountValue());
-				order.setTelNo("9999");
-				int re = cafeDAOImp.insertOrder(order);
+				//불러온 정보를 토대로 합산을 합니다.
+				order.setTelNo("9999"); // 비회원의 번호는 9999가 디폴트 값
+				int insertResult = cafeDAOImp.insertOrder(order); // DB에 ISERT쿼리를 보냅니다.
+//				System.out.println(insertResult);// 쿼리 실행 확인.
 				order.setOrederNo(order.getOrederNo());				
 				OrderResultFrame order3 = new OrderResultFrame(order,null);
+				this.dispose();
 				order3.setVisible(true);
 			}else {
 				JButton resource = (JButton) e.getSource();
 				JOptionPane.showConfirmDialog(resource, "잘못된 선택입니다.",">>", JOptionPane.PLAIN_MESSAGE);
 			}
-			
-//			System.out.println(selectedMenu);
-//			System.out.println(radioButtonListener.getMemberStatement());
-//			System.out.println(spinnerChangeListener.getCountValue());	
-			
+
 			break;
 		default:
 			break;

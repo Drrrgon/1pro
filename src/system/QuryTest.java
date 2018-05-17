@@ -2,8 +2,10 @@ package system;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 
 import system.DAO.imp.CafeDAOImp;
+import vo.OrdersVo;
 import vo.SaleVo;
 
 public class QuryTest {
@@ -111,7 +113,16 @@ public class QuryTest {
 	    sale.setOriginalPrice(2);
 	    sale.setTotalSale(3);
 	    System.out.println(1);
-	    System.out.println(cafeDAOImp.insertDailyClosing(sale));
+//	    System.out.println(cafeDAOImp.insertDailyClosing(sale));
+	    
+	    OrdersVo order = new OrdersVo();
+	    order.setOrederNo(1);
+	    HashMap<String, Object> map = cafeDAOImp.getOrderByString(order);
+	    System.out.println(map.get("ORDERNO"));
+	    System.out.println(map.get("MNAME"));
+	    System.out.println(map.get("COUNT")); 
+	    System.out.println(map.get("TOTAL"));
+	    System.out.println(map.get("TIME"));
 	}
 
 }

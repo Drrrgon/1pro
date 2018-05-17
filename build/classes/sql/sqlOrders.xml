@@ -25,6 +25,14 @@
 		<include refid="orderByNo"/>
 	</select>
 	
+	<select id="getOrderByString" parameterType="orders" resultType="hashmap" >
+		SELECT o.ORDERNO, m.mName, o.COUNT, o.TOTAL, o.TIME
+		FROM
+		Orders o , MENU m
+		WHERE o.Menuno = m.MENUNO AND o.ORDERNO = #{orederNo}
+		<include refid="orderByNo"/>
+	</select>
+	
 	<select id="getAllOrderByOrdersVo" resultType="orders" >
 		SELECT o.ORDERNO, o.menuno, o.COUNT, o.TOTAL, o.TELNO, o.USEBONUS, o.TIME
 		FROM

@@ -9,13 +9,13 @@
 		SELECT o.ORDERNO, o.MENUNO, m.MNAME, m.MORIGINALPRICE, o.COUNT, o.TOTAL, o.TIME
 		FROM
 		Orders o , MENU m
-		WHERE o.Menuno = m.MENUNO and to_char(o.time, 'YYYYMMDD') = #{value} <!-- to_char(sysdate, 'YYYY-MM-DD') -->
+		WHERE o.Menuno = m.MENUNO and to_char(o.time, 'YYYYMMDD') <![CDATA[ <= ]]> #{value} <!-- to_char(sysdate, 'YYYY-MM-DD') -->
 	</select>
 	
-	<insert id="insertDailyClosing" parameterType="sale">
+	<!-- <insert id="insertDailyClosing" parameterType="sale">
 			INSERT INTO SALE (SALEDATE, MENULIST, ORIGINALSALE, TOTALSALE)
 			VALUES(to_char(SYSDATE,'YYYY-MM-DD'), #{menuList}, #{originalSale}, #{totalSale} )
-	</insert>
+	</insert> -->
 	
 	<insert id="insertDailyClosed" parameterType='sale'>
 		INSERT INTO SALE (SALEDATE, MENULIST, TOTALSALE, ORIGINALSALE)
@@ -24,7 +24,7 @@
 	
 	<delete id="dailyClosing" parameterType="string">
 		DELETE FROM ORDERS
-		WHERE to_char(TIME, 'YYYYMMDD') = #{value}
+		WHERE to_char(TIME, 'YYYYMMDD') <![CDATA[ <= ]]> #{value}
 	</delete>
 	
 	<select id="getDailyByDate" parameterType="string" resultType="sale">
@@ -33,4 +33,13 @@
 		SALE
 		WHERE to_char(SALEDATE, 'YYYYMMDD') = #{value}
 	</select>
+	
+	<update id="createSequence">
+		CREATE SEQUENCE ORDERS_SEQ START WITH 1 INCREMENT BY 1
+	</update>
+	
+	<update id="dropSequence">
+		DROP SEQUENCE ORDERS_SEQ
+	</update>
+	
 </mapper>

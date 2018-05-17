@@ -1,10 +1,11 @@
-package gui;
+package gui.order;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Member;
+import java.util.HashMap;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,6 +14,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import gui.main.MainFrame;
+import system.DAO.imp.CafeDAOImp;
 import vo.MemberVo;
 import vo.OrdersVo;
 
@@ -25,6 +28,7 @@ public class OrderResultFrame extends JFrame implements ActionListener {
 	private JLabel label_2;
 	private OrdersVo order;
 	private MemberVo member;
+	private CafeDAOImp cafeDAOImp;
 	/**
 	 * Create the frame.
 	 */
@@ -32,6 +36,7 @@ public class OrderResultFrame extends JFrame implements ActionListener {
 		setTitle("주문 확인");
 		this.order = order;
 		this.member = member;
+		cafeDAOImp = CafeDAOImp.getInstance();
 		
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -69,7 +74,9 @@ public class OrderResultFrame extends JFrame implements ActionListener {
 		txtOrder1.setBounds(52, 210, 555, 50);
 		contentPane.add(txtOrder1);
 		txtOrder1.setColumns(10);
-		txtOrder1.setText(order.toString());
+		HashMap<String, Object> map =cafeDAOImp.getOrderByString(order);
+		txtOrder1.setText("몌뉴 : "+map.get("MNAME")+" 수량 : "+map.get("COUNT")+
+				" 총 가격 : "+map.get("TOTAL")+"원 주문 시각 : "+map.get("TIME"));
 		
 		txtOrder2 = new JTextField();
 		txtOrder2.setEditable(false);

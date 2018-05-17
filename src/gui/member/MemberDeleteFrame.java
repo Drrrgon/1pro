@@ -1,4 +1,4 @@
-package gui;
+package gui.member;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import gui.main.MainFrame;
 import system.DAO.imp.CafeDAOImp;
 import vo.MemberVo;
 

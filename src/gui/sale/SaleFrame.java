@@ -1,14 +1,14 @@
-package gui;
+package gui.sale;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.swing.ButtonGroup;
@@ -17,26 +17,25 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
 import javax.swing.JTextArea;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.border.EmptyBorder;
 
+import gui.main.MainFrame;
 import system.DAO.imp.CafeDAOImp;
 import vo.DailyVo;
 import vo.MenuVo;
 import vo.SaleVo;
-import javax.swing.SpinnerDateModel;
 
 public class SaleFrame extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JLabel lblCafe;
 	private JButton btnSale3;
-	private JRadioButton rdbtnOrder1, rdbtnOrder2;
+//	private JRadioButton rdbtnOrder1, rdbtnOrder2;
 	private JComboBox cbOrder1;
-	private JSpinner spinner;
+//	private JSpinner spinner;
 	private JSpinner spinnerSale2;
 	private JSpinner spinnerSale3;
 	private JLabel label_1;
@@ -47,12 +46,14 @@ public class SaleFrame extends JFrame implements ActionListener {
 	private JLabel label;
 	private JButton btnNewButton;
 	private CafeDAOImp cafeDAOImp;
-	private SaleVo sale;
+	private Calendar cal;
+//	private SaleVo sale;
 	/**
 	 * Create the frame.
 	 */
 	public SaleFrame() {
 		cafeDAOImp = CafeDAOImp.getInstance();
+		cal = Calendar.getInstance();
 		
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -75,12 +76,12 @@ public class SaleFrame extends JFrame implements ActionListener {
 		contentPane.add(btnSale3);
 		
 		spinnerSale2 = new JSpinner();
-		spinnerSale2.setModel(new SpinnerNumberModel(1, 1, 12, 1));
+		spinnerSale2.setModel(new SpinnerNumberModel(cal.get(Calendar.MONTH)+1, 1, 12, 1));
 		spinnerSale2.setBounds(172, 96, 47, 33);
 		contentPane.add(spinnerSale2);
 		
 		spinnerSale3 = new JSpinner();
-		spinnerSale3.setModel(new SpinnerNumberModel(1, 1, 31, 1));
+		spinnerSale3.setModel(new SpinnerNumberModel(cal.get(Calendar.DATE), 1, 31, 1));
 		spinnerSale3.setBounds(262, 96, 47, 33);
 		contentPane.add(spinnerSale3);
 		
@@ -103,12 +104,9 @@ public class SaleFrame extends JFrame implements ActionListener {
 		textAreaSale1 = new JTextArea();
 		textAreaSale1.setEditable(false);
 		textAreaSale1.setBounds(46, 147, 561, 213);
-		contentPane.add(textAreaSale1);
+		contentPane.add(textAreaSale1);		
 		
-		
-		
-		spinnerSale1 = new JSpinner(new SpinnerNumberModel(2018, 1990, 2999, 1));
-		;
+		spinnerSale1 = new JSpinner(new SpinnerNumberModel(cal.get(Calendar.YEAR), 1990, 2999, 1));
 		spinnerSale1.setBounds(46, 96, 83, 29);
 		contentPane.add(spinnerSale1);
 		
@@ -125,6 +123,7 @@ public class SaleFrame extends JFrame implements ActionListener {
 		contentPane.add(btnNewButton);
 		ButtonGroup bG = new ButtonGroup();
 	}
+	
 	public void actionPerformed(ActionEvent e) {
 		JButton resource = (JButton) e.getSource();
 		if(resource == btnSale3){
@@ -133,7 +132,7 @@ public class SaleFrame extends JFrame implements ActionListener {
 			home.setVisible(true);
 		}
 		if(resource == btnNewButton) {
-			Calendar cal = Calendar.getInstance();			
+						
 			String allMenuString = "";
 			
 			SimpleDateFormat dateType = new SimpleDateFormat("yyyyMMdd");
@@ -181,6 +180,8 @@ public class SaleFrame extends JFrame implements ActionListener {
 			System.out.println(allMenuString);
 			SaleVo sale = new SaleVo(allMenuString,total,totalOriginal);
 			System.out.println(cafeDAOImp.insertDailyClosed(sale));
+			int re = cafeDAOImp.dailyClosing(date);
+			System.out.println(re);
 			textAreaSale1.setText(sale.toString());			
 		}
 		
@@ -219,10 +220,7 @@ public class SaleFrame extends JFrame implements ActionListener {
 				e1.printStackTrace();
 			}
 			sale = cafeDAOImp.getDailyByDate(str);
-			textAreaSale1.setText(sale.toString());
-			
-			
-			
+			textAreaSale1.setText(sale.toString());			
 		}
 	}
 }

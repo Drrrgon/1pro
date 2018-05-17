@@ -1,4 +1,4 @@
-package gui;
+package gui.main;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -11,6 +11,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import gui.member.MemberAddFrame;
+import gui.member.MemberDeleteFrame;
+import gui.menu.MenuFrame;
+import gui.order.OrderDeleteFrame;
+import gui.order.OrderFrame;
+import gui.sale.SaleFrame;
 
 public class MainFrame extends JFrame implements ActionListener {
 
