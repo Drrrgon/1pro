@@ -46,12 +46,12 @@ public class OrderResultFrame extends JFrame implements ActionListener {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		label = new JLabel("1. 주문번호");
+		label = new JLabel("주문번호");
 		label.setFont(new Font("Dialog", Font.PLAIN, 23));
 		label.setBounds(122, 231, 199, 44);
 		contentPane.add(label);
 		
-		label_1 = new JLabel("2. 잔여 마일리지");
+		label_1 = new JLabel("잔여 마일리지");
 		label_1.setFont(new Font("Dialog", Font.PLAIN, 23));
 		label_1.setBounds(121, 376, 282, 48);
 		contentPane.add(label_1);
@@ -64,7 +64,7 @@ public class OrderResultFrame extends JFrame implements ActionListener {
 		btnOrder9 = new JButton("HOME");
 		btnOrder9.setFont(new Font("Dialog", Font.PLAIN, 19));
 		btnOrder9.addActionListener(this);
-		btnOrder9.setBounds(711, 533, 83, 39);
+		btnOrder9.setBounds(683, 514, 97, 39);
 		btnOrder9.setForeground(Color.BLACK);
 		contentPane.add(btnOrder9);
 		

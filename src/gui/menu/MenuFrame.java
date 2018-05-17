@@ -85,7 +85,7 @@ public class MenuFrame extends JFrame implements ActionListener {
 		
 		originalPrice = new JTextField();		
 		originalPrice.setColumns(10);
-		originalPrice.setBounds(193, 178, 212, 30);
+		originalPrice.setBounds(193, 180, 212, 30);
 		contentPane.add(originalPrice);
 		
 		JLabel lblMenuname = new JLabel("메뉴 이름");
@@ -106,12 +106,12 @@ public class MenuFrame extends JFrame implements ActionListener {
 		
 		btnReg = new JButton("등록");
 		btnReg.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		btnReg.setBounds(581, 115, 75, 34);
+		btnReg.setBounds(575, 175, 75, 34);
 		contentPane.add(btnReg);
 		
 		JButton btnDel = new JButton("삭제");
 		btnDel.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		btnDel.setBounds(581, 177, 75, 34);
+		btnDel.setBounds(675, 175, 75, 34);
 		contentPane.add(btnDel);
 		
 		JScrollPane sp = new JScrollPane(menuList);

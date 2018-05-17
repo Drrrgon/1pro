@@ -56,7 +56,7 @@ public class MainFrame extends JFrame implements ActionListener {
 		setResizable(false);
 		setTitle("Cafe24");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 650, 550);
+		setBounds(100, 100, 800	, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -101,7 +101,7 @@ public class MainFrame extends JFrame implements ActionListener {
 		
 		lblCafe = new JLabel("Cafe24");
 
-     	lblCafe.setBounds(200, 69, 263, 81);
+     	lblCafe.setBounds(277, 69, 263, 81);
 
 //		lblCafe.setBounds(230, 71, 233, 81);
 

@@ -27,6 +27,7 @@ import gui.order.listener.OrderDeleteFrameListener;
 import system.DAO.imp.CafeDAOImp;
 import vo.MenuVo;
 import vo.OrdersVo;
+import java.awt.GridLayout;
 
 public class OrderDeleteFrame extends JFrame implements ActionListener {
 
@@ -70,13 +71,13 @@ public class OrderDeleteFrame extends JFrame implements ActionListener {
 		contentPane.setLayout(null);
 		
 		lblCafe = new JLabel("Cafe24");
-		lblCafe.setBounds(236, 12, 272, 66);
+		lblCafe.setBounds(259, 27, 272, 66);
 		lblCafe.setFont(new Font("Dialog", Font.PLAIN, 70));
 		contentPane.add(lblCafe);
 		
 		lblNewLabel = new JLabel("주문 현황");
-		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		lblNewLabel.setBounds(48, 81, 79, 16);
+		lblNewLabel.setFont(new Font("Dialog", Font.PLAIN, 23));
+		lblNewLabel.setBounds(41, 120, 134, 37);
 		contentPane.add(lblNewLabel);
 		
 		btnOrder11 = new JButton("HOME");
@@ -96,7 +97,7 @@ public class OrderDeleteFrame extends JFrame implements ActionListener {
 		txtOrder5 = new JTextField();
 		txtOrder5.setEditable(false);
 		txtOrder5.setColumns(10);
-		txtOrder5.setBounds(41, 109, 558, 21);
+		txtOrder5.setBounds(41, 169, 706, 21);
 		contentPane.add(txtOrder5);
 		
 		JScrollPane sp = new JScrollPane(listOrder1);
@@ -117,7 +118,8 @@ public class OrderDeleteFrame extends JFrame implements ActionListener {
 		
 		panel = new JPanel();
 		panel.setSize(new Dimension(400, 400));
-		panel.setBounds(48, 142, 549, 221);
+		panel.setBounds(42, 202, 705, 221);
+		panel.setLayout(new GridLayout(0, 1, 0, 0));
 		panel.add(sp);
 		contentPane.add(panel);
 	}

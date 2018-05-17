@@ -71,7 +71,7 @@ public class SaleFrame extends JFrame implements ActionListener {
 		btnSale3 = new JButton("HOME");
 		btnSale3.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		btnSale3.addActionListener(this);
-		btnSale3.setBounds(709, 525, 85, 47);
+		btnSale3.setBounds(632, 494, 118, 47);
 		btnSale3.setForeground(Color.BLACK);
 		contentPane.add(btnSale3);
 		
@@ -99,13 +99,13 @@ public class SaleFrame extends JFrame implements ActionListener {
 		
 		btnSale2 = new JButton("매출 조회");
 		btnSale2.setFont(new Font("Dialog", Font.PLAIN, 22));
-		btnSale2.setBounds(571, 166, 130, 40);
+		btnSale2.setBounds(615, 165, 130, 40);
 		contentPane.add(btnSale2);
 		btnSale2.addActionListener(this);
 		
 		textAreaSale1 = new JTextArea();
 		textAreaSale1.setEditable(false);
-		textAreaSale1.setBounds(46, 231, 645, 251);
+		textAreaSale1.setBounds(46, 231, 699, 251);
 		contentPane.add(textAreaSale1);		
 		
 		spinnerSale1 = new JSpinner(new SpinnerNumberModel(cal.get(Calendar.YEAR), 1990, 2999, 1));
@@ -122,7 +122,7 @@ public class SaleFrame extends JFrame implements ActionListener {
 		btnNewButton.setFont(new Font("Dialog", Font.PLAIN, 22));
 		btnNewButton.addActionListener(this);
 		
-		btnNewButton.setBounds(437, 166, 130, 40);
+		btnNewButton.setBounds(471, 165, 130, 40);
 		contentPane.add(btnNewButton);
 		ButtonGroup bG = new ButtonGroup();
 	}

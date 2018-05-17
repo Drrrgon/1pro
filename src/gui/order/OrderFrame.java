@@ -72,19 +72,19 @@ public class OrderFrame extends JFrame implements ActionListener {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		label = new JLabel("1. 메뉴선택");
+		label = new JLabel("메뉴선택");
 		label.setFont(new Font("Dialog", Font.PLAIN, 21));
-		label.setBounds(126, 225, 204, 56);
+		label.setBounds(52, 143, 204, 56);
 		contentPane.add(label);
 		
-		label_1 = new JLabel("2. 수량");
+		label_1 = new JLabel("수량");
 		label_1.setFont(new Font("Dialog", Font.PLAIN, 21));
-		label_1.setBounds(60, 258, 153, 46);
+		label_1.setBounds(59, 311, 153, 56);
 		contentPane.add(label_1);
 		
-		label_2 = new JLabel("3. 회원/비회원");
+		label_2 = new JLabel("회원/비회원");
 		label_2.setFont(new Font("Dialog", Font.PLAIN, 21));
-		label_2.setBounds(60, 316, 153, 56);
+		label_2.setBounds(59, 399, 153, 56);
 		contentPane.add(label_2);
 		
 		lblCafe = new JLabel("Cafe24");
@@ -95,7 +95,7 @@ public class OrderFrame extends JFrame implements ActionListener {
 		btnOrder5 = new JButton(">>");
 		btnOrder5.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		btnOrder5.addActionListener(this);
-		btnOrder5.setBounds(715, 536, 79, 36);
+		btnOrder5.setBounds(709, 529, 79, 36);
 		btnOrder5.setForeground(Color.BLACK);
 		contentPane.add(btnOrder5);
 		
@@ -112,7 +112,7 @@ public class OrderFrame extends JFrame implements ActionListener {
 			}
 		};//상속을 위한 콤보박스 리스너
 		
-		cbOrder1.setBounds(52, 157, 686, 56);
+		cbOrder1.setBounds(52, 212, 686, 56);
 		cbOrder1.addActionListener(comboBox);
 		list = cafeDAOImp.getAllMenu();
 		for (MenuVo a : list) {
@@ -123,20 +123,20 @@ public class OrderFrame extends JFrame implements ActionListener {
 		spinner.setToolTipText("");
 		spinner.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		spinner.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
-		spinner.setBounds(669, 258, 80, 36);
+		spinner.setBounds(656, 323, 80, 36);
 		contentPane.add(spinner);
 		spinnerChangeListener = new OrderFrameSpinnerChangeListener(this);
 		spinner.addChangeListener(spinnerChangeListener);
 		
 		
 		JRadioButton rdbtnOrder1 = new JRadioButton("회원");
-		rdbtnOrder1.setBounds(533, 322, 100, 50);
+		rdbtnOrder1.setBounds(532, 399, 100, 50);
 		contentPane.add(rdbtnOrder1);		
 		rdbtnOrder1.setFont(new Font("Dialog", Font.PLAIN, 21));
 		JRadioButton rdbtnOrder2 = new JRadioButton("비회원");
 		rdbtnOrder2.setSelected(false);
 		rdbtnOrder2.setFont(new Font("Dialog", Font.PLAIN, 21));
-		rdbtnOrder2.setBounds(657, 322, 100, 50);
+		rdbtnOrder2.setBounds(638, 399, 100, 50);
 		contentPane.add(rdbtnOrder2);		
 		ButtonGroup bG = new ButtonGroup();
 		bG.add(rdbtnOrder1);
@@ -144,12 +144,12 @@ public class OrderFrame extends JFrame implements ActionListener {
 		radioButtonListener = new OrderFrameRadioButtonListener(this);
 		rdbtnOrder1.addItemListener(radioButtonListener);
 		rdbtnOrder2.addItemListener(radioButtonListener);
-		
+		rdbtnOrder2.setSelected(true);
 		btnOrder4 = new JButton("<<");
 		btnOrder4.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		btnOrder4.addActionListener(this);
 		btnOrder4.setForeground(Color.BLACK);
-		btnOrder4.setBounds(6, 536, 79, 36);
+		btnOrder4.setBounds(0, 529, 79, 36);
 		contentPane.add(btnOrder4);
 	}
 	public void actionPerformed(ActionEvent e) {
@@ -162,8 +162,7 @@ public class OrderFrame extends JFrame implements ActionListener {
 			
 		case ">>":
 			if(radioButtonListener.getMemberStatement() && spinnerChangeListener.getCountValue() !=0) {
-				this.dispose();
-				
+				this.dispose();				
 				OrderByMemberFrame order2 = new OrderByMemberFrame(selectedMenu, spinnerChangeListener.getCountValue());
 				order2.setVisible(true);
 			}else if(radioButtonListener.getMemberStatement() == false && spinnerChangeListener.getCountValue() !=0){
@@ -186,7 +185,6 @@ public class OrderFrame extends JFrame implements ActionListener {
 				JButton resource = (JButton) e.getSource();
 				JOptionPane.showConfirmDialog(resource, "잘못된 선택입니다.",">>", JOptionPane.PLAIN_MESSAGE);
 			}
-
 			break;
 		default:
 			break;
