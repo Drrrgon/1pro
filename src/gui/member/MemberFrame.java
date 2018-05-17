@@ -17,7 +17,7 @@ import gui.main.MainFrame;
 import system.DAO.imp.CafeDAOImp;
 import vo.MemberVo;
 
-public class MemberAddFrame extends JFrame implements ActionListener {
+public class MemberFrame extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JTextField txtMember1, txtMember2;
@@ -28,7 +28,7 @@ public class MemberAddFrame extends JFrame implements ActionListener {
 	/**
 	 * Create the frame.
 	 */
-	public MemberAddFrame() {
+	public MemberFrame() {
 		cafeDAOImp = CafeDAOImp.getInstance();
 		
 		setResizable(false);
@@ -39,18 +39,18 @@ public class MemberAddFrame extends JFrame implements ActionListener {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		label = new JLabel("1. 이름");
-		label.setBounds(122, 137, 72, 29);
-		label.setFont(new Font("Dialog", Font.PLAIN, 20));
+		label = new JLabel("전화번호");
+		label.setBounds(57, 109, 96, 29);
+		label.setFont(new Font("Arial", Font.PLAIN, 17));
 		contentPane.add(label);
 		
-		label_1 = new JLabel("2. 전화번호");
-		label_1.setBounds(122, 209, 110, 29);
-		label_1.setFont(new Font("Dialog", Font.PLAIN, 20));
+		label_1 = new JLabel("이름");
+		label_1.setBounds(57, 162, 110, 29);
+		label_1.setFont(new Font("Arial", Font.PLAIN, 17));
 		contentPane.add(label_1);
 		
 		lblCafe = new JLabel("Cafe24");
-		lblCafe.setBounds(227, 27, 162, 44);
+		lblCafe.setBounds(227, 27, 200, 50);
 		lblCafe.setFont(new Font("Dialog", Font.PLAIN, 50));
 		contentPane.add(lblCafe);
 		
@@ -62,13 +62,13 @@ public class MemberAddFrame extends JFrame implements ActionListener {
 		contentPane.add(btnMember3);
 		
 		txtMember1 = new JTextField();
-		txtMember1.setBounds(258, 128, 200, 50);
+		txtMember1.setBounds(167, 103, 200, 39);
 		txtMember1.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		contentPane.add(txtMember1);
 		txtMember1.setColumns(10);
 		
 		txtMember2 = new JTextField();
-		txtMember2.setBounds(258, 200, 200, 50);
+		txtMember2.setBounds(167, 156, 200, 39);
 		txtMember2.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		txtMember2.setColumns(10);
 		contentPane.add(txtMember2);

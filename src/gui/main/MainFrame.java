@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import gui.member.MemberAddFrame;
+import gui.member.MemberFrame;
 import gui.member.MemberDeleteFrame;
 import gui.menu.MenuFrame;
 import gui.order.OrderDeleteFrame;
@@ -156,7 +156,7 @@ public class MainFrame extends JFrame implements ActionListener {
 		}
 		if(resource == btnMember1){
 			this.dispose();
-			MemberAddFrame mem1 = new MemberAddFrame();
+			MemberFrame mem1 = new MemberFrame();
 			mem1.setVisible(true);
 		}
 		if(resource == btnMember2){
