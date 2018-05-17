@@ -24,7 +24,7 @@ public class MainFrame extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JButton btnExit;
-	private JButton btnOrder1, btnOrder2, btnSale1, btnMenu1, btnMenu2, btnMember1, btnMember2;
+	private JButton btnOrder1, btnOrder2, btnSale1, btnMenu1, btnMenu2, btnMember1;
 	private JLabel lblCafe;
 	private JLabel lblNewLabel;
 	private JLabel lbll;
@@ -90,17 +90,12 @@ public class MainFrame extends JFrame implements ActionListener {
 		btnMember1 = new JButton("회원 등록 / 검색 / 삭제");
 		btnMember1.setFont(new Font("Dialog", Font.PLAIN, 25));
 		btnMember1.setBounds(194, 401, 380, 50);
-
-		btnMember2 = new JButton("회원삭제");
-		btnMember2.setFont(new Font("Dialog", Font.PLAIN, 25));
-		btnMember2.setBounds(441, 397, 195, 50);
-		contentPane.add(btnMember2);
-		btnMember2.addActionListener(this);
+		btnMember1.addActionListener(this);
 		
-		btnMember1 = new JButton("회원등록");
-		btnMember1.setFont(new Font("Dialog", Font.PLAIN, 25));
-		btnMember1.setBounds(255, 397, 183, 50);
-
+//		btnMember1 = new JButton("회원등록");
+//		btnMember1.setFont(new Font("Dialog", Font.PLAIN, 25));
+//		btnMember1.setBounds(255, 397, 183, 50);
+//
 		contentPane.add(btnMember1);
 		btnMember1.addActionListener(this);
 		
