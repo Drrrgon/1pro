@@ -50,7 +50,7 @@ public class MemberVo{
 
 	@Override
 	public String toString() {
-		return "MemberVo [memberNo=" + memberNo + ", telNo=" + telNo + ", mName=" + mName + ", mBonus=" + mBonus + "]";
+		return " 이름 : " + mName + "      전화번호 : " + telNo +  "      마일리지 : " + mBonus ;
 	}
     
     

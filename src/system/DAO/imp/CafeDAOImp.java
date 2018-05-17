@@ -265,6 +265,12 @@ public class CafeDAOImp implements CafeDAO {
 		}
 		return result;
 	}
+
+	@Override
+	public List<MemberVo> getAllMember() {
+		List<MemberVo> list = sqlSession.selectList("Member.getAllMember");
+		return list;
+	}
 	
 	
 
