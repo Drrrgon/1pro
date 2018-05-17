@@ -57,12 +57,12 @@ public class LoginFrame extends JFrame implements ActionListener{
 		contentPane.setLayout(null);
 		
 		login = new JTextField();
-		login.setBounds(205, 151, 116, 24);
+		login.setBounds(243, 151, 116, 24);
 		contentPane.add(login);
 		login.setColumns(10);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(205, 187, 116, 24);
+		passwordField.setBounds(243, 187, 116, 24);
 		contentPane.add(passwordField);
 		
 		JLabel title = new JLabel("");
@@ -72,12 +72,12 @@ public class LoginFrame extends JFrame implements ActionListener{
 		
 		JLabel id = new JLabel("ID");
 		id.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
-		id.setBounds(105, 151, 78, 24);
+		id.setBounds(49, 152, 78, 24);
 		contentPane.add(id);
 		
 		JLabel password = new JLabel("PASSWORD");
 		password.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
-		password.setBounds(105, 187, 78, 24);
+		password.setBounds(49, 187, 78, 24);
 		contentPane.add(password);
 		
 		loginButton = new JButton("LOGIN");

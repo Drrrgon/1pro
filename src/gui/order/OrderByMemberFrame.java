@@ -56,28 +56,28 @@ public class OrderByMemberFrame extends JFrame implements ActionListener {
 		contentPane.setLayout(null);
 		
 		label = new JLabel("1. 회원 전화번호");
-		label.setFont(new Font("Dialog", Font.PLAIN, 45));
-		label.setBounds(14, 197, 365, 50);
+		label.setFont(new Font("Dialog", Font.PLAIN, 25));
+		label.setBounds(44, 183, 280, 50);
 		contentPane.add(label);
 		
 		label_1 = new JLabel("2. 잔여 마일리지");
-		label_1.setFont(new Font("Dialog", Font.PLAIN, 45));
-		label_1.setBounds(14, 282, 389, 50);
+		label_1.setFont(new Font("Dialog", Font.PLAIN, 25));
+		label_1.setBounds(44, 268, 280, 50);
 		contentPane.add(label_1);
 		
 		label_2 = new JLabel("3. 적립/사용");
-		label_2.setFont(new Font("Dialog", Font.PLAIN, 45));
-		label_2.setBounds(14, 364, 285, 45);
+		label_2.setFont(new Font("Dialog", Font.PLAIN, 25));
+		label_2.setBounds(44, 350, 280, 45);
 		contentPane.add(label_2);
 		
 		lblCafe = new JLabel("Cafe24");
-		lblCafe.setBounds(254, 54, 236, 82);
-		lblCafe.setFont(new Font("Dialog", Font.PLAIN, 70));
+		lblCafe.setBounds(327, 30, 205, 82);
+		lblCafe.setFont(new Font("Dialog", Font.PLAIN, 50));
 		contentPane.add(lblCafe);
 		
 		btnOrder8 = new JButton(">>");
-		btnOrder8.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		btnOrder8.setBounds(701, 518, 79, 35);
+		btnOrder8.setFont(new Font("Lucida Grande", Font.PLAIN, 23));
+		btnOrder8.setBounds(701, 516, 79, 44);
 		btnOrder8.setForeground(Color.BLACK);
 		contentPane.add(btnOrder8);
 		btnOrder8.addActionListener(this);
@@ -87,34 +87,34 @@ public class OrderByMemberFrame extends JFrame implements ActionListener {
 		rdbtnOrder3 = new JRadioButton("적립");
 		rdbtnOrder3.setFont(new Font("Dialog", Font.PLAIN, 25));
 		radioButtonGroup.add(rdbtnOrder3);
-		rdbtnOrder3.setBounds(384, 364, 79, 45);
+		rdbtnOrder3.setBounds(354, 350, 79, 45);
 		contentPane.add(rdbtnOrder3);
 		rdbtnOrder3.addItemListener(memberOrderRadioButtonListener);
 		
 		rdbtnOrder4 = new JRadioButton("사용");
 		rdbtnOrder4.setFont(new Font("Dialog", Font.PLAIN, 25));
 		radioButtonGroup.add(rdbtnOrder4);
-		rdbtnOrder4.setBounds(508, 364, 77, 45);
+		rdbtnOrder4.setBounds(478, 350, 77, 45);
 		contentPane.add(rdbtnOrder4);
 		rdbtnOrder4.addItemListener(memberOrderRadioButtonListener);
 		
 		btnOrder7 = new JButton("<<");
-		btnOrder7.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		btnOrder7.setFont(new Font("Lucida Grande", Font.PLAIN, 23));
 		btnOrder7.addActionListener(this);
-		btnOrder7.setBounds(14, 518, 79, 35);
+		btnOrder7.setBounds(14, 516, 79, 45);
 		btnOrder7.setForeground(Color.BLACK);
 		contentPane.add(btnOrder7);
 		
 		txtOrder1 = new JTextField();// 전화번호 입력란
 		txtOrder1.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		txtOrder1.setBounds(366, 197, 300, 50);
+		txtOrder1.setBounds(354, 183, 300, 50);
 		contentPane.add(txtOrder1);
 		txtOrder1.setColumns(10);
 		
 		btnOrder6 = new JButton("검색");
-		btnOrder6.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		btnOrder6.setFont(new Font("Lucida Grande", Font.PLAIN, 23));
 		btnOrder6.setForeground(Color.BLACK);
-		btnOrder6.setBounds(680, 217, 100, 29);
+		btnOrder6.setBounds(680, 185, 100, 50);
 		contentPane.add(btnOrder6);
 		btnOrder6.addActionListener(this);
 		
@@ -122,7 +122,7 @@ public class OrderByMemberFrame extends JFrame implements ActionListener {
 		txtOrder2.setEditable(false);
 		txtOrder2.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		txtOrder2.setColumns(10);
-		txtOrder2.setBounds(366, 282, 300, 50);
+		txtOrder2.setBounds(354, 268, 300, 50);
 		contentPane.add(txtOrder2);
 	}
 	public void actionPerformed(ActionEvent e) {

@@ -64,62 +64,65 @@ public class SaleFrame extends JFrame implements ActionListener {
 		contentPane.setLayout(null);
 		
 		lblCafe = new JLabel("Cafe24");
-		lblCafe.setBounds(260, 57, 227, 79);
+		lblCafe.setBounds(276, 29, 252, 90);
 		lblCafe.setFont(new Font("Dialog", Font.PLAIN, 70));
 		contentPane.add(lblCafe);
 		
 		btnSale3 = new JButton("HOME");
-		btnSale3.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		btnSale3.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		btnSale3.addActionListener(this);
-		btnSale3.setBounds(697, 514, 83, 39);
+		btnSale3.setBounds(709, 525, 85, 47);
 		btnSale3.setForeground(Color.BLACK);
 		contentPane.add(btnSale3);
 		
 		spinnerSale2 = new JSpinner();
+		spinnerSale2.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		spinnerSale2.setModel(new SpinnerNumberModel(cal.get(Calendar.MONTH)+1, 1, 12, 1));
-		spinnerSale2.setBounds(184, 208, 62, 40);
+		spinnerSale2.setBounds(184, 166, 62, 40);
 		contentPane.add(spinnerSale2);
 		
 		spinnerSale3 = new JSpinner();
+		spinnerSale3.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		spinnerSale3.setModel(new SpinnerNumberModel(cal.get(Calendar.DATE), 1, 31, 1));
-		spinnerSale3.setBounds(297, 208, 47, 40);
+		spinnerSale3.setBounds(297, 166, 62, 40);
 		contentPane.add(spinnerSale3);
 		
 		label_1 = new JLabel("월");
-		label_1.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		label_1.setBounds(260, 215, 27, 35);
+		label_1.setFont(new Font("Lucida Grande", Font.PLAIN, 23));
+		label_1.setBounds(247, 167, 27, 35);
 		contentPane.add(label_1);
 		
 		label_2 = new JLabel("일");
-		label_2.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		label_2.setBounds(358, 218, 27, 29);
+		label_2.setFont(new Font("Lucida Grande", Font.PLAIN, 23));
+		label_2.setBounds(363, 170, 27, 29);
 		contentPane.add(label_2);
 		
 		btnSale2 = new JButton("매출 조회");
 		btnSale2.setFont(new Font("Dialog", Font.PLAIN, 22));
-		btnSale2.setBounds(571, 208, 130, 40);
+		btnSale2.setBounds(571, 166, 130, 40);
 		contentPane.add(btnSale2);
 		btnSale2.addActionListener(this);
 		
 		textAreaSale1 = new JTextArea();
 		textAreaSale1.setEditable(false);
-		textAreaSale1.setBounds(46, 269, 645, 213);
+		textAreaSale1.setBounds(46, 231, 645, 251);
 		contentPane.add(textAreaSale1);		
 		
 		spinnerSale1 = new JSpinner(new SpinnerNumberModel(cal.get(Calendar.YEAR), 1990, 2999, 1));
-		spinnerSale1.setBounds(46, 208, 95, 40);
+		spinnerSale1.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+		spinnerSale1.setBounds(46, 166, 95, 40);
 		contentPane.add(spinnerSale1);
 		
 		label = new JLabel("년");
-		label.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		label.setBounds(156, 215, 27, 35);
+		label.setFont(new Font("Lucida Grande", Font.PLAIN, 23));
+		label.setBounds(145, 167, 27, 35);
 		contentPane.add(label);
 		
 		btnNewButton = new JButton("일일 마감");
 		btnNewButton.setFont(new Font("Dialog", Font.PLAIN, 22));
 		btnNewButton.addActionListener(this);
 		
-		btnNewButton.setBounds(437, 208, 130, 40);
+		btnNewButton.setBounds(437, 166, 130, 40);
 		contentPane.add(btnNewButton);
 		ButtonGroup bG = new ButtonGroup();
 	}
