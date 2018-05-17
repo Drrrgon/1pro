@@ -22,6 +22,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
 
 import gui.main.MainFrame;
+import gui.member.listener.MemberFrameButtonListener;
 import gui.member.listener.MemberFrameListSelectionListener;
 import system.DAO.imp.CafeDAOImp;
 import vo.MemberVo;
@@ -30,13 +31,14 @@ import vo.MenuVo;
 public class MemberFrame extends JFrame implements ActionListener {
 
 	private JPanel contentPane, panel;
-	private JTextField telNumber, name;
+	public JTextField telNumber;
+	public JTextField name;
 	private JLabel label, label_1, lblCafe;
 	private JButton home;
-	private JButton deleteMember;
+	public JButton deleteMember;
 	private CafeDAOImp cafeDAOImp;
-	private JButton serchMember;
-	private JButton addMember;
+	public JButton serchMember;
+	public JButton addMember;
 	public JTextField resultField;
 	public JList<String> memberList;
 	public DefaultListModel<String> modelMenuList;
@@ -107,7 +109,7 @@ public class MemberFrame extends JFrame implements ActionListener {
 		deleteMember = new JButton("회원 삭제");
 		deleteMember.setBounds(250, 397, 114, 39);
 		deleteMember.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		deleteMember.addActionListener(this);
+		deleteMember.addActionListener(new MemberFrameButtonListener(this));
 		deleteMember.setForeground(Color.BLACK);
 		contentPane.add(deleteMember);
 		
@@ -115,11 +117,13 @@ public class MemberFrame extends JFrame implements ActionListener {
 		serchMember.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		serchMember.setBounds(371, 123, 117, 39);
 		contentPane.add(serchMember);
+		serchMember.addActionListener(new MemberFrameButtonListener(this));
 		
 		addMember = new JButton("회원 등록");
 		addMember.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		addMember.setBounds(371, 171, 117, 39);
 		contentPane.add(addMember);
+		addMember.addActionListener(new MemberFrameButtonListener(this));
 		
 		resultField = new JTextField();
 		resultField.setEditable(false);
@@ -150,16 +154,25 @@ public class MemberFrame extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		JButton resource = (JButton) e.getSource();
 		if(resource == deleteMember){
+			
+			
+			
+			
+			
+		}
+		if(resource == serchMember) {
+			
+		}
+		if(resource == addMember) {
+			System.out.println(1);
 			MemberVo member = new MemberVo();
 			if(telNumber.getText().length() == 0 || name.getText().length() == 0  ) {
 				JOptionPane.showConfirmDialog(resource, "이름과 전화 번호를 정확히 입력해 주세요.", "공백 오류", JOptionPane.PLAIN_MESSAGE);
 			}
-			member.setmName(telNumber.getText());
-			member.setTelNo(name.getText());
+			member.setmName(name.getText());
+			member.setTelNo(telNumber.getText());
 			int re = cafeDAOImp.insertMember(member);
 			System.out.println(re);
-			
-			
 			JOptionPane.showConfirmDialog(resource, "회원등록되었습니다.", "회원등록", JOptionPane.PLAIN_MESSAGE);
 			telNumber.setText("");
 			name.setText("");
@@ -182,5 +195,9 @@ public class MemberFrame extends JFrame implements ActionListener {
 			listModel.addElement(list.get(i).toString());
 		}		
 		return listModel;
+	}
+	public List<MemberVo> getMemberVoList() {
+		return list;
+		
 	}
 }
