@@ -73,22 +73,22 @@ public class OrderFrame extends JFrame implements ActionListener {
 		contentPane.setLayout(null);
 		
 		label = new JLabel("1. 메뉴선택");
-		label.setFont(new Font("Dialog", Font.PLAIN, 35));
-		label.setBounds(98, 217, 204, 56);
+		label.setFont(new Font("Dialog", Font.PLAIN, 21));
+		label.setBounds(126, 216, 204, 56);
 		contentPane.add(label);
 		
 		label_1 = new JLabel("2. 수량");
-		label_1.setFont(new Font("Dialog", Font.PLAIN, 35));
-		label_1.setBounds(98, 285, 150, 46);
+		label_1.setFont(new Font("Dialog", Font.PLAIN, 21));
+		label_1.setBounds(126, 284, 150, 46);
 		contentPane.add(label_1);
 		
 		label_2 = new JLabel("3. 회원/비회원");
-		label_2.setFont(new Font("Dialog", Font.PLAIN, 35));
-		label_2.setBounds(98, 343, 281, 56);
+		label_2.setFont(new Font("Dialog", Font.PLAIN, 21));
+		label_2.setBounds(126, 342, 281, 56);
 		contentPane.add(label_2);
 		
 		lblCafe = new JLabel("Cafe24");
-		lblCafe.setBounds(239, 47, 252, 97);
+		lblCafe.setBounds(284, 48, 252, 97);
 		lblCafe.setFont(new Font("Dialog", Font.PLAIN, 70));
 		contentPane.add(lblCafe);
 		
@@ -112,7 +112,7 @@ public class OrderFrame extends JFrame implements ActionListener {
 			}
 		};//상속을 위한 콤보박스 리스너
 		
-		cbOrder1.setBounds(341, 217, 408, 50);
+		cbOrder1.setBounds(328, 214, 402, 56);
 		cbOrder1.addActionListener(comboBox);
 		list = cafeDAOImp.getAllMenu();
 		for (MenuVo a : list) {
@@ -123,20 +123,20 @@ public class OrderFrame extends JFrame implements ActionListener {
 		spinner.setToolTipText("");
 		spinner.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		spinner.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
-		spinner.setBounds(669, 290, 80, 50);
+		spinner.setBounds(650, 284, 80, 36);
 		contentPane.add(spinner);
 		spinnerChangeListener = new OrderFrameSpinnerChangeListener(this);
 		spinner.addChangeListener(spinnerChangeListener);
 		
 		
 		JRadioButton rdbtnOrder1 = new JRadioButton("회원");
-		rdbtnOrder1.setBounds(518, 350, 100, 50);
+		rdbtnOrder1.setBounds(514, 348, 100, 50);
 		contentPane.add(rdbtnOrder1);		
-		rdbtnOrder1.setFont(new Font("Dialog", Font.PLAIN, 25));
+		rdbtnOrder1.setFont(new Font("Dialog", Font.PLAIN, 21));
 		JRadioButton rdbtnOrder2 = new JRadioButton("비회원");
 		rdbtnOrder2.setSelected(false);
-		rdbtnOrder2.setFont(new Font("Dialog", Font.PLAIN, 25));
-		rdbtnOrder2.setBounds(657, 350, 100, 50);
+		rdbtnOrder2.setFont(new Font("Dialog", Font.PLAIN, 21));
+		rdbtnOrder2.setBounds(638, 348, 100, 50);
 		contentPane.add(rdbtnOrder2);		
 		ButtonGroup bG = new ButtonGroup();
 		bG.add(rdbtnOrder1);
