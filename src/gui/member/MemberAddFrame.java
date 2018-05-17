@@ -33,49 +33,49 @@ public class MemberAddFrame extends JFrame implements ActionListener {
 		
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 640, 480);
+		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		label = new JLabel("1. 이름");
-		label.setBounds(122, 137, 72, 29);
-		label.setFont(new Font("Dialog", Font.PLAIN, 20));
+		label.setBounds(73, 240, 210, 50);
+		label.setFont(new Font("Dialog", Font.PLAIN, 45));
 		contentPane.add(label);
 		
 		label_1 = new JLabel("2. 전화번호");
-		label_1.setBounds(122, 209, 110, 29);
-		label_1.setFont(new Font("Dialog", Font.PLAIN, 20));
+		label_1.setBounds(73, 341, 249, 60);
+		label_1.setFont(new Font("Dialog", Font.PLAIN, 45));
 		contentPane.add(label_1);
 		
 		lblCafe = new JLabel("Cafe24");
-		lblCafe.setBounds(227, 27, 162, 44);
-		lblCafe.setFont(new Font("Dialog", Font.PLAIN, 50));
+		lblCafe.setBounds(259, 50, 227, 89);
+		lblCafe.setFont(new Font("Dialog", Font.PLAIN, 70));
 		contentPane.add(lblCafe);
 		
 		btnMember3 = new JButton("HOME");
-		btnMember3.setBounds(524, 383, 83, 39);
-		btnMember3.setFont(new Font("Dialog", Font.PLAIN, 15));
+		btnMember3.setBounds(672, 503, 108, 50);
+		btnMember3.setFont(new Font("Dialog", Font.PLAIN, 20));
 		btnMember3.addActionListener(this);
 		btnMember3.setForeground(Color.BLACK);
 		contentPane.add(btnMember3);
 		
 		txtMember1 = new JTextField();
-		txtMember1.setBounds(258, 128, 200, 50);
+		txtMember1.setBounds(355, 240, 300, 50);
 		txtMember1.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		contentPane.add(txtMember1);
 		txtMember1.setColumns(10);
 		
 		txtMember2 = new JTextField();
-		txtMember2.setBounds(258, 200, 200, 50);
+		txtMember2.setBounds(355, 341, 300, 50);
 		txtMember2.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		txtMember2.setColumns(10);
 		contentPane.add(txtMember2);
 		
 		btnMember2 = new JButton("회원 등록");
-		btnMember2.setBounds(267, 274, 114, 39);
-		btnMember2.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		btnMember2.setBounds(284, 434, 153, 50);
+		btnMember2.setFont(new Font("Dialog", Font.PLAIN, 25));
 		btnMember2.addActionListener(this);
 		btnMember2.setForeground(Color.BLACK);
 		contentPane.add(btnMember2);
