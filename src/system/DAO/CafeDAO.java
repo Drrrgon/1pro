@@ -34,5 +34,5 @@ public interface CafeDAO {
 	public String getMemberByString(String string);
 	public int deleteMemberByTelNo(String string);
 	public boolean matching(String id, String password);
-	
+	public List<MemberVo> getAllMember();
 }
