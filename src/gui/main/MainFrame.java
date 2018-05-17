@@ -18,17 +18,19 @@ import gui.menu.MenuFrame;
 import gui.order.OrderDeleteFrame;
 import gui.order.OrderFrame;
 import gui.sale.SaleFrame;
+import system.DAO.imp.CafeDAOImp;
 
 public class MainFrame extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JButton btnExit;
-	private JButton btnOrder1, btnOrder2, btnSale1, btnMenu1, btnMenu2, btnMember1;
+	private JButton btnOrder1, btnOrder2, btnSale1, btnMenu1, btnMenu2, btnMember1, btnMember2;
 	private JLabel lblCafe;
 	private JLabel lblNewLabel;
 	private JLabel lbll;
 	private JLabel label_1;
 	private JLabel label_2;
+	private CafeDAOImp cafeDAOImp;
 	/**
 	 * Launch the application.
 	 */
@@ -49,6 +51,8 @@ public class MainFrame extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public MainFrame() {
+		cafeDAOImp = CafeDAOImp.getInstance();
+		
 		setResizable(false);
 		setTitle("Cafe24");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
