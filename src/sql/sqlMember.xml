@@ -38,6 +38,11 @@
 		SELECT MEMBERNO, TELNO, MNAME, MBONUS FROM MEMBER 
 		WHERE TELNO = #{telNo}
 	</select>
+	
+	<select id="serchMember" parameterType="int" resultType="member">
+		SELECT MEMBERNO, TELNO, MNAME, MBONUS FROM MEMBER 
+		WHERE TELNO like '%'|| #{telNo}||'%'
+	</select>
  
  	<select id="getAllMember" resultType="member">
 		SELECT MEMBERNO, TELNO, MNAME, MBONUS
