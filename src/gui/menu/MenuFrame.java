@@ -74,44 +74,44 @@ public class MenuFrame extends JFrame implements ActionListener {
 		contentPane.setLayout(null);
 		
 		txtMenuname = new JTextField();
-		txtMenuname.setBounds(183, 116, 212, 30);
+		txtMenuname.setBounds(193, 114, 212, 30);
 		contentPane.add(txtMenuname);
 		txtMenuname.setColumns(10);
 		
 		txtMenuprice = new JTextField();
-		txtMenuprice.setBounds(183, 146, 212, 30);
+		txtMenuprice.setBounds(193, 147, 212, 30);
 		contentPane.add(txtMenuprice);
 		txtMenuprice.setColumns(10);
 		
 		originalPrice = new JTextField();		
 		originalPrice.setColumns(10);
-		originalPrice.setBounds(183, 178, 212, 30);
+		originalPrice.setBounds(193, 178, 212, 30);
 		contentPane.add(originalPrice);
 		
 		JLabel lblMenuname = new JLabel("메뉴 이름");
 		lblMenuname.setFont(new Font("Dialog", Font.PLAIN, 17));
 		lblMenuname.setBackground(Color.BLACK);
-		lblMenuname.setBounds(96, 116, 85, 29);
+		lblMenuname.setBounds(78, 114, 85, 29);
 		contentPane.add(lblMenuname);
 		
 		JLabel lblMenuprice = new JLabel("메뉴 가격");
 		lblMenuprice.setFont(new Font("Dialog", Font.PLAIN, 17));
-		lblMenuprice.setBounds(96, 145, 85, 29);
+		lblMenuprice.setBounds(78, 147, 85, 29);
 		contentPane.add(lblMenuprice);
 		
 		JLabel lblOriginalprice = new JLabel("원가");
 		lblOriginalprice.setFont(new Font("Dialog", Font.PLAIN, 17));
-		lblOriginalprice.setBounds(96, 176, 85, 29);
+		lblOriginalprice.setBounds(78, 178, 85, 29);
 		contentPane.add(lblOriginalprice);
 		
 		btnReg = new JButton("등록");
 		btnReg.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		btnReg.setBounds(453, 142, 75, 34);
+		btnReg.setBounds(581, 115, 75, 34);
 		contentPane.add(btnReg);
 		
 		JButton btnDel = new JButton("삭제");
 		btnDel.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		btnDel.setBounds(546, 143, 75, 34);
+		btnDel.setBounds(581, 177, 75, 34);
 		contentPane.add(btnDel);
 		
 		JScrollPane sp = new JScrollPane(menuList);
@@ -119,30 +119,29 @@ public class MenuFrame extends JFrame implements ActionListener {
 		sp.setVisible(true);
 		
 		modelMenuList = getMenuList();		
-	    menuList = new JList(modelMenuList);
-	    menuList.setBorder(new BevelBorder(BevelBorder.LOWERED, Color.DARK_GRAY, null, null, null));
-		menuList.setBounds(40, 243, 701, 253);
-		contentPane.add(menuList);
-		menuList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		menuList.addListSelectionListener(new MenuFrameListSelectionListener(this));
 //		sp.setViewportView(menuList);
 		
 		panel = new JPanel();
 		panel.setSize(new Dimension(400, 400));
-		panel.setBounds(40, 243, 701, 253);
+		panel.setBounds(40, 253, 710, 200);
 		panel.setLayout(new GridLayout(0, 1, 0, 0));
 		panel.add(sp);
+		menuList = new JList(modelMenuList);
+		sp.setViewportView(menuList);
+		menuList.setBorder(new BevelBorder(BevelBorder.LOWERED, Color.DARK_GRAY, null, null, null));
+		menuList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		menuList.addListSelectionListener(new MenuFrameListSelectionListener(this));
 		contentPane.add(panel);		
 		
 		resultField = new JTextField();
 		resultField.setEditable(false);
-		resultField.setBounds(41, 220, 700, 21);
+		resultField.setBounds(41, 220, 709, 21);
 		contentPane.add(resultField);
 		resultField.setColumns(10);
 		
 		btnHome = new JButton("HOME");				
 		btnHome.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		btnHome.setBounds(698, 525, 96, 47);
+		btnHome.setBounds(667, 477, 83, 39);
 		contentPane.add(btnHome);
 		
 		label = new JLabel("Cafe24");

@@ -27,6 +27,7 @@ import gui.member.listener.MemberFrameListSelectionListener;
 import system.DAO.imp.CafeDAOImp;
 import vo.MemberVo;
 import vo.MenuVo;
+import java.awt.GridLayout;
 
 public class MemberFrame extends JFrame implements ActionListener {
 
@@ -83,31 +84,31 @@ public class MemberFrame extends JFrame implements ActionListener {
 		contentPane.add(label_1);
 		
 		lblCafe = new JLabel("Cafe24");
-		lblCafe.setBounds(227, 27, 200, 50);
+		lblCafe.setBounds(307, 27, 200, 50);
 		lblCafe.setFont(new Font("Dialog", Font.PLAIN, 50));
 		contentPane.add(lblCafe);
 		
 		home = new JButton("HOME");
-		home.setBounds(699, 518, 83, 39);
+		home.setBounds(672, 485, 83, 39);
 		home.setFont(new Font("Dialog", Font.PLAIN, 15));
 		home.addActionListener(this);
 		home.setForeground(Color.BLACK);
 		contentPane.add(home);
 		
 		telNumber = new JTextField();
-		telNumber.setBounds(145, 122, 200, 39);
+		telNumber.setBounds(172, 123, 200, 39);
 		telNumber.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		contentPane.add(telNumber);
 		telNumber.setColumns(10);
 		
 		name = new JTextField();
-		name.setBounds(145, 168, 200, 39);
+		name.setBounds(172, 169, 200, 39);
 		name.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		name.setColumns(10);
 		contentPane.add(name);
 		
 		deleteMember = new JButton("회원 삭제");
-		deleteMember.setBounds(250, 397, 114, 39);
+		deleteMember.setBounds(329, 484, 114, 39);
 		deleteMember.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		deleteMember.addActionListener(new MemberFrameButtonListener(this));
 		deleteMember.setForeground(Color.BLACK);
@@ -115,20 +116,20 @@ public class MemberFrame extends JFrame implements ActionListener {
 		
 		serchMember = new JButton("회원 검색");
 		serchMember.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		serchMember.setBounds(371, 123, 117, 39);
+		serchMember.setBounds(573, 123, 117, 39);
 		contentPane.add(serchMember);
 		serchMember.addActionListener(new MemberFrameButtonListener(this));
 		
 		addMember = new JButton("회원 등록");
 		addMember.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		addMember.setBounds(371, 171, 117, 39);
+		addMember.setBounds(573, 169, 117, 39);
 		contentPane.add(addMember);
 		addMember.addActionListener(new MemberFrameButtonListener(this));
 		
 		resultField = new JTextField();
 		resultField.setEditable(false);
 		resultField.setColumns(10);
-		resultField.setBounds(40, 222, 573, 21);
+		resultField.setBounds(40, 222, 715, 21);
 		contentPane.add(resultField);
 		
 		modelMenuList = getMenuList();
@@ -146,7 +147,8 @@ public class MemberFrame extends JFrame implements ActionListener {
 		 
 		panel = new JPanel();
 		panel.setSize(new Dimension(400, 400));
-		panel.setBounds(40, 243, 573, 142);
+		panel.setBounds(40, 253, 715, 200);
+		panel.setLayout(new GridLayout(0, 1, 0, 0));
 		panel.add(sp);
 		contentPane.add(panel);		
 

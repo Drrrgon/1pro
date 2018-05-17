@@ -74,7 +74,7 @@ public class OrderFrame extends JFrame implements ActionListener {
 		
 		label = new JLabel("1. 메뉴선택");
 		label.setFont(new Font("Dialog", Font.PLAIN, 21));
-		label.setBounds(60, 190, 153, 56);
+		label.setBounds(126, 225, 204, 56);
 		contentPane.add(label);
 		
 		label_1 = new JLabel("2. 수량");
@@ -112,7 +112,7 @@ public class OrderFrame extends JFrame implements ActionListener {
 			}
 		};//상속을 위한 콤보박스 리스너
 		
-		cbOrder1.setBounds(284, 188, 465, 56);
+		cbOrder1.setBounds(52, 157, 686, 56);
 		cbOrder1.addActionListener(comboBox);
 		list = cafeDAOImp.getAllMenu();
 		for (MenuVo a : list) {
