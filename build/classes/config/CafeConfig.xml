@@ -34,6 +34,7 @@
 		<mapper resource="sql/sqlMember.xml"/>
 		<mapper resource="sql/sqlMenu.xml"/>
 		<mapper resource="sql/sqlOrders.xml"/>
-		<mapper resource="sql/sqlSale.xml"/>		
+		<mapper resource="sql/sqlSale.xml"/>	
+		<mapper resource="sql/sqlLogin.xml"/>	
 	</mappers>
 </configuration>

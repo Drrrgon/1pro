@@ -87,10 +87,10 @@ public class QuryTest {
 //		System.out.println(cal.get(Calendar.DATE));
 		
 //		cal.set(cal.get(Calendar.YEAR, cal.get(Calendar.MONTH)+1, date);
-	    SimpleDateFormat format1 = new SimpleDateFormat("yyyyMMdd");
-	    String formatted = format1.format(cal.getTime());
-	    System.out.println(formatted);
-	    String a = "20180516";
+//	    SimpleDateFormat format1 = new SimpleDateFormat("yyyyMMdd");
+//	    String formatted = format1.format(cal.getTime());
+//	    System.out.println(formatted);
+//	    String a = "20180516";
 //	    List<OrdersVo> temp =  sqlSession.selectList("Sale.getDailyOrder", formatted);
 //	    for(OrdersVo v : temp) {
 //	    	System.out.println(v);
@@ -98,7 +98,7 @@ public class QuryTest {
 //	    }
 //	    System.out.println(cafeDAOImp.getDailyOrder(formatted));
 	    
-	    cafeDAOImp.getAllMenuByHashMap();
+//	    cafeDAOImp.getAllMenuByHashMap();
 	    
 //		List<HashMap<String, Object>> orderList = cafeDAOImp.getDailyOrder(formatted); // 포멧에 맞는 날짜의 오더를 모두 검색
 //		for(HashMap<String , Object> av : orderList) {
@@ -108,21 +108,25 @@ public class QuryTest {
 //			av.get("TOTAL");
 //			av.get("MORGINALPRICE");
 //		}
-	    SaleVo sale = new SaleVo();
-	    sale.setMenuList("2");
-	    sale.setOriginalPrice(2);
-	    sale.setTotalSale(3);
-	    System.out.println(1);
+//	    SaleVo sale = new SaleVo();
+//	    sale.setMenuList("2");
+//	    sale.setOriginalPrice(2);
+//	    sale.setTotalSale(3);
+//	    System.out.println(1);
 //	    System.out.println(cafeDAOImp.insertDailyClosing(sale));
 	    
-	    OrdersVo order = new OrdersVo();
-	    order.setOrederNo(1);
-	    HashMap<String, Object> map = cafeDAOImp.getOrderByString(order);
-	    System.out.println(map.get("ORDERNO"));
-	    System.out.println(map.get("MNAME"));
-	    System.out.println(map.get("COUNT")); 
-	    System.out.println(map.get("TOTAL"));
-	    System.out.println(map.get("TIME"));
+//	    OrdersVo order = new OrdersVo();
+//	    order.setOrederNo(1);
+//	    HashMap<String, Object> map = cafeDAOImp.getOrderByString(order);
+//	    System.out.println(map.get("ORDERNO"));
+//	    System.out.println(map.get("MNAME"));
+//	    System.out.println(map.get("COUNT")); 
+//	    System.out.println(map.get("TOTAL"));
+//	    System.out.println(map.get("TIME"));
+		
+		boolean a = cafeDAOImp.matching("cafemater", "coffee");
+//		System.out.println((String)a.get("ID")+a.get("PASSWORD"));
+		System.out.println(a);
 	}
 
 }
