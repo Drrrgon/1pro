@@ -1,25 +1,24 @@
-package gui.listener;
+package gui.order.listener;
 
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-
-import gui.OrderDeleteFrame;
+import gui.order.OrderDeleteFrame;
 import system.DAO.imp.CafeDAOImp;
 
-public class MenuListSelectionListener2 implements ListSelectionListener {
-	OrderDeleteFrame order4;
+public class OrderDeleteFrameListSelectionListener implements ListSelectionListener {
+	OrderDeleteFrame orderDeleteFrame;
 	CafeDAOImp cafeDAOImp; 
-	public MenuListSelectionListener2(OrderDeleteFrame order4) {
-		this.order4 = order4;
+	public OrderDeleteFrameListSelectionListener(OrderDeleteFrame orderDeleteFrame) {
+		this.orderDeleteFrame = orderDeleteFrame;
 		cafeDAOImp = CafeDAOImp.getInstance();
 	}
 
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
-		if(e.getSource() == order4.listOrder1)
+		if(e.getSource() == orderDeleteFrame.listOrder1)
         {
-            String str = (String)order4.listOrder1.getSelectedValue();
-            order4.txtOrder5.setText(str);
+            String str = (String)orderDeleteFrame.listOrder1.getSelectedValue();
+            orderDeleteFrame.txtOrder5.setText(str);
         }
 	}
 }

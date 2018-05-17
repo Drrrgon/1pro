@@ -1,27 +1,18 @@
-package gui.listener;
+package gui.menu.listener;
 
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
-
-import javax.swing.JList;
-import javax.swing.ListSelectionModel;
-import javax.swing.border.BevelBorder;
-import javax.swing.event.ListSelectionEvent;
-
-import org.apache.ibatis.session.SqlSession;
-
-import gui.MenuFrame;
+import gui.menu.MenuFrame;
 import system.DAO.imp.CafeDAOImp;
 import vo.MenuVo;
 
-public class MenuFrameListener implements ActionListener{
+public class MenuFrameButtonListener implements ActionListener{
 	MenuFrame menuFrame;
 	CafeDAOImp cafeDAOImp; 
 	
 	
-	public MenuFrameListener(MenuFrame menuFrame){
+	public MenuFrameButtonListener(MenuFrame menuFrame){
 		this.menuFrame = menuFrame;
 		cafeDAOImp = CafeDAOImp.getInstance();
 		
@@ -51,7 +42,6 @@ public class MenuFrameListener implements ActionListener{
 		case "삭제":
 			MenuVo temp2= new MenuVo();
 			List<MenuVo> tempList2 = (List<MenuVo>) menuFrame.getMenuVoList();
-//			tempList.get(menuFrame.menuList.getSelectedIndex())
 			temp2 = (tempList2.get(menuFrame.menuList.getSelectedIndex()));
 			if(cafeDAOImp.deleteMenu(temp2) ==0) {
 				menuFrame.resultField.setText("메뉴 삭제 실패");
@@ -61,8 +51,6 @@ public class MenuFrameListener implements ActionListener{
 				menuFrame.modelMenuList.removeElementAt(menuFrame.menuList.getSelectedIndex());
 				menuFrame.setCursor(0);
 			}
-//			= menuFrame.menuList.getSelectedIndex();
-//			menuFrame.resultField.setText(a+"");
 			break;
 		default:
 			break;

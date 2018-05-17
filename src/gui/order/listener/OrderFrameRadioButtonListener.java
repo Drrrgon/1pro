@@ -1,18 +1,16 @@
-package gui.listener;
-
+package gui.order.listener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-
 import javax.swing.AbstractButton;
 
-import gui.OrderFrame;
+import gui.order.OrderFrame;
 
-public class RadioButtonListener implements ItemListener {
-	OrderFrame order1;
+public class OrderFrameRadioButtonListener implements ItemListener {
+	OrderFrame orderFrame;
 	boolean member;
 	
-	public RadioButtonListener(OrderFrame order1){
-		this.order1 = order1;
+	public OrderFrameRadioButtonListener(OrderFrame orderFrame){
+		this.orderFrame = orderFrame;
 	}
 
 	/**
@@ -21,31 +19,15 @@ public class RadioButtonListener implements ItemListener {
 	@Override
 	public void itemStateChanged(ItemEvent e) {
 		 AbstractButton sel = (AbstractButton)e.getItemSelectable();
-		 if(e.getStateChange() == ItemEvent.SELECTED)
-			 
-         {
-
-                if ( sel.getText().equals("회원") )
-
-                {
-
+		 if(e.getStateChange() == ItemEvent.SELECTED){
+                if ( sel.getText().equals("회원") ){
                      System.out.println( "회원" );
                      member=true;
-
-                }
-
-                else if ( sel.getText().equals( "비회원" ) )
-
-                {
-
+                }else if ( sel.getText().equals( "비회원" ) ){
                       System.out.println( "비회원" );
                       member=false;
-
-                }
-
-         }
-	
-		
+                }//else if
+         }//if		
 	}
 	/**
 	 * @return 멤버의 상태를 반환합니다.

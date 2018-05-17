@@ -1,18 +1,18 @@
-package gui.listener;
+package gui.order.listener;
 
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
 import javax.swing.AbstractButton;
 
-import gui.MemberOrderFrame;
-import gui.OrderFrame;
+import gui.order.OrderByMemberFrame;
+import gui.order.OrderFrame;
 
-public class MemberOrderRadioButtonListener implements ItemListener {
-	MemberOrderFrame memberOrderFrame;
+public class OrderByMemberRadioButtonListener implements ItemListener {
+	OrderByMemberFrame memberOrderFrame;
 	boolean bonus;
 	
-	public MemberOrderRadioButtonListener(MemberOrderFrame memberOrderFrame){
+	public OrderByMemberRadioButtonListener(OrderByMemberFrame memberOrderFrame){
 		this.memberOrderFrame = memberOrderFrame;
 	}
 

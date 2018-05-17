@@ -1,15 +1,14 @@
-package gui.listener;
+package gui.menu.listener;
 
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-
-import gui.MenuFrame;
+import gui.menu.MenuFrame;
 import system.DAO.imp.CafeDAOImp;
 
-public class MenuListSelectionListener0 implements ListSelectionListener {
+public class MenuFrameListSelectionListener implements ListSelectionListener {
 	MenuFrame menuFrame;
 	CafeDAOImp cafeDAOImp; 
-	public MenuListSelectionListener0(MenuFrame menuFrame) {
+	public MenuFrameListSelectionListener(MenuFrame menuFrame) {
 		this.menuFrame = menuFrame;
 		cafeDAOImp = CafeDAOImp.getInstance();
 	}
