@@ -38,6 +38,7 @@ public class CafeDAOImp implements CafeDAO {
 		
 		return cafeDAOImp;
 	}
+	
 	/**
 	 * @return List<MenuVo>
 	 * 모든 메뉴를 리스트로 반환합니다.
@@ -46,6 +47,7 @@ public class CafeDAOImp implements CafeDAO {
 	public List<MenuVo> getAllMenu() {
 		return sqlSession.selectList("Menu.getAllMenu");
 	}
+	
 	/**
 	 * @param MenuVo
 	 * @return int
@@ -57,7 +59,11 @@ public class CafeDAOImp implements CafeDAO {
 		 sqlSession.commit();
 		 return temp;		
 	}
-
+	
+	/**
+	 * @return Integer
+	 * 메뉴를 삽입하고 인티저 값으로 변환됩니다.
+	 */
 	@Override
 	public int insertMenu(MenuVo menu) {
 		int temp =sqlSession.insert("Menu.insertMenu", menu);	
@@ -94,10 +100,8 @@ public class CafeDAOImp implements CafeDAO {
 		for(HashMap<String, Object> a : temp) {
 			int s =  ((BigDecimal)a.get("MENUNO")).intValue();			
 			tempHash.put(s, (String) a.get("MNAME"));
-			list.add(tempHash);
-			
+			list.add(tempHash);			
 		}
-//		sqlSession.close();
 		return list;
 	}
 	
@@ -123,9 +127,9 @@ public class CafeDAOImp implements CafeDAO {
 	}
 	/**
 	 * @param OrdersVo
-	 * @return int
+	 * @return Integer
 	 * OrdersVo의 orderNo로 DB를 검색, 삭제합니다.
-	 * 성공 여부가 int 형태로 반환됩니다.(1성공,0실패)
+	 * 성공 여부가 Integer 형태로 반환됩니다.(1성공,0실패)
 	 */
 	@Override
 	public int deleteOrder(OrdersVo order) {
@@ -134,21 +138,21 @@ public class CafeDAOImp implements CafeDAO {
 		return result;
 	}
 	/**
-	 * @return int 
+	 * @return Integer 
 	 * 오더의 총 가격을 반환합니다.
 	 */
 	@Override
 	public int getTotalPrice(OrdersVo order) {
-//		int r =sqlSession.selectOne("Orders.getMenuPrice",order);
 		return sqlSession.selectOne("getTotalPrice", order);		
 	}
+	
+	
 	@Override
 	public int getMenuPrice(int i) {
-		int r = sqlSession.selectOne("Orders.getMenuPrice", i);
-		return r;		
+		return sqlSession.selectOne("Orders.getMenuPrice", i);
 	}
 	/**
-	 * @param int
+	 * @param Integer
 	 * @return MemberVo
 	 * 전화번호로 검색을 한 다음 검색 결과를 MemberVo로 반환합니다.
 	 */
@@ -161,7 +165,6 @@ public class CafeDAOImp implements CafeDAO {
 	public void addBonus(MemberVo member) {
 		sqlSession.update("Member.addBonus", member);
 		sqlSession.commit();
-//		sqlSession.close();
 	}
 
 	@Override
@@ -248,6 +251,19 @@ public class CafeDAOImp implements CafeDAO {
 	public HashMap<String, Object> getOrderByString(OrdersVo order) {
 		HashMap<String, Object> map = sqlSession.selectOne("Orders.getOrderByString", order);
 		return map;
+	}
+
+	@Override
+	public boolean matching(String id, String password) {
+		boolean result = false;
+		HashMap<String, Object> map = new HashMap<String, Object>();		
+		map.put("id", id);
+		map.put("password", password);
+		map = sqlSession.selectOne("Login.matching", map);
+		if(map !=null) {
+			result = true;
+		}
+		return result;
 	}
 	
 	
