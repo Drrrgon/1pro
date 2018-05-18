@@ -18,6 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
+import javax.swing.SwingUtilities;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
 
@@ -153,7 +154,8 @@ public class MemberFrame extends JFrame implements ActionListener {
 		panel.setLayout(new GridLayout(0, 1, 0, 0));
 		panel.add(sp);
 		contentPane.add(panel);		
-
+		
+		SwingUtilities.getRootPane(addMember).setDefaultButton(addMember);
 	}
 	public void actionPerformed(ActionEvent e) {
 		JButton resource = (JButton) e.getSource();	

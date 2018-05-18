@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
+import javax.swing.SwingUtilities;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
 
@@ -154,7 +155,8 @@ public class MenuFrame extends JFrame implements ActionListener {
 		
 				
 		btnDel.addActionListener(new MenuFrameButtonListener(this));
-		btnReg.addActionListener(new MenuFrameButtonListener(this));				
+		btnReg.addActionListener(new MenuFrameButtonListener(this));
+		SwingUtilities.getRootPane(btnReg).setDefaultButton(btnReg);
 	}
 	
 	public void actionPerformed(ActionEvent e) {
