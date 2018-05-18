@@ -27,6 +27,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
 
 public class MenuFrame extends JFrame implements ActionListener {
 
@@ -63,6 +64,7 @@ public class MenuFrame extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public MenuFrame() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuFrame.class.getResource("/icon/login.png")));
 		setResizable(false);
 		setTitle("Cafe24");
 		loadCafeDAOImp();		

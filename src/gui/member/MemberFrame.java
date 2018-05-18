@@ -28,6 +28,7 @@ import system.DAO.imp.CafeDAOImp;
 import vo.MemberVo;
 import vo.MenuVo;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
 
 public class MemberFrame extends JFrame implements ActionListener {
 
@@ -63,6 +64,7 @@ public class MemberFrame extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public MemberFrame() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MemberFrame.class.getResource("/icon/login.png")));
 		cafeDAOImp = CafeDAOImp.getInstance();
 		
 		setResizable(false);

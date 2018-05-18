@@ -18,6 +18,7 @@ import gui.main.MainFrame;
 import system.DAO.imp.CafeDAOImp;
 import vo.MemberVo;
 import vo.OrdersVo;
+import java.awt.Toolkit;
 
 public class OrderResultFrame extends JFrame implements ActionListener {
 
@@ -33,6 +34,7 @@ public class OrderResultFrame extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public OrderResultFrame(OrdersVo order, MemberVo member) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(OrderResultFrame.class.getResource("/icon/login.png")));
 		setTitle("주문 확인");
 		this.order = order;
 		this.member = member;

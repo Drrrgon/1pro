@@ -26,6 +26,7 @@ import gui.order.listener.OrderFrameSpinnerChangeListener;
 import system.DAO.imp.CafeDAOImp;
 import vo.MenuVo;
 import vo.OrdersVo;
+import java.awt.Toolkit;
 
 public class OrderFrame extends JFrame implements ActionListener {
 	
@@ -61,6 +62,7 @@ public class OrderFrame extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public OrderFrame() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(OrderFrame.class.getResource("/icon/login.png")));
 		setTitle("주문");
 		cafeDAOImp = CafeDAOImp.getInstance();
 		

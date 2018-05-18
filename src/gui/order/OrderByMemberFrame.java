@@ -23,6 +23,7 @@ import system.DAO.imp.CafeDAOImp;
 import vo.MemberVo;
 import vo.MenuVo;
 import vo.OrdersVo;
+import java.awt.Toolkit;
 
 public class OrderByMemberFrame extends JFrame implements ActionListener {
 
@@ -43,6 +44,7 @@ public class OrderByMemberFrame extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public OrderByMemberFrame(MenuVo selectedMenu, int count) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(OrderByMemberFrame.class.getResource("/icon/login.png")));
 		setResizable(false);
 		this.selectedMenu = selectedMenu;
 		this.count = count;
@@ -55,17 +57,17 @@ public class OrderByMemberFrame extends JFrame implements ActionListener {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		label = new JLabel("1. 회원 전화번호");
+		label = new JLabel("회원 전화번호");
 		label.setFont(new Font("Dialog", Font.PLAIN, 25));
 		label.setBounds(44, 183, 280, 50);
 		contentPane.add(label);
 		
-		label_1 = new JLabel("2. 잔여 마일리지");
+		label_1 = new JLabel("잔여 마일리지");
 		label_1.setFont(new Font("Dialog", Font.PLAIN, 25));
 		label_1.setBounds(44, 268, 280, 50);
 		contentPane.add(label_1);
 		
-		label_2 = new JLabel("3. 적립/사용");
+		label_2 = new JLabel("적립/사용");
 		label_2.setFont(new Font("Dialog", Font.PLAIN, 25));
 		label_2.setBounds(44, 350, 280, 45);
 		contentPane.add(label_2);
