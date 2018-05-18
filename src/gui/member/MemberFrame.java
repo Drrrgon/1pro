@@ -18,6 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
+import javax.swing.SwingUtilities;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
 
@@ -28,6 +29,7 @@ import system.DAO.imp.CafeDAOImp;
 import vo.MemberVo;
 import vo.MenuVo;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
 
 public class MemberFrame extends JFrame implements ActionListener {
 
@@ -63,6 +65,7 @@ public class MemberFrame extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public MemberFrame() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MemberFrame.class.getResource("/icon/login.png")));
 		cafeDAOImp = CafeDAOImp.getInstance();
 		
 		setResizable(false);
@@ -151,7 +154,8 @@ public class MemberFrame extends JFrame implements ActionListener {
 		panel.setLayout(new GridLayout(0, 1, 0, 0));
 		panel.add(sp);
 		contentPane.add(panel);		
-
+		
+		SwingUtilities.getRootPane(addMember).setDefaultButton(addMember);
 	}
 	public void actionPerformed(ActionEvent e) {
 		JButton resource = (JButton) e.getSource();	

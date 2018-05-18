@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
+import javax.swing.SwingUtilities;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
 
@@ -27,6 +28,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
 
 public class MenuFrame extends JFrame implements ActionListener {
 
@@ -63,6 +65,7 @@ public class MenuFrame extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public MenuFrame() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuFrame.class.getResource("/icon/login.png")));
 		setResizable(false);
 		setTitle("Cafe24");
 		loadCafeDAOImp();		
@@ -152,7 +155,8 @@ public class MenuFrame extends JFrame implements ActionListener {
 		
 				
 		btnDel.addActionListener(new MenuFrameButtonListener(this));
-		btnReg.addActionListener(new MenuFrameButtonListener(this));				
+		btnReg.addActionListener(new MenuFrameButtonListener(this));
+		SwingUtilities.getRootPane(btnReg).setDefaultButton(btnReg);
 	}
 	
 	public void actionPerformed(ActionEvent e) {

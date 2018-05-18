@@ -27,6 +27,7 @@ import system.DAO.imp.CafeDAOImp;
 import vo.DailyVo;
 import vo.MenuVo;
 import vo.SaleVo;
+import java.awt.Toolkit;
 
 public class SaleFrame extends JFrame implements ActionListener {
 
@@ -52,6 +53,7 @@ public class SaleFrame extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public SaleFrame() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(SaleFrame.class.getResource("/icon/login.png")));
 		cafeDAOImp = CafeDAOImp.getInstance();
 		cal = Calendar.getInstance();
 		

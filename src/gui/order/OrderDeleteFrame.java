@@ -28,6 +28,7 @@ import system.DAO.imp.CafeDAOImp;
 import vo.MenuVo;
 import vo.OrdersVo;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
 
 public class OrderDeleteFrame extends JFrame implements ActionListener {
 
@@ -60,6 +61,7 @@ public class OrderDeleteFrame extends JFrame implements ActionListener {
 		});
 	}
 	public OrderDeleteFrame() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(OrderDeleteFrame.class.getResource("/icon/login.png")));
 		cafeDAOImp = CafeDAOImp.getInstance();
 		
 		setResizable(false);
