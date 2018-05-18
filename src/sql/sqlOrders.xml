@@ -18,10 +18,10 @@
 	</sql>
 	
 	<select id="getAllOrderByString" resultType="hashmap" >
-		SELECT o.ORDERNO, m.mName, o.COUNT, o.TOTAL, o.TIME
+		SELECT o.ORDERNO, m.mName, o.COUNT, o.TOTAL, o.TIME, b.memberName
 		FROM
-		Orders o , MENU m
-		WHERE o.Menuno = m.MENUNO
+		Orders o , MENU m , MEMBER b
+		WHERE o.Menuno = m.MENUNO AND b.telNo = o.telNo
 		<include refid="orderByNo"/>
 	</select>
 	

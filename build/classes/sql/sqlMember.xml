@@ -35,17 +35,17 @@
 	</select>
  
 	<select id="getMember" parameterType="int" resultType="member">
-		SELECT MEMBERNO, TELNO, MNAME, MBONUS FROM MEMBER 
+		SELECT MEMBERNO, TELNO, memberName, MBONUS FROM MEMBER 
 		WHERE TELNO = #{telNo}
 	</select>
 	
 	<select id="serchMember" parameterType="int" resultType="member">
-		SELECT MEMBERNO, TELNO, MNAME, MBONUS FROM MEMBER 
+		SELECT MEMBERNO, TELNO, memberName, MBONUS FROM MEMBER 
 		WHERE TELNO like '%'|| #{telNo}||'%'
 	</select>
  
  	<select id="getAllMember" resultType="member">
-		SELECT MEMBERNO, TELNO, MNAME, MBONUS
+		SELECT MEMBERNO, TELNO, memberName, MBONUS
 		FROM MEMBER	
 		WHERE TELNO != 9999
 	</select>

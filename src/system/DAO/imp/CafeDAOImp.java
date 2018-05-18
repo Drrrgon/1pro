@@ -83,7 +83,7 @@ public class CafeDAOImp implements CafeDAO {
 		List<String> list = new ArrayList<String>();
 		for(HashMap<String, Object> a : temp) {
 			str = "주문 번호 : " + a.get("ORDERNO")+" 메뉴 : "+a.get("MNAME")+
-					" 수량 : " + a.get("COUNT") +" 총 가격 : "+ a.get("TOTAL")+" 주문 시각 : "+ a.get("TIME");
+					" 수량 : " + a.get("COUNT") +" 총 가격 : "+ a.get("TOTAL")+" 주문 시각 : "+ a.get("TIME")+"   주문자 : " +a.get("MEMBERNAME");
 			list.add(str);
 		}
 		return list;

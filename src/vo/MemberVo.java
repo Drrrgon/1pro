@@ -3,16 +3,16 @@ package vo;
 public class MemberVo{
     private int memberNo;
     private String telNo;
-    private String mName;
+    private String memberName;
     private int mBonus;
     
     public MemberVo(){}
 
-	public MemberVo(int memberNo, String telNo, String mName, int mBonus) {
+	public MemberVo(int memberNo, String telNo, String memberName, int mBonus) {
 		super();
 		this.memberNo = memberNo;
 		this.telNo = telNo;
-		this.mName = mName;
+		this.memberName = memberName;
 		this.mBonus = mBonus;
 	}
 
@@ -33,11 +33,11 @@ public class MemberVo{
 	}
 
 	public String getmName() {
-		return mName;
+		return memberName;
 	}
 
 	public void setmName(String mName) {
-		this.mName = mName;
+		this.memberName = memberName;
 	}
 
 	public int getmBonus() {
@@ -50,7 +50,7 @@ public class MemberVo{
 
 	@Override
 	public String toString() {
-		return " 이름 : " + mName + "      전화번호 : " + telNo +  "      마일리지 : " + mBonus ;
+		return " 이름 : " + memberName + "      전화번호 : " + telNo +  "      마일리지 : " + mBonus ;
 	}
     
     
