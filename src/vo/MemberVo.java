@@ -36,7 +36,7 @@ public class MemberVo{
 		return memberName;
 	}
 
-	public void setmName(String mName) {
+	public void setmName(String memberName) {
 		this.memberName = memberName;
 	}
 

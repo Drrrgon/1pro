@@ -18,7 +18,7 @@
 	</sql>
 	
 	<select id="getAllOrderByString" resultType="hashmap" >
-		SELECT o.ORDERNO, m.mName, o.COUNT, o.TOTAL, o.TIME, b.memberName
+		SELECT o.ORDERNO, m.mName, o.COUNT, o.TOTAL, to_char(o.TIME, 'YY-MM-DD HH24:MI') TIME, b.memberName
 		FROM
 		Orders o , MENU m , MEMBER b
 		WHERE o.Menuno = m.MENUNO AND b.telNo = o.telNo
@@ -26,7 +26,7 @@
 	</select>
 	
 	<select id="getOrderByString" parameterType="orders" resultType="hashmap" >
-		SELECT o.ORDERNO, m.mName, o.COUNT, o.TOTAL, o.TIME
+		SELECT o.ORDERNO, m.mName, o.COUNT, o.TOTAL, to_char(o.TIME, 'YY-MM-DD HH24:MI') TIME
 		FROM
 		Orders o , MENU m
 		WHERE o.Menuno = m.MENUNO AND o.ORDERNO = #{orederNo}

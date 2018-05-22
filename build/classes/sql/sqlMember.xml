@@ -10,11 +10,11 @@
 			SELECT MEMBER_SEQ.NEXTVAL FROM DUAL			
 		</selectKey>
 		INSERT INTO MEMBER
-		(MEMBERNO, TELNO, MNAME)
+		(MEMBERNO, TELNO, MEMBERNAME)
 		VALUES(
 		#{memberNo},
 		#{telNo},
-		#{mName}
+		#{memberName}
 		)
  	</insert>
  	

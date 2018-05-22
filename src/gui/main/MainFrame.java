@@ -75,7 +75,7 @@ public class MainFrame extends JFrame implements ActionListener {
 		contentPane.add(deleteOrder);
 		deleteOrder.addActionListener(this);
 		
-		openSale = new JButton("일별 / 월별 매출 조회");
+		openSale = new JButton("마감 및 조회");
 		openSale.setFont(new Font("Dialog", Font.PLAIN, 25));
 		openSale.addActionListener(this);
 		openSale.setBounds(202, 273, 378, 50);
